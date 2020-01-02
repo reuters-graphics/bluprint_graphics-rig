@@ -1,0 +1,50 @@
+@import "~@reuters-graphics/style-color/scss/brand";
+
+.component :global {
+  div.fixed-tray {
+    position: fixed;
+    bottom: -50px;
+    left: 5px;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: bottom 0.1s;
+
+    &.visible {
+      bottom: 5px;
+    }
+
+    div.inline {
+      display: inline-block;
+    }
+
+    div.metrics {
+      font-family: monospace;
+      font-size: 14px;
+      margin-top: -2px;
+      color: #eee;
+
+      svg {
+        cursor: crosshair;
+        border-left: 1px solid #efefef;
+        padding-left: 5px;
+        margin-left: 2px;
+      }
+    }
+
+    a {
+      color: #ddd;
+      margin-right: 4px;
+
+      &:hover {
+        color: #bbb;
+      }
+
+      &.active,
+      &.active:hover {
+        color: $brand;
+      }
+    }
+  }
+}

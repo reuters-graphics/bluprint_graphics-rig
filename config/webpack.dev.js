@@ -1,0 +1,85 @@
+const path = require('path');
+const portfinder = require('portfinder');
+const merge = require('webpack-merge');
+const ngrok = require('ngrok');
+const open = require('open');
+
+const common = require('./webpack.common.js');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MetataggerPlugin = require('./plugins/metatagger');
+
+const { dev: jsRule } = require('./rules/js/react');
+const { dev: svelteRule } = require('./rules/js/svelte');
+const { dev: scssRule } = require('./rules/scss');
+const { dev: scssModuleRule } = require('./rules/scss/modules');
+const { dev: cssRule } = require('./rules/css');
+const { getRendered: getEjsRenderedRule } = require('./rules/ejs');
+
+portfinder.basePort = 3000;
+
+// Add a couple devtool chunks, which we won't include in production
+common.entry.devtool_hud = path.resolve(__dirname, '../src/js/tools/dev/hud/index.js');
+common.entry.devtool_framer = path.resolve(__dirname, '../src/js/tools/dev/framer/index.js');
+
+const config = (env, argv, port) => (merge(common, {
+  mode: 'development',
+  devtool: 'cheap-module-eval-source-map',
+  devServer: {
+    disableHostCheck: true,
+    port: port,
+    open: true,
+    contentBase: [
+      path.resolve(__dirname, '../src/static'),
+    ],
+  },
+  module: {
+    rules: [
+      jsRule,
+      svelteRule,
+      scssRule,
+      scssModuleRule,
+      cssRule,
+      getEjsRenderedRule({
+        gt: { gettext: (name) => name },
+        lang: 'en',
+      }),
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: path.resolve(__dirname, '../src/html/index.ejs'),
+      chunks: ['app', 'tools', 'devtool_hud'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'embed.html',
+      template: path.resolve(__dirname, '../src/html/embed.ejs'),
+      chunks: ['app'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'framer.html',
+      chunks: ['devtool_framer', 'devtool_hud'],
+    }),
+    new MetataggerPlugin({
+      tags: {
+        'og:title': 'My page title',
+        'og:description': 'My page description...',
+      },
+    }),
+  ],
+}));
+
+module.exports = (env, argv) =>
+  portfinder.getPortPromise()
+    .then(async(port) => {
+      // If passing --ngrok, we'll open up a tunnel
+      if (argv.ngrok) {
+        const url = await ngrok.connect({
+          addr: port,
+        });
+        open(url, { background: true });
+      }
+
+      return config(env, argv, port);
+    });

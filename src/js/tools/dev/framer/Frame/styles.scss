@@ -1,0 +1,53 @@
+@import "~@reuters-graphics/style-color/scss/brand";
+@import "~@reuters-graphics/style-main/scss/fonts/mixins";
+
+.component :global {
+  header {
+    @include font-display;
+
+    font-size: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 20px 0;
+  }
+
+  #frame-parent {
+    border: 2px dashed #ddd;
+    margin: 0 auto;
+  }
+
+  .resizer {
+    padding: 10px;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border-radius: 4px;
+
+
+    input {
+      outline: none;
+      font-family: monospace;
+    }
+
+    button {
+      border: 0;
+      color: #ccc;
+      cursor: pointer;
+      outline: none;
+
+      &:disabled {
+        color: #fff;
+      }
+
+      &:hover {
+        color: #999;
+      }
+
+      &:active {
+        color: $brand-primary;
+      }
+    }
+  }
+}

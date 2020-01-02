@@ -1,0 +1,18 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+#: src/html/index.ejs:9
+msgid "Hello world!"
+msgstr ""
+
+#: src/html/templates/footer.ejs:2
+msgid "I\\'m translatable in a template"
+msgstr ""
+
+#: src/html/templates/footer.ejs:2
+msgid "I'm translatable in a template"
+msgstr ""
+
+#: src/html/templates/footer.ejs:2
+msgid "`I'm translatable in a template`"
+msgstr ""

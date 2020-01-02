@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>An <%= lang %> page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <%- include('templates/nav'); %>
+    <article class='container'>
+      <h1><%= gt.gettext('Hello world!') %></h1>
+      <% const data = require('./templates/data.json'); %>
+      <%- include('templates/some.html', data); %>
+      <div id="app"></div>
+      <div id="sharetool-container"></div>
+    </article>
+    <%- include('templates/footer'); %>
+  </body>
+</html>

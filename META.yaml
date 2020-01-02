@@ -1,0 +1,17 @@
+slug:
+
+# SEO
+seo_title:
+seo_description:
+
+# Social
+social_title:
+social_description:
+social_image: img/share.jpg # A URL relative
+
+
+# Twitter
+# These are not required and will fall back to social values if not filled out
+twitter_title:
+twitter_description:
+twitter_image:
