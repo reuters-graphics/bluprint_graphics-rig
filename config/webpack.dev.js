@@ -16,7 +16,7 @@ const { dev: scssModuleRule } = require('./rules/scss/modules');
 const { dev: cssRule } = require('./rules/css');
 const { getRendered: getEjsRenderedRule } = require('./rules/ejs');
 
-const commonHedMeta = require('./metatags/common/headPre');
+const commonHedMeta = require('./metadata/common/headPre');
 
 portfinder.basePort = 3000;
 

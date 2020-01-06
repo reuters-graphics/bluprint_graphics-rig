@@ -21,7 +21,7 @@ const { prod: scssModuleRule } = require('./rules/scss/modules');
 const { prod: cssRule } = require('./rules/css');
 const { getRendered: getEjsRenderedRule } = require('./rules/ejs');
 
-const commonHedMeta = require('./metatags/common/headPre');
+const commonHedMeta = require('./metadata/common/headPre');
 
 const locales = getLocales();
 
