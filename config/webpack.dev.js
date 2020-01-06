@@ -7,7 +7,7 @@ const open = require('open');
 const common = require('./webpack.common.js');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MetataggerPlugin = require('./plugins/metatagger');
+const MetataggerPlugin = require('metatagger-webpack-plugin');
 
 const { dev: jsRule } = require('./rules/js/react');
 const { dev: svelteRule } = require('./rules/js/svelte');
@@ -15,6 +15,8 @@ const { dev: scssRule } = require('./rules/scss');
 const { dev: scssModuleRule } = require('./rules/scss/modules');
 const { dev: cssRule } = require('./rules/css');
 const { getRendered: getEjsRenderedRule } = require('./rules/ejs');
+
+const commonHedMeta = require('./metatags/common/headPre');
 
 portfinder.basePort = 3000;
 
@@ -63,8 +65,7 @@ const config = (env, argv, port) => (merge(common, {
     }),
     new MetataggerPlugin({
       tags: {
-        'og:title': 'My page title',
-        'og:description': 'My page description...',
+        head__prepend: commonHedMeta,
       },
     }),
   ],

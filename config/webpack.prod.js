@@ -6,6 +6,7 @@ const common = require('./webpack.common.js');
 const AutoprefixerPlugin = require('autoprefixer');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MetataggerPlugin = require('metatagger-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -19,6 +20,8 @@ const { prod: scssRule } = require('./rules/scss');
 const { prod: scssModuleRule } = require('./rules/scss/modules');
 const { prod: cssRule } = require('./rules/css');
 const { getRendered: getEjsRenderedRule } = require('./rules/ejs');
+
+const commonHedMeta = require('./metatags/common/headPre');
 
 const locales = getLocales();
 
@@ -75,5 +78,10 @@ module.exports = (env, argv) => locales.map((locale) =>
         from: '**/*',
         to: './',
       }]),
+      new MetataggerPlugin({
+        tags: {
+          head__prepend: commonHedMeta,
+        },
+      }),
     ],
   })));
