@@ -106,7 +106,7 @@ module.exports = (env, argv) => locales.map((locale) =>
             }, {
               type: 'application/ld+json',
               html: JSON.stringify(require('./metadata/prod/json-ld/org')),
-            }, {
+            }, { // Needed by google analytics script
               type: 'application/javascript',
               html: `
 var PAGE_TO_TRACK = "${getLocaleMetadata(locale).url}";

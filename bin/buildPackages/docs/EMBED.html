@@ -1,0 +1,10 @@
+<!-- Link to pym script -->
+<script type="text/javascript" src="//graphics.thomsonreuters.com/pym.min.js"></script>
+
+<!-- Div w/ a unique id -->
+<div id="targetdiv"></div>
+
+<!-- Script that will create responsive iframe of the graphic inside the div using the id and the url -->
+<script>
+var pymParent = new pym.Parent('targetdiv', '<%= url %>embed.html', {});
+</script>

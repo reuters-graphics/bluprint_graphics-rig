@@ -25,7 +25,10 @@ const config = (env, argv, port) => (merge(common, {
       'whatwg-fetch',
       path.join(__dirname, '../src/js/app.js'),
     ],
-    sharetool: path.join(__dirname, '../src/js/tools/share/index.js'),
+    tools: [
+      path.join(__dirname, '../src/js/tools/share/index.js'),
+      path.join(__dirname, '../src/js/tools/referrals/index.js'),
+    ],
     // devtool scripts are only used in development
     devtool_hud: path.resolve(__dirname, '../src/js/tools/dev/hud/index.js'),
     devtool_framer: path.resolve(__dirname, '../src/js/tools/dev/framer/index.js'),
@@ -57,7 +60,7 @@ const config = (env, argv, port) => (merge(common, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, '../src/html/index.ejs'),
-      chunks: ['app', 'sharetool', 'devtool_hud'],
+      chunks: ['app', 'tools', 'devtool_hud'],
     }),
     new HtmlWebpackPlugin({
       filename: 'embed.html',

@@ -7,9 +7,12 @@
       <h1><%= gt.gettext('Hello world!') %> Hi</h1>
       <% const data = require('./templates/data.json'); %>
       <%- include('templates/some.html', data); %>
+
+      <%- include('templates/chart.ejs'); %>
       <div id="app"></div>
       <div id="sharetool-container"></div>
     </article>
+    <div id="related-links-container"></div>
     <%- include('templates/footer'); %>
   </body>
 </html>
