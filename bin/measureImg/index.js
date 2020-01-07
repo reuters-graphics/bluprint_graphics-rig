@@ -2,22 +2,25 @@ const fs = require('fs');
 const path = require('path');
 const imgSize = require('image-size');
 const chalk = require('chalk');
+const getLocales = require('../../config/utils/getLocales');
 
-const PACKAGE_DIR = path.resolve(__dirname, '../../');
+const LOCALES_DIR = path.resolve(__dirname, '../../locales/');
 const STATIC_DIR = path.resolve(__dirname, '../../src/static/');
 
-const filePath = path.resolve(PACKAGE_DIR, 'package.json');
-const metadata = JSON.parse(fs.readFileSync(filePath));
+getLocales().forEach((locale) => {
+  const filePath = path.resolve(LOCALES_DIR, locale, 'metadata.json');
+  const metadata = JSON.parse(fs.readFileSync(filePath));
 
-const imagePath = path.resolve(STATIC_DIR, metadata.reuters.image.path);
+  const imagePath = path.resolve(STATIC_DIR, metadata.image.path);
 
-if (!fs.existsSync(imagePath)) {
-  throw new Error(`\n❗ Can't find share image at: ${chalk.underline.yellow(metadata.reuters.image.path)}. Update your package.json?\n`);
-}
+  if (!fs.existsSync(imagePath)) {
+    throw new Error(`\n❗ Can't find share image at: ${chalk.underline.yellow(metadata.image.path)}. \n❗ Update ${chalk.green(`locales/${locale}/metadata.json`)} or be sure the image is at ${chalk.green(`src/static/${metadata.image.path}`)}.\n`);
+  }
 
-const dimensions = imgSize(imagePath);
+  const dimensions = imgSize(imagePath);
 
-metadata.reuters.image.width = dimensions.width;
-metadata.reuters.image.height = dimensions.height;
+  metadata.image.width = dimensions.width;
+  metadata.image.height = dimensions.height;
 
-fs.writeFileSync(filePath, JSON.stringify(metadata, null, 2));
+  fs.writeFileSync(filePath, JSON.stringify(metadata, null, 2));
+});

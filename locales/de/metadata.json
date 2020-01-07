@@ -2,5 +2,12 @@
   "seoTitle": "Meine Page",
   "seoDescription": "Meine Page ist schoen!",
   "shareTitle": "Meine Page fuer twitter",
-  "shareDescription": "Meine Page fuer twitter ist schoen!"
+  "shareDescription": "Meine Page fuer twitter ist schoen!",
+  "id": "de-ID",
+  "url": "https://graphics.reuters.com/slug/de-ID/",
+  "image": {
+    "path": "img/bill.jpg",
+    "width": 400,
+    "height": 400
+  }
 }

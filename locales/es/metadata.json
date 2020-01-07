@@ -2,5 +2,12 @@
   "seoTitle": "My Page en Espanol",
   "seoDescription": "My page en Espanol is nice",
   "shareTitle": "My page en Espanol for twitter",
-  "shareDescription": "My page en Espanol for twitter is nice!"
+  "shareDescription": "My page en Espanol for twitter is nice!",
+  "id": "es-ID",
+  "url": "https://graphics.reuters.com/slug/es-ID/",
+  "image": {
+    "path": "img/bill.jpg",
+    "width": 400,
+    "height": 400
+  }
 }

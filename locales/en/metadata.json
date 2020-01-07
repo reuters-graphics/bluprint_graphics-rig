@@ -2,5 +2,12 @@
   "seoTitle": "My page for google",
   "seoDescription": "My page is nice!",
   "shareTitle": "My page for twitter",
-  "shareDescription": "My page is very nice!"
+  "shareDescription": "My page is very nice!",
+  "id": "en-ID",
+  "url": "https://graphics.reuters.com/slug/en-ID/",
+  "image": {
+    "path": "img/bill.jpg",
+    "width": 400,
+    "height": 400
+  }
 }

@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const merge = require('webpack-merge');
 
 const common = require('./webpack.common.js');
@@ -21,12 +22,26 @@ const { prod: scssModuleRule } = require('./rules/scss/modules');
 const { prod: cssRule } = require('./rules/css');
 const { getRendered: getEjsRenderedRule } = require('./rules/ejs');
 
-const commonHedMeta = require('./metadata/common/headPre');
+const packageMetadata = require('../package.json');
 
 const locales = getLocales();
+const getLocaleMetadata = (locale) =>
+  JSON.parse(fs.readFileSync(path.resolve(__dirname, `../locales/${locale}/metadata.json`)));
 
 module.exports = (env, argv) => locales.map((locale) =>
   (merge(common, {
+    entry: {
+      app: [
+        '@babel/polyfill',
+        'whatwg-fetch',
+        path.join(__dirname, '../src/js/app.js'),
+      ],
+      tools: [
+        path.join(__dirname, '../src/js/tools/google/publisherTags.js'),
+        path.join(__dirname, '../src/js/tools/google/analytics.js'),
+        path.join(__dirname, '../src/js/tools/share/index.js'),
+      ],
+    },
     mode: 'production',
     devtool: argv.minify ? 'source-map' : false,
     output: {
@@ -61,14 +76,13 @@ module.exports = (env, argv) => locales.map((locale) =>
     plugins: [
       AutoprefixerPlugin,
       new HtmlWebpackPlugin({
-        filename: 'index.html',
-        template: path.resolve(__dirname, '../src/html/index.ejs'),
-        chunks: ['app', 'tools'],
-      }),
-      new HtmlWebpackPlugin({
         filename: 'embed.html',
         template: path.resolve(__dirname, '../src/html/embed.ejs'),
-        chunks: ['app'],
+        excludeChunks: ['tools'],
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'index.html',
+        template: path.resolve(__dirname, '../src/html/index.ejs'),
       }),
       new MiniCssExtractPlugin({
         filename: '[name].[contenthash].css',
@@ -80,7 +94,32 @@ module.exports = (env, argv) => locales.map((locale) =>
       }]),
       new MetataggerPlugin({
         tags: {
-          head__prepend: commonHedMeta,
+          head__prepend: require('./metadata/common/head__prepend'),
+          head: Object.assign({
+            script: [{
+              type: 'application/ld+json',
+              html: JSON.stringify(
+                require('./metadata/prod/json-ld/getPage')({
+                  locale: getLocaleMetadata(locale),
+                  project: packageMetadata,
+                })),
+            }, {
+              type: 'application/ld+json',
+              html: JSON.stringify(require('./metadata/prod/json-ld/org')),
+            }, {
+              type: 'application/javascript',
+              html: `
+var PAGE_TO_TRACK = "${getLocaleMetadata(locale).url}";
+var TITLE_TO_TRACK = "${getLocaleMetadata(locale).seoTitle}";
+              `,
+            }],
+          }, require('./metadata/prod/getHead')({
+            locale: getLocaleMetadata(locale),
+            project: packageMetadata,
+          })),
+          body__prepend: require('./metadata/prod/getBody__prepend')({
+            locale: getLocaleMetadata(locale),
+          }),
         },
       }),
     ],

@@ -6,28 +6,9 @@ module.exports = {
     reuters: {
       type: 'object',
       properties: {
-        url: {
+        workspace: {
           type: 'string',
-          format: 'uri',
-        },
-        image: {
-          type: 'object',
-          properties: {
-            path: {
-              type: 'string',
-              pattern: '^img\/[a-zA-Z0-9/-]+\.(jpg|png)$',
-              prompt: {
-                message: (variablePath, invalidMessage) =>
-                  !invalidMessage ?
-                    'What\'s the relative path to your share image?\n' :
-                    'What\'s the relative path to your share image?\n(Should be img/<...>.jpg or img/<...>.png)\n',
-                initial: 'img/share.jpg',
-              },
-            },
-            width: { type: 'integer' },
-            height: { type: 'integer' },
-          },
-          required: ['path'],
+          pattern: '[a-zA-Z0-9-]+',
         },
         publishDate: {
           type: 'string',
@@ -70,7 +51,7 @@ module.exports = {
           minItems: 1,
         },
       },
-      required: ['image', 'publishDate', 'authors'],
+      required: ['workspace', 'publishDate', 'authors'],
     },
   },
   required: ['reuters'],

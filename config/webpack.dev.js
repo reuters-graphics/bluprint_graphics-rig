@@ -16,15 +16,20 @@ const { dev: scssModuleRule } = require('./rules/scss/modules');
 const { dev: cssRule } = require('./rules/css');
 const { getRendered: getEjsRenderedRule } = require('./rules/ejs');
 
-const commonHedMeta = require('./metadata/common/headPre');
-
 portfinder.basePort = 3000;
 
-// Add a couple devtool chunks, which we won't include in production
-common.entry.devtool_hud = path.resolve(__dirname, '../src/js/tools/dev/hud/index.js');
-common.entry.devtool_framer = path.resolve(__dirname, '../src/js/tools/dev/framer/index.js');
-
 const config = (env, argv, port) => (merge(common, {
+  entry: {
+    app: [
+      '@babel/polyfill',
+      'whatwg-fetch',
+      path.join(__dirname, '../src/js/app.js'),
+    ],
+    sharetool: path.join(__dirname, '../src/js/tools/share/index.js'),
+    // devtool scripts are only used in development
+    devtool_hud: path.resolve(__dirname, '../src/js/tools/dev/hud/index.js'),
+    devtool_framer: path.resolve(__dirname, '../src/js/tools/dev/framer/index.js'),
+  },
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   devServer: {
@@ -52,7 +57,7 @@ const config = (env, argv, port) => (merge(common, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, '../src/html/index.ejs'),
-      chunks: ['app', 'tools', 'devtool_hud'],
+      chunks: ['app', 'sharetool', 'devtool_hud'],
     }),
     new HtmlWebpackPlugin({
       filename: 'embed.html',
@@ -65,7 +70,10 @@ const config = (env, argv, port) => (merge(common, {
     }),
     new MetataggerPlugin({
       tags: {
-        head__prepend: commonHedMeta,
+        head__prepend: require('./metadata/common/head__prepend'),
+        head: {
+          title: [{ html: 'Developing!' }],
+        },
       },
     }),
   ],

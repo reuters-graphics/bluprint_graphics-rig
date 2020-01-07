@@ -6420,6 +6420,14 @@ markdown-escapes@^1.0.0:
   resolved "https://registry.yarnpkg.com/markdown-escapes/-/markdown-escapes-1.0.3.tgz#6155e10416efaafab665d466ce598216375195f5"
   integrity sha512-XUi5HJhhV5R74k8/0H2oCbCiYf/u4cO/rX8tnGkRvrqhsr5BRNU6Mg0yt/8UIx1iIS8220BNJsDb7XnILhLepw==
 
+markdown-loader@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/markdown-loader/-/markdown-loader-5.1.0.tgz#4efd5006b1514ca966141c661a47e542a9836e6e"
+  integrity sha512-xtQNozLEL+55ZSPTNwro8epZqf1h7HjAZd/69zNe8lbckDiGVHeLQm849bXzocln2pwRK2A/GrW/7MAmwjcFog==
+  dependencies:
+    loader-utils "^1.2.3"
+    marked "^0.7.0"
+
 markdown-table@^1.1.0:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/markdown-table/-/markdown-table-1.1.3.tgz#9fcb69bcfdb8717bfd0398c6ec2d93036ef8de60"
@@ -6429,6 +6437,11 @@ marked@^0.3.6:
   version "0.3.19"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.19.tgz#5d47f709c4c9fc3c216b6d46127280f40b39d790"
   integrity sha512-ea2eGWOqNxPcXv8dyERdSr/6FmzvWwzjMxpfGB/sbMccXoct+xY+YukPD+QTUZwyvK7BZwcr4m21WBOW41pAkg==
+
+marked@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-0.7.0.tgz#b64201f051d271b1edc10a04d1ae9b74bb8e5c0e"
+  integrity sha512-c+yYdCZJQrsRjTPhUx7VKkApw9bwDkNbHUKo1ovgcfDjb2kc8rLuRbIFyXL5WOEUwzSSKo3IXpph2K6DqB/KZg==
 
 matched@^0.4.1:
   version "0.4.4"
@@ -6559,10 +6572,10 @@ merge2@^1.2.3, merge2@^1.3.0:
   resolved "https://registry.yarnpkg.com/merge2/-/merge2-1.3.0.tgz#5b366ee83b2f1582c48f87e47cf1a9352103ca81"
   integrity sha512-2j4DAdlBOkiSZIsaXk4mTE3sRS02yBHAtfy127xRV3bQUFqXkjHCHLW6Scv7DwNRbIWNHH8zpnz9zMaKXIdvYw==
 
-metatagger-webpack-plugin@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/metatagger-webpack-plugin/-/metatagger-webpack-plugin-0.0.5.tgz#bddcc4ac7011ae76b3a93bc8f2b785ac202a9954"
-  integrity sha512-ly0nnH2JILdbcFogZnvxNN5/oxK8Zr+/DloEXC+6hnXE4lfbWURPlaXGRxkhQeN6yERNfk/o+EPVek+Njw5f9A==
+metatagger-webpack-plugin@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/metatagger-webpack-plugin/-/metatagger-webpack-plugin-0.0.6.tgz#4c9bd62bbc62097fca7a627dd66b3d6c501be1d0"
+  integrity sha512-kEjR57Bl+5t52R3bdtTnj5au2HpR8LhOb9hU7JyX1mj/xppG/Pf55kTKF8YpMe7LcmmfFEcecBi5YjT8Gp3lAQ==
   dependencies:
     ajv "^6.10.2"
     cheerio "^1.0.0-rc.3"

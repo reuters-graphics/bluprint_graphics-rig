@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="<%= lang %>" dir="ltr">
-  <head>
-    <title>An <%= lang %> pager</title>
-  </head>
+  <head></head>
   <body>
     <%- include('templates/nav'); %>
     <article class='container'>
-      <h1><%= gt.gettext('Hello world!') %></h1>
+      <h1><%= gt.gettext('Hello world!') %> Hi</h1>
       <% const data = require('./templates/data.json'); %>
       <%- include('templates/some.html', data); %>
       <div id="app"></div>
