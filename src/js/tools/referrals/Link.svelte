@@ -5,7 +5,7 @@
   export let description;
 </script>
 
-<div class='referral-link col-12 col-sm-6 col-md-4 col-lg-3' title={description}>
+<div class='referral' title={description}>
   <a href={url}>
     <div class='image' style={`background-image: url(${image});`}></div>
     <p>{title}</p>
@@ -14,10 +14,6 @@
 
 
 <style>
-.referral-link{
-
-}
-
 .image {
   width: 100%;
   padding-bottom: 50%;

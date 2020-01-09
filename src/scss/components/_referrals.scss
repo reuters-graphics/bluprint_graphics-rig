@@ -1,0 +1,65 @@
+@import "~@reuters-graphics/style-color/scss/gray";
+
+section.referral-container {
+  margin: 50px auto 30px;
+  padding: 0 15px;
+  max-width: 1200px;
+
+  &::before {
+    display: block;
+    content: '';
+    background: $gray-200;
+    height: 1px;
+    width: 50%;
+    margin: 0 auto 20px;
+  }
+
+  svg {
+    margin: 0 auto 20px;
+    display: block;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    color: $brand-secondary;
+    font-weight: 400;
+  }
+
+  .referral {
+    div.image {
+      margin-bottom: 5px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    p {
+      @extend .font-sans;
+
+      color: $brand-text-secondary;
+      font-size: 0.9rem;
+      line-height: 1.2rem;
+    }
+
+    width: 25%;
+    padding: 0 10px;
+
+    @include media-breakpoint-down(sm) {
+      width: 33.33333%;
+
+      &:nth-child(4) {
+        display: none;
+      }
+    }
+
+    @include media-breakpoint-down(xs) {
+      width: 50%;
+
+      &:nth-child(3) {
+        display: none;
+      }
+    }
+  }
+}

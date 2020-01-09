@@ -7,12 +7,22 @@
     <%- include('templates/dateline'); %>
   </aside>
 
-  <%- localeMarkdown('section.md') %>
+  <section class='body-text'>
+    <%- localeMarkdown('intro.md') %>
+  </section>
 
   <% const data = require('./templates/data.json'); %>
   <%- include('templates/some.html', data); %>
 
+
   <%- include('templates/chart.ejs'); %>
+
+  <section class='body-text'>
+    <%- localeMarkdown('middle.md') %>
+  </section>
+
+  <%- include('templates/photo.ejs'); %>
+
   <div id="app"></div>
 
 </article>

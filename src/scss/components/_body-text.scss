@@ -1,0 +1,98 @@
+@import "~@reuters-graphics/style-color/scss/brand";
+@import "~@reuters-graphics/style-color/scss/gray";
+
+section.body-text {
+  max-width: 650px;
+  margin: 0 auto;
+
+  p {
+    @extend .font-serif;
+
+
+    font-size: 1.2rem;
+    line-height: 2rem;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 1.1rem;
+      line-height: 1.75rem;
+    }
+  }
+
+  &.font-sans {
+    p {
+      @extend .font-sans;
+    }
+  }
+
+  // Hard-enforce the no h1 rule?
+  h1 {
+    display: none;
+  }
+
+  h2 {
+    margin: 4rem 0 2rem;
+    text-align: center;
+
+    &::before {
+      display: block;
+      content: '';
+      background: $brand-secondary;
+      height: 4px;
+      width: 100px;
+      margin: 10px auto 15px;
+    }
+  }
+
+  h3 {
+    margin: 2rem 0 1rem;
+  }
+
+  a {
+    color: inherit;
+    background-size: 1px 1px;
+    background-image: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="2" y2="2" stroke="rgba(0, 0, 0, 0.84)" /></svg>');
+    background-position: 0 1.3rem;
+    background-repeat: repeat-x;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  blockquote {
+    margin: 30px 0;
+    border-left: 2px solid $brand-secondary;
+    padding-left: 15px;
+
+    p {
+      font-size: 1.6rem;
+      line-height: 2rem;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+      }
+    }
+
+    // Markdown cheat to use for attribution
+    blockquote {
+      border: 0;
+      padding: 0;
+      margin: -5px 0 0;
+
+      p {
+        color: $gray-500;
+        font-size: 1rem;
+
+        @include media-breakpoint-down(sm) {
+          font-size: 0.9rem;
+        }
+      }
+
+      // Kill any additional nestings...
+      blockquote {
+        display: none;
+      }
+    }
+  }
+}

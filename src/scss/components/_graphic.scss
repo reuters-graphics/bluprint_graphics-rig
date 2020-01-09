@@ -1,0 +1,74 @@
+@import "~@reuters-graphics/style-color/scss/gray";
+
+section.graphic {
+  max-width: 650px;
+  margin: 40px auto;
+
+  &.wide {
+    max-width: 800px;
+  }
+
+  &.wider {
+    max-width: 1200px;
+  }
+
+  &.widest {
+    max-width: 100%;
+  }
+
+  &.fluid {
+    width: calc(100% + 30px);
+    margin-left: -15px;
+    max-width: none;
+  }
+
+  @extend .font-sans;
+
+  &:not(.borderless) {
+    &::before {
+      display: block;
+      content: '';
+      background: $gray-200;
+      height: 1px;
+      width: 50%;
+      margin: 0 auto 35px;
+    }
+
+    &::after {
+      display: block;
+      content: '';
+      background: $gray-200;
+      height: 1px;
+      width: 50%;
+      margin: 35px auto 0;
+    }
+  }
+
+
+  p {
+    @extend .font-sans;
+
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 1.1rem;
+      line-height: 1.75rem;
+    }
+  }
+
+  // Use for footnotes and source lines
+  aside {
+    p {
+      font-size: 0.9rem;
+      line-height: 1.2rem;
+      margin-bottom: 5px;
+      color: $brand-text-secondary;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 0.8rem;
+        line-height: 1.1rem;
+      }
+    }
+  }
+}

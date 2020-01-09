@@ -85,12 +85,6 @@ const config = (env, argv, port) => (merge(common, {
         head: {
           title: [{ html: 'Developing!' }],
         },
-        body__prepend: {
-          h1: [{
-            class: 'seo-headline',
-            html: 'I will be replaced with your actual headline when published',
-          }],
-        },
       },
     }),
   ],
