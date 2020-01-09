@@ -1,58 +1,57 @@
 <script>
-  import classnames from 'classnames';
-  import Fa from 'svelte-fa';
-  import { faShareAlt } from '@fortawesome/free-solid-svg-icons/faShareAlt';
-  import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
-  import { faFacebookF } from '@fortawesome/free-brands-svg-icons/faFacebookF';
-  import copyToClipboard from './utils/copyToClipboard';
-  import throttle from 'lodash/throttle';
-  import handleTweet from './utils/twitter';
-  import handlePost from './utils/facebook';
+import classnames from 'classnames';
+import Fa from 'svelte-fa';
+import { faShareAlt } from '@fortawesome/free-solid-svg-icons/faShareAlt';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons/faFacebookF';
+import throttle from 'lodash/throttle';
+import handleTweet from './utils/twitter';
+import handlePost from './utils/facebook';
 
-  const handleShare = async function() {
-    if (showSecondaryDialogue) {
-      showSecondaryDialogue = false;
-      return;
-    }
+const handleShare = async function() {
+  if (showSecondaryDialogue) {
+    showSecondaryDialogue = false;
+    return;
+  }
 
-    if (navigator && navigator.share) {
-      try {
-        await navigator.share({
-          title: 'A page',
-          text: 'Get your description here',
-          url: window.location.href,
-        })
+  if (navigator && navigator.share) {
+    try {
+      await navigator.share({
+        title: 'A page',
+        text: 'Get your description here',
+        url: window.location.href,
+      });
       // Otherwise copy URL to a clipboard
-      } catch(err) {
-        console.log('Share error', err);
+    } catch (err) {
+      console.log('Share error', err);
+    }
+  } else {
+    showSecondaryDialogue = true;
+  }
+};
+
+let lastScroll = 0;
+let showShare = false;
+let showSecondaryDialogue = false;
+
+function handleScroll() {
+  if (lastScroll > window.scrollY) {
+    if (!showShare) {
+      showShare = true;
+    }
+  } else {
+    if (showShare) {
+      if (showSecondaryDialogue) {
+        showSecondaryDialogue = false;
+      } else {
+        showShare = false;
       }
-    } else {
-      showSecondaryDialogue = true;
     }
   }
+  lastScroll = window.scrollY;
+}
 
-  let lastScroll = 0;
-  let showShare = false;
-  let showSecondaryDialogue = false;
-
-  function handleScroll() {
-    if(lastScroll > window.scrollY) {
-      if(!showShare) {
-        showShare = true;
-      }
-    } else {
-      if(showShare) {
-        if(showSecondaryDialogue) {
-          showSecondaryDialogue = false;
-        } else {
-          showShare = false;
-        }
-      }
-    }
-    lastScroll = window.scrollY;
-  }
-
-  window.addEventListener('scroll', throttle(handleScroll, 500));
+window.addEventListener('scroll', throttle(handleScroll, 500));
 </script>
 
 
@@ -85,6 +84,7 @@
   bottom: -5rem;
   right: 10px;
   transition: all 0.2s;
+  z-index: 9999;
 }
 
 .sharetool button {

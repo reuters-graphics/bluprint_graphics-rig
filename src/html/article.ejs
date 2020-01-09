@@ -1,0 +1,18 @@
+<article class='container-fluid'>
+
+  <%- include('templates/heroTitle'); %>
+
+  <aside class='article-metadata'>
+    <%- include('templates/byline'); %>
+    <%- include('templates/dateline'); %>
+  </aside>
+
+  <%- localeMarkdown('section.md') %>
+
+  <% const data = require('./templates/data.json'); %>
+  <%- include('templates/some.html', data); %>
+
+  <%- include('templates/chart.ejs'); %>
+  <div id="app"></div>
+
+</article>

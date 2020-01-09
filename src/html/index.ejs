@@ -3,15 +3,8 @@
   <head></head>
   <body>
     <%- include('templates/nav'); %>
-    <article class='container'>
-      <h1><%= gt.gettext('Hello world!') %> Hi</h1>
-      <% const data = require('./templates/data.json'); %>
-      <%- include('templates/some.html', data); %>
-
-      <%- include('templates/chart.ejs'); %>
-      <div id="app"></div>
-      <div id="sharetool-container"></div>
-    </article>
+    <%- include('article.ejs'); %>
+    <div id="sharetool-container"></div>
     <div id="related-links-container"></div>
     <%- include('templates/footer'); %>
   </body>

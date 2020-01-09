@@ -36,6 +36,7 @@ module.exports = ({ locale, project }) => ({
     url,
   })),
   articleSection: 'Graphics',
+  isAccessibleForFree: true,
   creator: ['Reuters Graphics'],
   keywords: ['Reuters graphics', 'Reuters', 'graphics', 'Interactives'],
 });

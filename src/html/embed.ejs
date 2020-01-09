@@ -3,11 +3,10 @@
   <head>
   </head>
   <body>
-    <h1>I'm a separate embed template</h1>
-    <div id="app"></div>
+    <%- include('article.ejs'); %>
     <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
     <script type="application/javascript">
-      new pym.Child({ polling: 500 });
+      window.childFrame = new pym.Child();
     </script>
   </body>
 </html>

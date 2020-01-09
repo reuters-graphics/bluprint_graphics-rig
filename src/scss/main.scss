@@ -1,5 +1,9 @@
 @import "~@reuters-graphics/style-main/scss/main";
+@import "variables/breakpoints";
 @import "components/nav";
 @import "components/article";
 @import "components/footer";
-@import "components/seoHeadline";
+@import "components/seo-headline";
+@import "components/hero-title";
+@import "components/article-metadata";
+@import "components/typography/main";

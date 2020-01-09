@@ -9,6 +9,8 @@ const common = require('./webpack.common.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MetataggerPlugin = require('metatagger-webpack-plugin');
 
+const getLocaleMarkdown = require('./utils/getLocaleMarkdown');
+
 const { dev: jsRule } = require('./rules/js/react');
 const { dev: svelteRule } = require('./rules/js/svelte');
 const { dev: scssRule } = require('./rules/scss');
@@ -53,6 +55,12 @@ const config = (env, argv, port) => (merge(common, {
       getEjsRenderedRule({
         gt: { gettext: (name) => name },
         lang: 'en',
+        journalize: require('journalize'),
+        metadata: Object.assign(
+          require('../package.json').reuters,
+          require('../locales/en/metadata.json')
+        ),
+        localeMarkdown: getLocaleMarkdown('en'),
       }),
     ],
   },
@@ -76,6 +84,12 @@ const config = (env, argv, port) => (merge(common, {
         head__prepend: require('./metadata/common/head__prepend'),
         head: {
           title: [{ html: 'Developing!' }],
+        },
+        body__prepend: {
+          h1: [{
+            class: 'seo-headline',
+            html: 'I will be replaced with your actual headline when published',
+          }],
         },
       },
     }),

@@ -11,6 +11,7 @@ module.exports = {
     },
     seoTitle: {
       type: 'string',
+      maxLength: 110, // Per Google News SEO guidelines
     },
     seoDescription: {
       type: 'string',

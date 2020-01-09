@@ -10,3 +10,8 @@ const d = document.getElementById('app').appendChild(document.createElement('div
 p.innerHTML = t`I'm translatable in JavaScript!`;
 d.innerHTML = greeting({ name: t`Friend` });
 //! This is a saved comment
+
+// We're in an iframe
+if (window.location !== window.parent.location) {
+  window.childFrame.sendHeight();
+}

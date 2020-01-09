@@ -50,8 +50,16 @@ module.exports = {
           },
           minItems: 1,
         },
+        referrals: {
+          type: 'array',
+          items: {
+            type: 'string',
+            format: 'uri',
+          },
+          maxItems: 4,
+        },
       },
-      required: ['workspace', 'publishDate', 'authors'],
+      required: ['workspace', 'publishDate', 'authors', 'referrals'],
     },
   },
   required: ['reuters'],
