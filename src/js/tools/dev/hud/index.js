@@ -28,13 +28,18 @@ const getColor = (tti) => {
 };
 
 class DevPanel extends React.Component {
-  state = {
-    visible: true,
+  constructor(props) {
+    super(props);
+    const stateFromLocalStorage = localStorage.getItem('showHud');
+    this.state = {
+      visible: stateFromLocalStorage ? Boolean(parseInt(stateFromLocalStorage)) : true,
+    };
   }
 
   componentDidMount() {
     document.addEventListener('keyup', (e) => {
       if (e.key === 'Escape') {
+        localStorage.setItem('showHud', this.state.visible ? 0 : 1);
         this.setState(({ visible }) => ({ visible: !visible }));
       }
     });
