@@ -1,4 +1,7 @@
-const md = require('markdown-it')();
+const md = require('markdown-it')({
+  typographer: true,
+  html: true,
+});
 const fs = require('fs');
 const path = require('path');
 

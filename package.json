@@ -43,6 +43,7 @@
     "copy-webpack-plugin": "^5.1.1",
     "create-html-element": "^3.0.0",
     "css-loader": "^3.3.0",
+    "csv-parse": "^4.8.3",
     "del": "^5.1.0",
     "ejs": "^3.0.1",
     "ejs-plain-loader": "^1.4.1",

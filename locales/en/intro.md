@@ -2,7 +2,7 @@ English Bacon ipsum dolor amet porchetta prosciutto t-bone kielbasa brisket. Cap
 
 Pig short ribs jerky, [meatloaf turducken](https://www.thespruceeats.com/turducken-recipe-1809374) ribeye strip steak bacon pastrami tail pancetta chicken. Meatloaf ham hock tail picanha, meatball boudin pancetta capicola chislic kielbasa.
 
-Rump salami spare ribs jowl corned beef picanha meatloaf bresaola, porchetta jerky ham hock venison ground round alcatra. Picanha pig chuck pork meatloaf pork loin kevin t-bone leberkas turducken cupim meatball andouille.
+"Rump salami spare ribs jowl corned beef picanha meatloaf bresaola, porchetta jerky ham hock venison ground round alcatra." Picanha pig chuck pork meatloaf pork loin kevin t-bone leberkas turducken cupim meatball andouille.
 
 ## Andouille jowl tenderloin
 

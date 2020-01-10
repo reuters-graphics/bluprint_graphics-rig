@@ -1,27 +1,13 @@
-@import "~@reuters-graphics/style-color/scss/brand";
 @import "~@reuters-graphics/style-color/scss/gray";
 
 section.body-text {
-  max-width: 650px;
+  @extend .well;
+
   margin: 0 auto;
 
   p {
     @extend .font-serif;
-
-
-    font-size: 1.2rem;
-    line-height: 2rem;
-
-    @include media-breakpoint-down(sm) {
-      font-size: 1.1rem;
-      line-height: 1.75rem;
-    }
-  }
-
-  &.font-sans {
-    p {
-      @extend .font-sans;
-    }
+    @extend .paragraph-size;
   }
 
   // Hard-enforce the no h1 rule?
@@ -50,7 +36,7 @@ section.body-text {
   a {
     color: inherit;
     background-size: 1px 1px;
-    background-image: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="2" y2="2" stroke="rgba(0, 0, 0, 0.84)" /></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="2" y2="2" stroke="rgba(0, 0, 0, 0.8)" /></svg>');
     background-position: 0 1.3rem;
     background-repeat: repeat-x;
 
@@ -59,19 +45,18 @@ section.body-text {
     }
   }
 
+  ul,
+  ol {
+    @extend .paragraph-size;
+  }
+
   blockquote {
     margin: 30px 0;
     border-left: 2px solid $brand-secondary;
     padding-left: 15px;
 
     p {
-      font-size: 1.6rem;
-      line-height: 2rem;
-
-      @include media-breakpoint-down(sm) {
-        font-size: 1.3rem;
-        line-height: 1.8rem;
-      }
+      @extend .blockquote-size;
     }
 
     // Markdown cheat to use for attribution
@@ -93,6 +78,12 @@ section.body-text {
       blockquote {
         display: none;
       }
+    }
+  }
+
+  &.font-sans {
+    p {
+      @extend .font-sans;
     }
   }
 }

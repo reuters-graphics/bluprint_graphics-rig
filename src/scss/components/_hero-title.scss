@@ -1,5 +1,4 @@
 @import "~@reuters-graphics/style-color/scss/base";
-@import "~@reuters-graphics/style-main/scss/fonts/mixins";
 
 .hero-title {
   @extend .clearfix;
@@ -90,7 +89,7 @@
 
     h2,
     p {
-      @include font-sans;
+      @extend .font-sans;
     }
 
     h2 {

@@ -9,10 +9,13 @@
 
   <section class='body-text'>
     <%- localeMarkdown('intro.md') %>
+
+    <% const data = require('./templates/listdata.json'); %>
+    <%- include('templates/list.html', { data }); %>
+
   </section>
 
-  <% const data = require('./templates/data.json'); %>
-  <%- include('templates/some.html', data); %>
+
 
 
   <%- include('templates/chart.ejs'); %>
@@ -23,6 +26,20 @@
 
   <%- include('templates/photo.ejs'); %>
 
-  <div id="app"></div>
+  <section class='body-text'>
+    <div id="app"></div>
+  </section>
+
+  <section class='body-text'>
+    <%- localeMarkdown('end.md') %>
+  </section>
+
+  <section class='clarifications'>
+    <%- localeMarkdown('corrections.md') %>
+  </section>
+
+  <section class='end-notes'>
+    <%- localeMarkdown('notes.md') %>
+  </section>
 
 </article>

@@ -15,6 +15,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const configureGettext = require('./utils/configureGettext');
 const getLocales = require('./utils/getLocales');
 const getLocaleMarkdown = require('./utils/getLocaleMarkdown');
+const getLocaleData = require('./utils/getLocaleData');
 
 const { getProd: getJsRule } = require('./rules/js/react');
 const { prod: svelteRule } = require('./rules/js/svelte');
@@ -68,6 +69,7 @@ module.exports = (env, argv) => locales.map((locale) =>
             getLocaleMetadata(locale)
           ),
           localeMarkdown: getLocaleMarkdown(locale),
+          localeData: getLocaleData(locale),
         }),
       ],
     },

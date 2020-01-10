@@ -7,6 +7,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.svelte'],
     alias: {
       SCSS: path.resolve(__dirname, '../src/scss'),
+      Locales: path.resolve(__dirname, '../locales'),
       svelte: path.resolve('node_modules', 'svelte'),
     },
     mainFields: ['svelte', 'browser', 'module', 'main'],

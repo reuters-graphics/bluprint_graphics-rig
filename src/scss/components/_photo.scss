@@ -1,39 +1,24 @@
 @import "~@reuters-graphics/style-color/scss/brand";
 
 figure.photo {
-  max-width: 650px;
+  @extend .well;
+
   margin: 40px auto;
-
-  &.wide {
-    max-width: 800px;
-  }
-
-  &.wider {
-    max-width: 1200px;
-  }
-
-  &.widest {
-    max-width: 100%;
-  }
-
-  &.fluid {
-    width: calc(100% + 30px);
-    margin-left: -15px;
-    max-width: none;
-
-    figcaption {
-      padding-left: 10px;
-    }
-  }
-
-  img {
-    max-width: 100%;
-  }
 
   figcaption {
     @extend .font-sans;
 
     font-size: 0.8rem;
     color: $brand-secondary;
+  }
+
+  &.fluid {
+    figcaption {
+      padding-left: 10px;
+    }
+  }
+
+  img {
+    width: 100%;
   }
 }

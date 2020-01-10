@@ -10,6 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MetataggerPlugin = require('metatagger-webpack-plugin');
 
 const getLocaleMarkdown = require('./utils/getLocaleMarkdown');
+const getLocaleData = require('./utils/getLocaleData');
 
 const { dev: jsRule } = require('./rules/js/react');
 const { dev: svelteRule } = require('./rules/js/svelte');
@@ -61,6 +62,7 @@ const config = (env, argv, port) => (merge(common, {
           require('../locales/en/metadata.json')
         ),
         localeMarkdown: getLocaleMarkdown('en'),
+        localeData: getLocaleData('en'),
       }),
     ],
   },

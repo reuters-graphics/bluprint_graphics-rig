@@ -51,7 +51,7 @@ function handleScroll() {
   lastScroll = window.scrollY;
 }
 
-window.addEventListener('scroll', throttle(handleScroll, 500));
+window.addEventListener('scroll', throttle(handleScroll, 250));
 </script>
 
 
@@ -61,6 +61,7 @@ window.addEventListener('scroll', throttle(handleScroll, 500));
       on:click={handleShare}
       title="Share this!"
       disabled={showSecondaryDialogue}
+      class='box-shadow-low'
     >
       <Fa fw icon={faShareAlt} />
     </button>
@@ -110,6 +111,8 @@ window.addEventListener('scroll', throttle(handleScroll, 500));
   background: white;
   color: #ddd;
   cursor: default;
+  box-shadow: none;
+  pointer-events: none;
 }
 
 .drawer {
