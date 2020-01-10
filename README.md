@@ -4,6 +4,8 @@
 
 Working prototype of a single-page builder for Reuters Graphics.
 
+**Requires > Node v. 12.** Use [nvm](https://github.com/nvm-sh/nvm).
+
 ### Commands
 
 ##### `yarn start`
