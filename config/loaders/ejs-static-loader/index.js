@@ -2,7 +2,13 @@ const { readFileSync } = require('fs');
 const ejs = require('ejs');
 const { getOptions } = require('loader-utils');
 const path = require('path');
+const getLocales = require('../../utils/getLocales');
+const concat = require('lodash/concat');
 
+const locales = getLocales();
+
+// Ripped from https://github.com/ThisNameWasTaken/ejs-plain-loader#readme
+// but with extras we need.
 module.exports = function(source, map, meta) {
   const callback = this.async();
 
@@ -44,7 +50,12 @@ module.exports = function(source, map, meta) {
 };
 
 function getDependencies(source, sourcePath) {
-  return getEjsDependencies(source, sourcePath).concat(getRequireDependencies(source, sourcePath));
+  return concat(
+    getEjsDependencies(source, sourcePath),
+    getRequireDependencies(source, sourcePath),
+    getLocaleMarkdownDependencies(source),
+    getLocaleDataDependencies(source)
+  );
 }
 
 function getRequireDependencies(source, sourcePath) {
@@ -58,6 +69,60 @@ function getRequireDependencies(source, sourcePath) {
 
     dependecies.push(filePath);
     matches = requirePattern.exec(source);
+  }
+
+  return dependecies;
+}
+
+// Adds dependencies required through our extra context function, localeMarkdown.
+function getLocaleMarkdownDependencies(source) {
+  const dependecies = [];
+  const dependencyPattern = /<%[\s\S]*?localeMarkdown\(['"`](.*)['"`]\)[\s\S]*?%>/g;
+
+  let matches = dependencyPattern.exec(source);
+  while (matches) {
+    let fileName = matches[1];
+    if (path.extname(fileName) === '') {
+      fileName += '.md';
+    }
+
+    // Add all locale versions of the same file to dependency graph.
+    locales.map((locale) => {
+      const LOCALE_PATH = path.resolve(__dirname, '../../../locales', locale);
+      const filePath = path.join(LOCALE_PATH, fileName);
+
+      if (!dependecies.includes(filePath)) {
+        dependecies.push(filePath);
+      }
+    });
+    matches = dependencyPattern.exec(source);
+  }
+
+  return dependecies;
+}
+
+// Adds dependencies required through our extra context function, localeData.
+function getLocaleDataDependencies(source) {
+  const dependecies = [];
+  const dependencyPattern = /<%[\s\S]*?localeData\(['"`](.*)['"`]\)[\s\S]*?%>/g;
+
+  let matches = dependencyPattern.exec(source);
+  while (matches) {
+    let fileName = matches[1];
+    if (path.extname(fileName) === '') {
+      fileName += '.json';
+    }
+
+    // Add all locale versions of the same file to dependency graph.
+    locales.map((locale) => {
+      const LOCALE_PATH = path.resolve(__dirname, '../../../locales', locale);
+      const filePath = path.join(LOCALE_PATH, fileName);
+
+      if (!dependecies.includes(filePath)) {
+        dependecies.push(filePath);
+      }
+    });
+    matches = dependencyPattern.exec(source);
   }
 
   return dependecies;
@@ -134,7 +199,7 @@ ejs.Template.prototype.injectRequiredFiles = function() {
     const statementToReplace = new RegExp(`require\\(['"\`]${fileName}['"\`]\\)`);
     if (fileName.endsWith('.js')) {
       // evaluate the javascript inside the required file and replace require statement with that
-      const fileContent = eval(readFileSync(filePath, 'utf8'));
+      const fileContent = eval(readFileSync(filePath, 'utf8')); // eslint-disable-line no-eval
       const stringifiedObject = JSON.stringify(fileContent, serialize)
         .replace(/(\\")|`/g, '\\`') // escape double quotes and backticks
         .replace(/(\${[\s\S]*?})/g, '\\$1'); // escape the '$' symbol when used for string interpolation
@@ -151,4 +216,4 @@ ejs.Template.prototype.injectRequiredFiles = function() {
 };
 
 const serialize = (key, val) => typeof val === 'function' ? '__isFunc:' + val.toString().replace(/\r|\n/g, '') : val;
-const unserialize = (key, val) => typeof val === 'string' && val.startsWith('__isFunc:' + 'function') ? eval('(' + val.replace('__isFunc:', '') + ')') : val;
+const unserialize = (key, val) => typeof val === 'string' && val.startsWith('__isFunc:' + 'function') ? eval('(' + val.replace('__isFunc:', '') + ')') : val; // eslint-disable-line no-eval

@@ -10,7 +10,7 @@ const getRendered = (data) => ({
       interpolate: true,
     },
   }, {
-    loader: path.resolve(__dirname, '../../loaders/ejs-plain-loader/index.js'),
+    loader: path.resolve(__dirname, '../../loaders/ejs-static-loader/index.js'),
     options: { data },
   }],
 });
