@@ -11,7 +11,7 @@
     "build-client-source": "webpack --mode=production --config config/webpack.prod.js",
     "prettify-dist": "prettier --write \"packages/**/source/**/*.{html,css}\"",
     "build-packages": "npx ./bin/buildPackages/index.js",
-    "build": "npm-run-all check-meta measure-img clean-build build-client-source build-dist prettify-dist",
+    "build": "npm-run-all get-referrals check-meta measure-img clean-build build-client-source build-dist prettify-dist",
     "preview": "npx ./bin/previewServer/index.js",
     "extract-text": "npx ./bin/extractText/index.js",
     "check-meta": "npx ./bin/checkMeta/index.js",
