@@ -2,5 +2,18 @@
   "bluprint": "^0.0.19",
   "name": "graphics rig",
   "category": "",
-  "actions": []
+  "actions": [{
+    "action": "prompt",
+    "questions": [{
+      "type": "text",
+      "name": "projectName",
+      "message": "What should we call this project?"
+    }]
+  }, {
+    "action": "execute",
+    "cmds": [
+      ["yarn"],
+      ["git", ["init"]]
+    ]
+  }]
 }
