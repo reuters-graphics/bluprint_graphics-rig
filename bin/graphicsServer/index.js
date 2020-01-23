@@ -3,8 +3,11 @@ const fetchEvent = require('./fetch/event');
 const fetchLanguages = require('./fetch/languages');
 const fetchLocation = require('./fetch/location');
 const fetchTopics = require('./fetch/topics');
-const postGraphicMeta = require('./postGraphicMeta');
+const postPack = require('./create/pack');
+const postPackage = require('./create/package');
 const getLocaleContext = require('./getLocaleContext');
+const getPkgProp = require('./utils/getPackageProp');
+const setPkgProp = require('./utils/setPackageProp');
 const logger = require('./logger')();
 
 class ServerRequest {
@@ -48,11 +51,36 @@ class ServerRequest {
     logger.info('got topics');
   }
 
-  async createGraphic() {
+  async createGraphicPack() {
     const { context, token } = this;
-    const graphic = await postGraphicMeta(context.metadata, token);
-    this.context.graphic = graphic;
-    logger.info('created graphic');
+    const { workspace, graphicId } = getPkgProp('reuters');
+    if (!workspace || !graphicId) {
+      const { workspace, graphicId } = await postPack(context.metadata, token);
+      setPkgProp('reuters.workspace', workspace);
+      setPkgProp('reuters.graphicId', graphicId);
+      logger.info('created graphic');
+    }
+  }
+
+  async createMediaPkg() {
+    const { locale, token } = this;
+    const { workspace, graphicId } = getPkgProp('reuters');
+    const graphic = await postPackage(workspace, graphicId, locale, token);
+    console.log('**GRAPHIC', JSON.stringify(graphic, null, 2));
+  }
+
+  async create() {
+    try {
+      await this.getToken();
+      await this.getLanguage();
+      await this.getLocation();
+      await this.getEvent();
+      await this.getTopics();
+      await this.createGraphicPack();
+      await this.createMediaPkg();
+    } catch (e) {
+      logger.error(e);
+    }
   }
 
   async publish() {
@@ -73,4 +101,4 @@ class ServerRequest {
 
 const request = new ServerRequest('en');
 
-request.publish();
+request.create();

@@ -10,6 +10,10 @@ module.exports = {
           type: 'string',
           pattern: '[a-zA-Z0-9-]+',
         },
+        graphicId: {
+          type: 'string',
+          pattern: '[a-zA-Z0-9-]+',
+        },
         publishDate: {
           type: 'string',
           format: 'date-time',
@@ -59,7 +63,7 @@ module.exports = {
           maxItems: 4,
         },
       },
-      required: ['workspace', 'publishDate', 'authors', 'referrals'],
+      required: ['publishDate', 'authors', 'referrals'],
     },
   },
   required: ['reuters'],

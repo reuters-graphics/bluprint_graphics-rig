@@ -29,6 +29,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@reuters-graphics/eslint-config": "latest",
     "@reuters-graphics/stylelint-config": "latest",
+    "adm-zip": "^0.4.13",
     "archiver": "^3.1.1",
     "ask-json": "^0.0.2",
     "autoprefixer": "^9.7.3",
@@ -112,7 +113,6 @@
     "react-dom": "^16.12.0"
   },
   "reuters": {
-    "workspace": "workspace-ID",
     "publishDate": "2020-01-06T17:00:00.428Z",
     "updateDate": "2020-01-07T17:00:00.428Z",
     "authors": [
@@ -123,6 +123,8 @@
     ],
     "referrals": [
       "http://graphics.reuters.com/CLIMATE-CHANGE-ICE-SHIPLOGS/0100B4QE2FC/index.html"
-    ]
+    ],
+    "workspace": "10",
+    "graphicId": "c0415415-97d8-4b87-b76c-e342dc4fe34b"
   }
 }
