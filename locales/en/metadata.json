@@ -1,7 +1,6 @@
 {
   "seoTitle": "Testing the graphics server api",
   "seoDescription": "My page is nice!",
-  "id": "en-ID",
   "url": "https://graphics.reuters.com/slug/en-ID/",
   "image": {
     "path": "img/bill.jpg",
@@ -9,5 +8,15 @@
     "height": 400
   },
   "shareDescription": "My description",
-  "shareTitle": "\"My title\""
+  "shareTitle": "\"My title\"",
+  "editions": {
+    "interactive": {
+      "id": "80d3a2a4-d66f-4ff4-a8be-fbfaad3bddd1",
+      "repositoryId": "7b7f71da-8707-42b3-a242-db8a01ae87eb",
+      "url": "https://graphics.reuters.com/USA-ECONOMY/0100B58B318/index.html"
+    },
+    "media-interactive": {
+      "id": "20e60747-b51c-46f9-b6c6-4a627f650ec3"
+    }
+  }
 }

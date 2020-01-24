@@ -10,19 +10,18 @@ let retry = 0;
 const createDummyZip = (locale) => {
   const zip = new AdmZip();
 
-  const EMBED_CONTENT = 'embed';
-  const INDEX_CONTENT = '<html></html>';
   zip.addFile(
-    `media-${locale}/media-interactive/EMBED.txt`, Buffer.alloc(EMBED_CONTENT.length, EMBED_CONTENT)
+    `${locale}/media-interactive/README.txt`,
+    Buffer.from('readme')
   );
   zip.addFile(
-    `media-${locale}/interactive/index.html`,
-    Buffer.alloc(INDEX_CONTENT.length, INDEX_CONTENT)
+    `${locale}/interactive/index.html`,
+    Buffer.from('<html></html>')
   );
   return zip.toBuffer();
 };
 
-const postPackage = async(workspace, graphicId, locale, token) => {
+const postDummyPackage = async(workspace, graphicId, locale, token) => {
   if (retry > maxRetry) throw new Error('Max retries exceeded creating package');
 
   const URI = `${serviceUrl}/rngs/${workspace}/graphic/${graphicId}/package/media-${locale}.zip`;
@@ -39,13 +38,11 @@ const postPackage = async(workspace, graphicId, locale, token) => {
 
     const { data } = response;
 
-    // console.log('RESPONSE', response);
-
     if (data.hasError) {
       retry += 1;
       logger.warn('Retrying creating package');
       await sleep();
-      return postPackage(workspace, graphicId, locale, token);
+      return postDummyPackage(workspace, graphicId, locale, token);
     }
     return data;
   } catch (e) {
@@ -54,4 +51,4 @@ const postPackage = async(workspace, graphicId, locale, token) => {
   }
 };
 
-module.exports = async(workspace, graphicId, locale, token) => postPackage(workspace, graphicId, locale, token);
+module.exports = async(workspace, graphicId, locale, token) => postDummyPackage(workspace, graphicId, locale, token);

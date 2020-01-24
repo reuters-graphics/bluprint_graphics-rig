@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const pkg = require('../../package.json');
-const { serviceUrl, eventsUrl } = require('./constants/locations');
 
 const getLocaleMetadata = (locale) =>
   JSON.parse(fs.readFileSync(path.resolve(__dirname, `../../locales/${locale}/metadata.json`)));
@@ -14,9 +13,6 @@ const getSlugline = () => 'USA-ECONOMY/';
 module.exports = (locale) => {
   const localeMeta = getLocaleMetadata(locale);
   return {
-    eventsUrl,
-    serviceUrl,
-    site: 'graphics',
     metadata: {
       graphic: {
         title: localeMeta.seoTitle,

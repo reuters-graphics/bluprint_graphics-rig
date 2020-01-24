@@ -50,7 +50,7 @@ module.exports = (env, argv) => locales.map((locale) =>
       filename: '[name].[contenthash].js',
       path: argv.minify ?
         path.join(__dirname, '../dist', locale) :
-        path.join(__dirname, '../packages', locale, 'media-interactive/source'),
+        path.join(__dirname, '../packages', locale, `media-${locale}`, 'media-interactive/source'),
       publicPath: './',
     },
     module: {

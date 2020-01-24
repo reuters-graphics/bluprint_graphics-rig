@@ -1,10 +1,6 @@
 module.exports = {
   type: 'object',
   properties: {
-    id: {
-      type: 'string',
-      pattern: '[a-zA-Z0-9-]+',
-    },
     url: {
       type: 'string',
       format: 'uri',
@@ -43,7 +39,6 @@ module.exports = {
     },
   },
   required: [
-    'id',
     'url',
     'seoTitle',
     'seoDescription',
