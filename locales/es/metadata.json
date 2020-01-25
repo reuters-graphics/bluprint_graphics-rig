@@ -3,11 +3,32 @@
   "seoDescription": "My page en Espanol is nice",
   "shareTitle": "My page en Espanol for twitter",
   "shareDescription": "My page en Espanol for twitter is nice!",
-  "id": "es-ID",
-  "url": "https://graphics.reuters.com/slug/es-ID/",
   "image": {
     "path": "img/bill.jpg",
     "width": 400,
     "height": 400
+  },
+  "slugs": {
+    "root": "USA-ECONOMY",
+    "wild": ""
+  },
+  "editions": {
+    "media": {
+      "interactive": {
+        "id": "40e7a478-a243-4cec-bb1d-23e2d027fef5",
+        "repositoryId": "5fb8e087-2df7-4e26-89ed-c17d99655527",
+        "url": "https://graphics.reuters.com/USA-ECONOMY/0100B58N32B/"
+      },
+      "media-interactive": {
+        "id": "85623472-8aa9-43b1-ac08-273849c2d5cd"
+      }
+    },
+    "public": {
+      "interactive": {
+        "id": "71575803-41dc-4880-a3e4-165737b40c12",
+        "repositoryId": "1b46ffc7-c7c6-4c2d-b56d-717e8729e487",
+        "url": "https://graphics.reuters.com/USA-ECONOMY/0100B58N32D/"
+      }
+    }
   }
 }

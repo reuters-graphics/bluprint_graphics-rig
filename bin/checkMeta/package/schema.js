@@ -6,6 +6,25 @@ module.exports = {
     reuters: {
       type: 'object',
       properties: {
+        desk: {
+          type: 'string',
+          enum: ['new york', 'london', 'singapore'],
+          prompt: {
+            message: 'What desk is this project publishing from?',
+            type: 'select',
+            choices: [{
+              title: 'New York',
+              value: 'new york',
+            }, {
+              title: 'London',
+              value: 'london',
+            }, {
+              title: 'Singapore',
+              value: 'singapore',
+            }],
+            initial: 0,
+          },
+        },
         workspace: {
           type: 'string',
           pattern: '[a-zA-Z0-9-]+',
@@ -63,7 +82,7 @@ module.exports = {
           maxItems: 4,
         },
       },
-      required: ['publishDate', 'authors', 'referrals'],
+      required: ['desk', 'authors', 'referrals'],
     },
   },
   required: ['reuters'],

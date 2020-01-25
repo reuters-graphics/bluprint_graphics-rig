@@ -16,22 +16,33 @@ const configureGettext = require('./utils/configureGettext');
 const getLocales = require('./utils/getLocales');
 const getLocaleMarkdown = require('./utils/getLocaleMarkdown');
 const getLocaleData = require('./utils/getLocaleData');
+const logger = require('./utils/logger')('Webpack');
 
-const { getProd: getJsRule } = require('./rules/js/react');
-const { prod: svelteRule } = require('./rules/js/svelte');
-const { prod: scssRule } = require('./rules/scss');
-const { prod: scssModuleRule } = require('./rules/scss/modules');
-const { prod: cssRule } = require('./rules/css');
-const { getRendered: getEjsRenderedRule } = require('./rules/ejs');
+const getJsRule = require('./rules/prod/js/react');
+const svelteRule = require('./rules/prod/js/svelte');
+const scssRule = require('./rules/prod/scss/main');
+const scssModuleRule = require('./rules/prod/scss/modules');
+const cssRule = require('./rules/prod/css');
+const getEjsRenderedRule = require('./rules/prod/ejs/rendered');
+const argv = require('yargs').argv;
 
 const packageMetadata = require('../package.json');
 
-const locales = getLocales();
+// Allow limiting build to just one locale
+let locales = getLocales();
+const { locale } = argv;
+
+if (locale && locale !== true) {
+  locales = locales.indexOf(locale) > -1 ? [locale] : [];
+}
+
 const getLocaleMetadata = (locale) =>
   JSON.parse(fs.readFileSync(path.resolve(__dirname, `../locales/${locale}/metadata.json`)));
 
-module.exports = (env, argv) => locales.map((locale) =>
-  (merge(common, {
+module.exports = (env, argv) => locales.map((locale) => {
+  logger.info(`⚙️  Building ${locale.toUpperCase()} locale ${argv.minify ? 'interactive' : 'media'} assets`);
+
+  return (merge(common, {
     entry: {
       app: [
         '@babel/polyfill',
@@ -44,6 +55,7 @@ module.exports = (env, argv) => locales.map((locale) =>
         path.join(__dirname, '../src/js/tools/share/index.js'),
       ],
     },
+    stats: 'errors-only',
     mode: 'production',
     devtool: argv.minify ? 'source-map' : false,
     output: {
@@ -78,6 +90,7 @@ module.exports = (env, argv) => locales.map((locale) =>
       minimizer: [
         new TerserPlugin({
           sourceMap: true,
+          extractComments: false,
         }),
         new OptimizeCSSAssetsPlugin(),
       ],
@@ -118,7 +131,7 @@ module.exports = (env, argv) => locales.map((locale) =>
             }, { // Needed by google analytics script
               type: 'application/javascript',
               html: `
-var PAGE_TO_TRACK = "${getLocaleMetadata(locale).url}";
+var PAGE_TO_TRACK = "${getLocaleMetadata(locale).editions.public.interactive.url}";
 var TITLE_TO_TRACK = "${getLocaleMetadata(locale).seoTitle}";
               `,
             }],
@@ -132,4 +145,5 @@ var TITLE_TO_TRACK = "${getLocaleMetadata(locale).seoTitle}";
         },
       }),
     ],
-  })));
+  }));
+});

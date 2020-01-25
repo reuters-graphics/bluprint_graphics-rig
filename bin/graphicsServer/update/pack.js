@@ -2,7 +2,7 @@ const axios = require('axios');
 const { serviceUrl } = require('../constants/locations');
 const { maxRetry } = require('../constants/fetch');
 const sleep = require('../utils/sleep');
-const logger = require('../logger')();
+const logger = require('../../../config/utils/logger')('Graphics Server');
 
 let retry = 0;
 

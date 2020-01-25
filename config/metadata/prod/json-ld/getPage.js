@@ -10,16 +10,22 @@ module.exports = ({ locale, project }) => ({
   '@context': 'http://schema.org',
   '@type': 'NewsArticle',
   headline: locale.seoTitle,
-  url: locale.url,
+  url: locale.editions.public.interactive.url,
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': locale.url,
+    '@id': locale.editions.public.interactive.url,
   },
-  thumbnailUrl: path.join(locale.url, locale.image.path),
+  thumbnailUrl: path.join(
+    locale.editions.public.interactive.url,
+    locale.image.path
+  ),
   image: [{
     '@context': 'http://schema.org',
     '@type': 'ImageObject',
-    url: path.join(locale.url, locale.image.path),
+    url: path.join(
+      locale.editions.public.interactive.url,
+      locale.image.path
+    ),
     width: locale.image.width,
     height: locale.image.height,
   }],

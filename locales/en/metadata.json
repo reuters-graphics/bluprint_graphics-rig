@@ -1,7 +1,6 @@
 {
   "seoTitle": "Testing the graphics server api",
   "seoDescription": "My page is nice!",
-  "url": "https://graphics.reuters.com/slug/en-ID/",
   "image": {
     "path": "img/bill.jpg",
     "width": 400,
@@ -9,14 +8,27 @@
   },
   "shareDescription": "My description",
   "shareTitle": "\"My title\"",
+  "slugs": {
+    "root": "USA-ECONOMY",
+    "wild": ""
+  },
   "editions": {
-    "interactive": {
-      "id": "80d3a2a4-d66f-4ff4-a8be-fbfaad3bddd1",
-      "repositoryId": "7b7f71da-8707-42b3-a242-db8a01ae87eb",
-      "url": "https://graphics.reuters.com/USA-ECONOMY/0100B58B318/index.html"
+    "media": {
+      "interactive": {
+        "id": "db245f20-b0ca-488a-83c6-e6ef98316c3a",
+        "repositoryId": "5fb8e087-2df7-4e26-89ed-c17d99655527",
+        "url": "https://graphics.reuters.com/USA-ECONOMY/0100B58N327/"
+      },
+      "media-interactive": {
+        "id": "b02b731e-ab6c-4d64-a5da-157d0b079c65"
+      }
     },
-    "media-interactive": {
-      "id": "20e60747-b51c-46f9-b6c6-4a627f650ec3"
+    "public": {
+      "interactive": {
+        "id": "ffa1c3ad-ead5-42bb-b2a9-3a013e481b8b",
+        "repositoryId": "1b46ffc7-c7c6-4c2d-b56d-717e8729e487",
+        "url": "https://graphics.reuters.com/USA-ECONOMY/0100B58N329/"
+      }
     }
   }
 }

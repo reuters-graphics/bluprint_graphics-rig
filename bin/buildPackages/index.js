@@ -3,7 +3,8 @@ const fs = require('fs');
 const getLocales = require('../../config/utils/getLocales');
 const makeArchive = require('./makeArchive');
 const copyLocaleFiles = require('./copyLocale');
-const chalk = require('chalk');
+const redirectEmbeds = require('./redirectEmbeds');
+const logger = require('../../config/utils/logger')('Build packages');
 
 const ROOT = path.resolve(__dirname, '../../');
 
@@ -11,16 +12,19 @@ const outputStream = fs.createWriteStream(path.resolve(
   ROOT, 'packages/app.zip'
 ));
 
+const locales = getLocales();
+
 outputStream.on('finish', async() => {
-  console.log(chalk.yellow('\n⚙️  Copying locale files.'));
+  logger.info('⚙️  Copying locale files.');
   await Promise.all(
-    getLocales().map((locale) => copyLocaleFiles(locale))
+    locales.map((locale) => copyLocaleFiles(locale))
   )
     .then(() => {
-      console.log('\n');
       fs.unlinkSync('packages/app.zip');
+      logger.info('⚙️  Redirecting embeds.');
+      locales.forEach((locale) => redirectEmbeds(locale));
     })
-    .catch((e) => console.log(e));
+    .catch((e) => logger.error(e));
 });
 
 makeArchive(outputStream);

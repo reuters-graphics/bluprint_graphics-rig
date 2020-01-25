@@ -11,11 +11,11 @@ module.exports = (locale) => {
   // Embed code
   const { url } = getLocaleMetadata(locale);
   const template = fs.readFileSync(path.resolve(__dirname, 'docs/EMBED.html'), 'utf-8');
-  const filepath = path.resolve(ROOT, `packages/${locale}/media-interactive/EMBED.html`);
+  const filepath = path.resolve(ROOT, `packages/${locale}/media-${locale}/media-interactive/EMBED.html`);
   fs.writeFileSync(filepath, ejs.render(template, { url }));
   // README
   fs.copyFileSync(
     path.resolve(__dirname, 'docs/README.txt'),
-    path.resolve(ROOT, `packages/${locale}/media-interactive/README.txt`)
+    path.resolve(ROOT, `packages/${locale}/media-${locale}/media-interactive/README.txt`)
   );
 };

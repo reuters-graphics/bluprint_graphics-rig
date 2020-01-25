@@ -3,12 +3,12 @@ const fs = require('fs');
 const glob = require('glob');
 const strip = require('strip-comments');
 const archiver = require('archiver');
-const chalk = require('chalk');
+const logger = require('../../config/utils/logger')('Build packages');
 
 const ROOT = path.resolve(__dirname, '../../');
 
 const makeArchive = (outputStream) => {
-  console.log(chalk.yellow('\n\n⚙️  Building archive.\n\n'));
+  logger.info('⚙️  Building archive.');
   const archive = archiver('zip', { zlib: { level: 9 } });
 
   archive.pipe(outputStream);

@@ -1,6 +1,6 @@
 const path = require('path');
 
-const { templated: ejsTemplatedRule } = require('./rules/ejs');
+const ejsTemplatedRule = require('./rules/prod/ejs/templated');
 
 module.exports = {
   resolve: {

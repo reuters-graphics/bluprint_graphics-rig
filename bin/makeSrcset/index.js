@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
 const sharp = require('sharp');
+const logger = require('../../config/utils/logger')('Make srcset');
 const argv = require('yargs')
   .command('$0 <img>', 'Create an image srcset', (yargs) => {
     yargs.positional('img', {
@@ -10,8 +11,14 @@ const argv = require('yargs')
       type: 'string',
       coerce: (imgPath) => {
         const filePath = path.resolve(process.cwd(), 'src/static/img', imgPath);
-        if (!fs.existsSync(filePath)) throw new Error(`⛔ Can't find img at ${chalk.underline.yellow(imgPath)}.`);
-        if (path.extname(filePath) !== '.jpg') throw new Error(`⛔ Image should be a ${chalk.underline.yellow('.jpg')}.`);
+        if (!fs.existsSync(filePath)) {
+          logger.error(`Can't find img at ${chalk.underline.yellow(imgPath)}.`);
+          process.exit(1);
+        }
+        if (path.extname(filePath) !== '.jpg') {
+          logger.error(`Image should be a ${chalk.underline.yellow('.jpg')}.`);
+          process.exit(1);
+        }
         return filePath;
       },
     })
@@ -21,7 +28,10 @@ const argv = require('yargs')
           array: true,
           default: [600, 1200, 2400],
           coerce: (sizes) => sizes.map((size) => {
-            if (isNaN(parseInt(size))) throw new Error('⛔ Sizes hould be integers (representing pixels)');
+            if (isNaN(parseInt(size))) {
+              logger.error('Sizes hould be integers (representing pixels)');
+              process.exit(1);
+            }
             return parseInt(size);
           }),
         },
@@ -54,13 +64,13 @@ const writeMarkup = (pathRoot, widths) => {
   const maxSize = Math.max(...widths);
   const markup = `<img srcset="${srcset}" src="${path.join(relativePath, `${maxSize}.jpg`)}" alt="WRITE ME">`;
   fs.writeFileSync(path.join(pathRoot, 'img.html'), markup);
-  console.log('\n✅ Done.');
-  console.log(`\nSee the images in ${chalk.green(`${relativePath}/...`)}`);
-  console.log(`\nYou can use this markup in your page:\n\n${chalk.green(markup)}\n`);
+  logger.info('✅ Done.');
+  logger.info(`See the images in ${chalk.green(`${relativePath}/...`)}`);
+  logger.info(`You can use this markup in your page:\n\n${chalk.green(markup)}\n\n`);
 };
 
 const run = async() => {
-  console.log('\n🖼️  Resizing your image...');
+  logger.info('🖼️  Resizing your image...');
   const dirname = path.basename(argv.img, '.jpg');
   const dir = path.join(process.cwd(), 'src/static/img', dirname);
   ensureDir(dir);

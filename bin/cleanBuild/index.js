@@ -1,12 +1,13 @@
 const del = require('del');
-const chalk = require('chalk');
+const logger = require('../../config/utils/logger')('Clean build');
 
-console.log(
-  chalk.yellow('\n\n🧹 Cleaning build directories.'),
-  chalk.green('\n\tdist/\n\tpackages/\n\n')
-);
+logger.info('Cleaning build directories.');
+logger.info('📁 dist/');
+logger.info('📁 packages/');
 
 del.sync([
   'dist/*',
   'packages/*',
 ]);
+
+logger.info('✅ Done.\n');

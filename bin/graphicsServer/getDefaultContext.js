@@ -1,24 +1,16 @@
-const fs = require('fs');
-const path = require('path');
-const pkg = require('../../package.json');
-
-const getLocaleMetadata = (locale) =>
-  JSON.parse(fs.readFileSync(path.resolve(__dirname, `../../locales/${locale}/metadata.json`)));
-
-const getByline = () => pkg.reuters.authors.map(a => a.name).join(', ');
-
-// Make me...
-const getSlugline = () => 'USA-ECONOMY/';
+const getPkgProp = require('../../config/utils/getPackageProp');
+const getLocaleProp = require('../../config/utils/getLocaleProp');
 
 module.exports = (locale) => {
-  const localeMeta = getLocaleMetadata(locale);
+  const localeMeta = getLocaleProp(locale);
+
   return {
     metadata: {
       graphic: {
-        title: localeMeta.seoTitle,
-        description: localeMeta.seoDescription,
-        byline: getByline(),
-        slugline: getSlugline(),
+        title: localeMeta('seoTitle'),
+        description: localeMeta('seoDescription'),
+        byline: getPkgProp('reuters.authors').map(a => a.name).join(', '),
+        slugline: `${localeMeta('slugs.root')}/${localeMeta('slugs.wild')}`,
         languageAbbr: { text: locale },
         topicCodes: [{ mnemonic: 'MTGFX' }],
         tags: [{ text: 'Interactive' }],

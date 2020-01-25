@@ -7,6 +7,7 @@ const { existsSync } = require('fs');
 const argv = require('yargs').argv;
 const getLocales = require('../../config/utils/getLocales');
 const chalk = require('chalk');
+const logger = require('../../config/utils/logger')('Extract text');
 
 const LOCALES_DIR = path.resolve(__dirname, '../../locales/');
 
@@ -40,9 +41,9 @@ const writeTtagPo = (locale) => {
 };
 
 locales.forEach((locale) => {
-  console.log(chalk.yellow(`\n\n⚙️  Extracting text for ${locale.toUpperCase()} locale.`));
+  logger.info(chalk.yellow(`⚙️  Extracting text for ${locale.toUpperCase()} locale.`));
   writeGettextPo(locale);
   writeTtagPo(locale);
 });
 
-console.log(chalk.green('\n\n🏁 Done.\n'));
+logger.info('✅ Done.\n');

@@ -6,19 +6,21 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.dev.js",
-    "clean-build": "npx ./bin/cleanBuild/index.js",
-    "build-dist": "webpack --mode=production --minify --config config/webpack.prod.js",
-    "build-client-source": "webpack --mode=production --config config/webpack.prod.js",
-    "prettify-dist": "prettier --write \"packages/**/source/**/*.{html,css}\"",
-    "build-packages": "npx ./bin/buildPackages/index.js",
-    "build": "npm-run-all get-referrals check-meta measure-img clean-build build-client-source build-dist prettify-dist",
-    "preview": "npx ./bin/previewServer/index.js",
-    "extract-text": "npx ./bin/extractText/index.js",
+    "get-referrals": "npx ./bin/getReferrals/index.js",
     "check-meta": "npx ./bin/checkMeta/index.js",
     "measure-img": "npx ./bin/measureImg/index.js",
+    "clean-build": "npx ./bin/cleanBuild/index.js",
+    "build-client-source": "webpack --mode=production --config config/webpack.prod.js",
+    "build-dist": "webpack --mode=production --minify --config config/webpack.prod.js",
+    "prettify-dist": "prettier --write \"packages/**/source/**/*.{html,css}\" --loglevel warn",
+    "build": "npm-run-all get-referrals check-meta measure-img clean-build \"build-client-source --locale {1}\" \"build-dist --locale {1}\" prettify-dist --",
+    "build-packages": "npx ./bin/buildPackages/index.js",
+    "extract-text": "npx ./bin/extractText/index.js",
     "make-srcset": "npx ./bin/makeSrcset/index.js",
-    "get-referrals": "npx ./bin/getReferrals/index.js",
-    "pub": "npm-run-all check-meta measure-img"
+    "graphics-server-create": "npx ./bin/graphicsServer/index.js --create",
+    "graphics-server-update": "npx ./bin/graphicsServer/index.js --update",
+    "pub": "npm-run-all check-meta measure-img \"graphics-server-create --locale {1}\" \"build -- {1}\" build-packages check-meta \"graphics-server-update --locale {1}\" --",
+    "preview": "npx ./bin/previewServer/index.js"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
@@ -48,6 +50,7 @@
     "del": "^5.1.0",
     "ejs": "^3.0.1",
     "ejs-plain-loader": "^1.4.1",
+    "emoji-strip": "^1.0.1",
     "eslint": "^6.8.0",
     "eslint-plugin-svelte3": "^2.7.3",
     "eval": "^0.1.4",
@@ -113,8 +116,6 @@
     "react-dom": "^16.12.0"
   },
   "reuters": {
-    "publishDate": "2020-01-06T17:00:00.428Z",
-    "updateDate": "2020-01-07T17:00:00.428Z",
     "authors": [
       {
         "name": "Jon McClure",
@@ -124,7 +125,9 @@
     "referrals": [
       "http://graphics.reuters.com/CLIMATE-CHANGE-ICE-SHIPLOGS/0100B4QE2FC/index.html"
     ],
+    "desk": "london",
     "workspace": "10",
-    "graphicId": "82d9e64b-7304-4f8c-822a-9c3ae997f48d"
+    "graphicId": "960221b7-038d-4eb9-951e-5d26f718914a",
+    "publishDate": "2020-01-25T17:00:00.257Z"
   }
 }

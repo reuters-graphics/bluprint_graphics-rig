@@ -3,6 +3,7 @@ const path = require('path');
 const axios = require('axios');
 const scrape = require('html-metadata');
 const { reuters } = require('../../package.json');
+const logger = require('../../config/utils/logger')('Get Referrals');
 
 const ROOT = path.resolve(__dirname, '../../');
 
@@ -24,7 +25,7 @@ const getMeta = async(numLinks = 4) => {
   return Promise.all(links.map(async(url) => {
     const { openGraph } = await getMetadata(url);
     const { title, image, description } = openGraph;
-    console.log(`  📌 ${title}`);
+    logger.info(`📌 ${title}`);
     return ({
       url,
       title,
@@ -35,7 +36,7 @@ const getMeta = async(numLinks = 4) => {
 };
 
 const getReferrals = async() => {
-  console.log('\n🔗 Getting referral metadata for latest stories...');
+  logger.info('Getting referral metadata for latest stories...');
 
   const metadata = await getMeta();
 
@@ -43,7 +44,7 @@ const getReferrals = async() => {
 
   fs.writeFileSync(filepath, JSON.stringify(metadata, null, 2));
 
-  console.log('✅ Done.\n');
+  logger.info('✅ Done.\n');
 };
 
 getReferrals();

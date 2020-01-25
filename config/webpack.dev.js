@@ -12,12 +12,12 @@ const MetataggerPlugin = require('metatagger-webpack-plugin');
 const getLocaleMarkdown = require('./utils/getLocaleMarkdown');
 const getLocaleData = require('./utils/getLocaleData');
 
-const { dev: jsRule } = require('./rules/js/react');
-const { dev: svelteRule } = require('./rules/js/svelte');
-const { dev: scssRule } = require('./rules/scss');
-const { dev: scssModuleRule } = require('./rules/scss/modules');
-const { dev: cssRule } = require('./rules/css');
-const { getRendered: getEjsRenderedRule } = require('./rules/ejs');
+const jsRule = require('./rules/dev/js/react');
+const svelteRule = require('./rules/dev/js/svelte');
+const scssRule = require('./rules/dev/scss/main');
+const scssModuleRule = require('./rules/dev/scss/modules');
+const cssRule = require('./rules/dev/css');
+const getEjsRenderedRule = require('./rules/dev/ejs/rendered');
 
 portfinder.basePort = 3000;
 

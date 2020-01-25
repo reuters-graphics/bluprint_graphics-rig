@@ -1,9 +1,28 @@
 module.exports = {
   type: 'object',
   properties: {
-    url: {
-      type: 'string',
-      format: 'uri',
+    slugs: {
+      type: 'object',
+      properties: {
+        root: {
+          type: 'string',
+          pattern: '[A-Z\-]*', // eslint-disable-line no-useless-escape
+          minLength: 3,
+          prompt: {
+            message: 'What\'s the root slug for this locale, i.e., a generic topic slug?\n',
+            format: (text) => text.toUpperCase(),
+          },
+        },
+        wild: {
+          type: 'string',
+          pattern: '[A-Z\-]*', // eslint-disable-line no-useless-escape
+          prompt: {
+            message: 'What\'s the wild slug for this locale, i.e., a more specific page slug?\n',
+            format: (text) => text.toUpperCase(),
+          },
+        },
+      },
+      required: ['root', 'wild'],
     },
     seoTitle: {
       type: 'string',
@@ -37,9 +56,73 @@ module.exports = {
       },
       required: ['path'],
     },
+    editions: {
+      type: 'object',
+      properties: {
+        media: {
+          type: 'object',
+          properties: {
+            interactive: {
+              type: 'object',
+              properties: {
+                id: {
+                  type: 'string',
+                  pattern: '[a-zA-Z0-9/-]+',
+                },
+                repositoryId: {
+                  type: 'string',
+                  pattern: '[a-zA-Z0-9/-]+',
+                },
+                url: {
+                  type: 'string',
+                  format: 'uri',
+                },
+              },
+              required: ['id', 'repositoryId', 'url'],
+            },
+            'media-interactive': {
+              type: 'object',
+              properties: {
+                id: {
+                  type: 'string',
+                  pattern: '[a-zA-Z0-9/-]+',
+                },
+              },
+              required: ['id'],
+            },
+          },
+          required: ['interactive', 'media-interactive'],
+        },
+        public: {
+          type: 'object',
+          properties: {
+            interactive: {
+              type: 'object',
+              properties: {
+                id: {
+                  type: 'string',
+                  pattern: '[a-zA-Z0-9/-]+',
+                },
+                repositoryId: {
+                  type: 'string',
+                  pattern: '[a-zA-Z0-9/-]+',
+                },
+                url: {
+                  type: 'string',
+                  format: 'uri',
+                },
+              },
+              required: ['id', 'repositoryId', 'url'],
+            },
+          },
+          required: ['interactive'],
+        },
+      },
+      required: ['media', 'public'],
+    },
   },
   required: [
-    'url',
+    'slugs',
     'seoTitle',
     'seoDescription',
     'shareTitle',
