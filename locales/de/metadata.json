@@ -8,27 +8,27 @@
     "width": 400,
     "height": 400
   },
-  "slugs": {
-    "root": "USA-ECONOMY",
-    "wild": ""
-  },
   "editions": {
     "media": {
       "interactive": {
-        "id": "0ba11540-e8ba-435b-9924-a7f390c849c0",
-        "repositoryId": "5fb8e087-2df7-4e26-89ed-c17d99655527",
-        "url": "https://graphics.reuters.com/USA-ECONOMY/0100B58N324/"
+        "id": "de704085-e255-4418-9486-be6c622dd2d4",
+        "repositoryId": "62aaf84e-e48f-4ca2-8045-31f0d4a29c6c",
+        "url": "https://graphics.reuters.com/USA-ECONOMY/0100B59R395/"
       },
       "media-interactive": {
-        "id": "d243018b-8e71-40d7-ad7c-8d43ab552b87"
+        "id": "5629a4fc-9c7d-4931-997d-cf2792de8069"
       }
     },
     "public": {
       "interactive": {
-        "id": "20cb1515-4c2a-4292-97bd-da976541c62b",
-        "repositoryId": "1b46ffc7-c7c6-4c2d-b56d-717e8729e487",
-        "url": "https://graphics.reuters.com/USA-ECONOMY/0100B58N326/"
+        "id": "76d606e6-bce3-41f3-ae2e-78f80a52f92d",
+        "repositoryId": "4cd11517-7a2d-453b-ae9d-a92c7498255c",
+        "url": "https://graphics.reuters.com/USA-ECONOMY/0100B59R396/"
       }
     }
+  },
+  "slugs": {
+    "root": "USA-ECONOMY",
+    "wild": ""
   }
 }

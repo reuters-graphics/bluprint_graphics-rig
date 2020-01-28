@@ -42,7 +42,7 @@ module.exports = {
       properties: {
         path: {
           type: 'string',
-          pattern: '^img\/[a-zA-Z0-9/-]+\.(jpg|png)$', // eslint-disable-line no-useless-escape
+          pattern: '^img\/[a-zA-Z0-9/-_]+\.(jpg|png)$', // eslint-disable-line no-useless-escape
           prompt: {
             message: (variablePath, invalidMessage) =>
               !invalidMessage ?

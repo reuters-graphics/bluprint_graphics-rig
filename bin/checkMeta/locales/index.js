@@ -18,7 +18,7 @@ const checkLocales = async() => {
 
     const metadata = JSON.parse(fs.readFileSync(filePath));
 
-    logger.info(`Checking METADATA for ${chalk.underline.green(locale)} locale...`);
+    logger.info(chalk`{green.underline ${locale}} locale metadata.`);
     const data = await askJSON(JSONschema, metadata);
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
   }

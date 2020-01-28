@@ -16,8 +16,10 @@ const getPkgProp = require('../../config/utils/getPackageProp');
 const setPkgProp = require('../../config/utils/setPackageProp');
 const getLocaleProp = require('../../config/utils/getLocaleProp');
 const setLocaleProp = require('../../config/utils/setLocaleProp');
+const Watch = require('./utils/stopwatch');
 const keyBy = require('lodash/keyBy');
 const prompts = require('prompts');
+const chalk = require('chalk');
 const logger = require('../../config/utils/logger')('Graphics Server');
 
 class ServerRequest {
@@ -205,8 +207,9 @@ class ServerRequest {
   }
 
   async create() {
-    logger.info(`🌎 CREATING PACKAGES for ${this.locale.toUpperCase()} locale...`);
+    logger.info(chalk`🌎 CREATING PACKAGES for {green.underline ${this.locale}} locale...`);
     try {
+      const watch = new Watch();
       await this.getToken();
       await this.getLanguage();
       await this.getLocation();
@@ -215,31 +218,37 @@ class ServerRequest {
       await this.createGraphicPack();
       await this.createDummyMediaPkg();
       await this.createDummyPublicPkg();
+      watch.log();
       await this.updateGraphicPack();
       await this.getMediaUrl();
       await this.getPublicUrl();
+      watch.stop();
     } catch (e) {
-      logger.error(e);
+      logger.error(e.message);
+      process.exit(1);
     }
   }
 
   async update() {
-    logger.info(`🌎 PUBLISHING PACKAGES for ${this.locale.toUpperCase()} locale...`);
-    logger.info('Grab a ☕');
+    logger.info(chalk`🌎 UPLOADING PACKAGES for {green.underline ${this.locale}} locale...`);
     try {
+      const watch = new Watch();
       await this.getToken();
       await this.getLanguage(); // Temporary as long as some languages not returned by server
       await this.getPack();
       await this.getEvent();
       await this.getTopics();
       await this.updateGraphicPack();
+      watch.log();
       await this.updateGraphicPackages();
+      watch.stop();
     } catch (e) {
-      logger.error(e);
+      logger.error(e.message);
+      process.exit(1);
     }
   }
 
-  async publish() {
+  async upload() {
     const { workspace, graphicId } = getPkgProp('reuters');
     if (workspace && graphicId) {
       await this.update();
@@ -259,6 +268,15 @@ class ServerRequest {
     const { workspace, graphicId } = getPkgProp('reuters');
     if (workspace && graphicId) {
       await this.update();
+    }
+  }
+
+  async publish() {
+    try {
+      await this.getToken();
+    } catch (e) {
+      logger.error(e.message);
+      process.exit(1);
     }
   }
 }

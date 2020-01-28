@@ -82,7 +82,7 @@ module.exports = {
           maxItems: 4,
         },
       },
-      required: ['desk', 'authors', 'referrals'],
+      required: ['desk', 'authors', 'referrals', 'publishDate'],
     },
   },
   required: ['reuters'],

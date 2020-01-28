@@ -3,6 +3,7 @@ const { serviceUrl } = require('../constants/locations');
 const { maxRetry } = require('../constants/fetch');
 const getPkgProp = require('../../../config/utils/getPackageProp');
 const sleep = require('../utils/sleep');
+const catchRetry = require('../utils/catchRetry');
 const logger = require('../../../config/utils/logger')('Graphics Server');
 
 let retry = 0;
@@ -15,6 +16,12 @@ const getDeskLocation = () => {
 const fetchLocationData = async(token) => {
   if (retry > maxRetry) throw new Error('Max retries exceeded fetching location');
 
+  const retryPost = async() => {
+    logger.warn('Retrying fetching location');
+    await sleep(); retry += 1;
+    return fetchLocationData(token);
+  };
+
   const URI = `${serviceUrl}/rngs/codes/location/${getDeskLocation()}`;
 
   const headers = { Authorization: token };
@@ -23,16 +30,9 @@ const fetchLocationData = async(token) => {
   try {
     const { data } = await axios.get(URI, { headers, params });
 
-    if (data.hasError) {
-      retry += 1;
-      logger.warn('Retrying fetching location');
-      await sleep();
-      return fetchLocationData(token);
-    }
+    if (data.hasError) return retryPost();
     return data;
-  } catch (e) {
-    throw new Error(e);
-  }
+  } catch (e) { return catchRetry(e, retryPost); }
 };
 
 module.exports = async(token) => {

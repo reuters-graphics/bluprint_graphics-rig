@@ -2,12 +2,19 @@ const axios = require('axios');
 const { serviceUrl } = require('../constants/locations');
 const { maxRetry } = require('../constants/fetch');
 const sleep = require('../utils/sleep');
+const catchRetry = require('../utils/catchRetry');
 const logger = require('../../../config/utils/logger')('Graphics Server');
 
 let retry = 0;
 
-const postPack = async(workspace, graphicId, metadata, token) => {
+const putPack = async(workspace, graphicId, metadata, token) => {
   if (retry > maxRetry) throw new Error('Max retries exceeded updating pack');
+
+  const retryPut = async() => {
+    logger.warn('Retrying updating pack');
+    await sleep(); retry += 1;
+    return putPack(workspace, graphicId, metadata, token);
+  };
 
   const URI = `${serviceUrl}/rngs/${workspace}/graphic/${graphicId}`;
 
@@ -35,16 +42,10 @@ const postPack = async(workspace, graphicId, metadata, token) => {
 
     const { data } = response;
 
-    if (data.hasError) {
-      retry += 1;
-      logger.warn('Retrying updating pack');
-      await sleep();
-      return postPack(workspace, graphicId, metadata, token);
-    }
+    if (data.hasError) return retryPut();
+
     return data;
-  } catch (e) {
-    throw new Error(e);
-  }
+  } catch (e) { return catchRetry(e, retryPut); }
 };
 
-module.exports = async(workspace, graphicId, metadata, token) => postPack(workspace, graphicId, metadata, token);
+module.exports = async(workspace, graphicId, metadata, token) => putPack(workspace, graphicId, metadata, token);

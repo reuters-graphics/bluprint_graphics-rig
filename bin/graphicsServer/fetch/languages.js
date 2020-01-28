@@ -2,12 +2,19 @@ const axios = require('axios');
 const { serviceUrl } = require('../constants/locations');
 const { maxRetry } = require('../constants/fetch');
 const sleep = require('../utils/sleep');
+const catchRetry = require('../utils/catchRetry');
 const logger = require('../../../config/utils/logger')('Graphics Server');
 
 let retry = 0;
 
-const fetchConfigData = async(token) => {
-  if (retry > maxRetry) throw new Error('Max retries exceeded fetching language');
+const fetchLanguagesData = async(token) => {
+  if (retry > maxRetry) throw new Error('Max retries exceeded fetching languages');
+
+  const retryPost = async() => {
+    logger.warn('Retrying fetching languages');
+    await sleep(); retry += 1;
+    return fetchLanguagesData(token);
+  };
 
   const URI = `${serviceUrl}/rngs/app`;
 
@@ -16,20 +23,14 @@ const fetchConfigData = async(token) => {
   try {
     const { data } = await axios.get(URI, { headers });
 
-    if (data.hasError) {
-      retry += 1;
-      logger.warn('Retrying fetching languages');
-      await sleep();
-      return fetchConfigData(token);
-    }
+    if (data.hasError) return retryPost(token);
+
     return data;
-  } catch (e) {
-    throw new Error(e);
-  }
+  } catch (e) { return catchRetry(e, retryPost); }
 };
 
 module.exports = async(token, locale) => {
-  const { languages } = await fetchConfigData(token);
+  const { languages } = await fetchLanguagesData(token);
 
   const langs = {};
 
@@ -37,7 +38,7 @@ module.exports = async(token, locale) => {
     langs[language.isoCode] = language;
   });
 
-  // We default to english for languages not yet in connect
+  // We default to english for languages not yet in Connect
   if (!(locale in langs)) langs[locale] = langs.en;
 
   return langs;

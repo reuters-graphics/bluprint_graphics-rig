@@ -40,8 +40,10 @@ const writeTtagPo = (locale) => {
   updatePo(output, scriptFiles);
 };
 
+logger.info('Extracting translatable text...');
+
 locales.forEach((locale) => {
-  logger.info(chalk.yellow(`⚙️  Extracting text for ${locale.toUpperCase()} locale.`));
+  logger.info(chalk`📖 {green.underline ${locale}} text`);
   writeGettextPo(locale);
   writeTtagPo(locale);
 });

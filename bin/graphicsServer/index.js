@@ -3,25 +3,23 @@ const getLocales = require('../../config/utils/getLocales');
 const logger = require('../../config/utils/logger')('Graphics Server');
 const argv = require('yargs').argv;
 
-let publishLocales = getLocales();
+const locales = getLocales();
 
-const { update: updateOnly, create: createOnly, locale: specificLocale } = argv;
-
-if (specificLocale) {
-  publishLocales = publishLocales.indexOf(specificLocale) > -1 ? [specificLocale] : [];
-}
+const { update: updateOnly, create: createOnly, publish } = argv;
 
 const publishGraphic = async() => {
-  for (const i in publishLocales) {
-    const locale = publishLocales[i];
+  for (const i in locales) {
+    const locale = locales[i];
     const request = new ServerRequest(locale);
     if (updateOnly) {
       await request.updateOnly();
     } else if (createOnly) {
-      await request.create();
+      await request.createOnly();
     } else {
-      await request.publish();
+      console.log('UPDATE');
+      await request.upload();
     }
+    if (publish) await request.publish();
   }
 
   logger.info('✅ Done.\n');

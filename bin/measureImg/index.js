@@ -8,8 +8,10 @@ const logger = require('../../config/utils/logger')('Measure image');
 const LOCALES_DIR = path.resolve(__dirname, '../../locales/');
 const STATIC_DIR = path.resolve(__dirname, '../../src/static/');
 
+logger.info('Measuring share image...');
+
 getLocales().forEach((locale) => {
-  logger.info(`🖼️  ${locale.toUpperCase()} share image`);
+  logger.info(chalk`🖼️  {green.underline ${locale}} share image`);
   const filePath = path.resolve(LOCALES_DIR, locale, 'metadata.json');
   const metadata = JSON.parse(fs.readFileSync(filePath));
 

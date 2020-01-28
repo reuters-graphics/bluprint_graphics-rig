@@ -7,7 +7,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: src/js/app.js:10
-#. These are some comments
+#. These are some comments that will be erased
 msgid "I'm translatable in JavaScript!"
 msgstr ""
 

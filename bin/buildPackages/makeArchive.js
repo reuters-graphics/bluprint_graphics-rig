@@ -8,7 +8,7 @@ const logger = require('../../config/utils/logger')('Build packages');
 const ROOT = path.resolve(__dirname, '../../');
 
 const makeArchive = (outputStream) => {
-  logger.info('⚙️  Building archive.');
+  logger.info('Building archive.');
   const archive = archiver('zip', { zlib: { level: 9 } });
 
   archive.pipe(outputStream);

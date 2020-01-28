@@ -10,7 +10,7 @@ const PACKAGE_DIR = path.resolve(__dirname, '../../../');
 const checkPackage = async(locales) => {
   const filePath = path.resolve(PACKAGE_DIR, 'package.json');
   const metadata = JSON.parse(fs.readFileSync(filePath));
-  logger.info('Checking METADATA for package...');
+  logger.info('Package metadata.');
   const data = await askJSON(JSONschema, metadata);
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
   logger.info(`✏️  If you need to edit this data, do it in ${chalk.yellow('package.json')}.`);

@@ -3,12 +3,19 @@ const querystring = require('querystring');
 const { serviceUrl } = require('../constants/locations');
 const { maxRetry } = require('../constants/fetch');
 const sleep = require('../utils/sleep');
+const catchRetry = require('../utils/catchRetry');
 const logger = require('../../../config/utils/logger')('Graphics Server');
 
 let retry = 0;
 
 const fetchEventsData = async(slug, locale, token) => {
   if (retry > maxRetry) throw new Error('Max retries exceeded fetching event');
+
+  const retryPost = async() => {
+    logger.warn('Retrying fetching event');
+    await sleep(); retry += 1;
+    return fetchEventsData(slug, locale, token);
+  };
 
   const URI = `${serviceUrl}/rngs/events/search`;
 
@@ -40,15 +47,10 @@ const fetchEventsData = async(slug, locale, token) => {
       data.hasError ||
       !data.Events
     ) {
-      retry += 1;
-      logger.warn('Retrying fetching event');
-      await sleep();
-      return fetchEventsData(slug, locale, token);
+      return retryPost();
     }
     return data;
-  } catch (e) {
-    throw new Error(e);
-  }
+  } catch (e) { return catchRetry(e, retryPost); }
 };
 
 module.exports = async(slug, locale, token) => {

@@ -2,27 +2,20 @@ const axios = require('axios');
 const { serviceUrl } = require('../constants/locations');
 const { maxRetry } = require('../constants/fetch');
 const sleep = require('../utils/sleep');
+const zipFiles = require('../utils/zipFiles');
+const catchRetry = require('../utils/catchRetry');
 const logger = require('../../../config/utils/logger')('Graphics Server');
-const AdmZip = require('adm-zip');
 
 let retry = 0;
 
-const createDummyZip = (locale) => {
-  const zip = new AdmZip();
-
-  zip.addFile(
-    `${locale}/media-interactive/README.txt`,
-    Buffer.from('readme')
-  );
-  zip.addFile(
-    `${locale}/interactive/index.html`,
-    Buffer.from('<html></html>')
-  );
-  return zip.toBuffer();
-};
-
 const postDummyPackage = async(workspace, graphicId, locale, token) => {
-  if (retry > maxRetry) throw new Error('Max retries exceeded creating package');
+  if (retry > maxRetry) throw new Error('Max retries exceeded creating media package');
+
+  const retryPost = async() => {
+    logger.warn('Retrying creating media package');
+    await sleep(); retry += 1;
+    return postDummyPackage(workspace, graphicId, locale, token);
+  };
 
   const URI = `${serviceUrl}/rngs/${workspace}/graphic/${graphicId}/package/media-${locale}.zip`;
 
@@ -31,24 +24,25 @@ const postDummyPackage = async(workspace, graphicId, locale, token) => {
     'Content-Type': 'application/octet-stream; charset=utf-8',
   };
 
-  const dummyZip = createDummyZip(locale);
+  const files = {};
+
+  const README = `media-${locale}/media-interactive/README.txt`;
+  const INDEX = `media-${locale}/interactive/index.html`;
+
+  files[README] = 'readme';
+  files[INDEX] = '<html></html>';
+
+  const dummyZip = await zipFiles(files);
 
   try {
     const response = await axios.post(URI, dummyZip, { headers });
 
     const { data } = response;
 
-    if (data.hasError) {
-      retry += 1;
-      logger.warn('Retrying creating package');
-      await sleep();
-      return postDummyPackage(workspace, graphicId, locale, token);
-    }
+    if (data.hasError) return retryPost();
+
     return data;
-  } catch (e) {
-    console.log('ERR', e);
-    throw new Error(e);
-  }
+  } catch (e) { return catchRetry(e, retryPost); }
 };
 
 module.exports = async(workspace, graphicId, locale, token) => postDummyPackage(workspace, graphicId, locale, token);

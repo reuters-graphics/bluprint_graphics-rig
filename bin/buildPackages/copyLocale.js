@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const util = require('util');
 const copyDocs = require('./copyDocs');
+const chalk = require('chalk');
 const logger = require('../../config/utils/logger')('Build packages');
 
 const ROOT = path.resolve(__dirname, '../../');
@@ -10,7 +11,7 @@ const ROOT = path.resolve(__dirname, '../../');
 const copyPromise = util.promisify(copy);
 
 const copyLocaleFiles = (locale) => {
-  logger.info(`\t${locale.toUpperCase()}`);
+  logger.info(chalk`Creating {green.underline ${locale}} package.`);
   return copyPromise(
       `dist/${locale}/**/*`,
       `packages/${locale}/media-${locale}/media-interactive/public/`

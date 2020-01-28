@@ -3,23 +3,20 @@ const path = require('path');
 const { serviceUrl } = require('../constants/locations');
 const { maxRetry } = require('../constants/fetch');
 const sleep = require('../utils/sleep');
+const zipDir = require('../utils/zipDir');
+const catchRetry = require('../utils/catchRetry');
 const logger = require('../../../config/utils/logger')('Graphics Server');
-const AdmZip = require('adm-zip');
 
 let retry = 0;
 
-const createZip = (locale) => {
-  const zip = new AdmZip();
-
-  const localePkgPath = path.join(__dirname, `../../../packages/${locale}/`);
-
-  zip.addLocalFolder(localePkgPath);
-
-  return zip.toBuffer();
-};
-
-const postMediaPackage = async(workspace, graphicId, locale, token) => {
+const putMediaPackage = async(workspace, graphicId, locale, token) => {
   if (retry > maxRetry) throw new Error('Max retries exceeded updating package');
+
+  const retryPut = async() => {
+    logger.warn('Retrying updating media package');
+    await sleep(); retry += 1;
+    return putMediaPackage(workspace, graphicId, locale, token);
+  };
 
   const URI = `${serviceUrl}/rngs/${workspace}/graphic/${graphicId}/package/media-${locale}.zip`;
 
@@ -33,30 +30,23 @@ const postMediaPackage = async(workspace, graphicId, locale, token) => {
     updateMode: '0',
   };
 
-  const zipBuffer = createZip(locale);
+  const localePkgPath = path.join(__dirname, `../../../packages/${locale}/media-${locale}/`);
 
-  // Set upper limit to size of zip in bytes
-  const maxContentLength = zipBuffer.byteLength;
+  const zip = await zipDir(localePkgPath, `media-${locale}`);
 
   try {
     logger.info('⏳ uploading media package...');
-    const response = await axios.put(URI, zipBuffer, { headers, params, maxContentLength });
+    const response = await axios.put(URI, zip, {
+      headers,
+      params,
+      maxContentLength: zip.byteLength,
+    });
 
     const { data } = response;
 
-    if (data.hasError) {
-      retry += 1;
-      logger.warn('Retrying updating package');
-      await sleep();
-      return postMediaPackage(workspace, graphicId, locale, token);
-    }
+    if (data.hasError) return retryPut();
     return data;
-  } catch (e) {
-    console.log(e.response);
-    console.log(e.response.data);
-    console.log(e.response.headers);
-    throw new Error(e);
-  }
+  } catch (e) { return catchRetry(e, retryPut); }
 };
 
-module.exports = async(workspace, graphicId, locale, token) => postMediaPackage(workspace, graphicId, locale, token);
+module.exports = async(workspace, graphicId, locale, token) => putMediaPackage(workspace, graphicId, locale, token);

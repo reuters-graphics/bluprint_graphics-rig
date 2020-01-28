@@ -2,6 +2,10 @@ const winston = require('winston');
 const chalk = require('chalk');
 const path = require('path');
 const emojiStrip = require('emoji-strip');
+const stripColor = require('strip-color');
+const argv = require('yargs').argv;
+
+const { silent } = argv;
 
 module.exports = (processName = 'Graphics Rig') => {
   const label = chalk`{green ${processName}:}`;
@@ -14,14 +18,15 @@ module.exports = (processName = 'Graphics Rig') => {
   });
 
   const fileFormat = winston.format.printf(({ level, message, timestamp }) => {
-    return `${timestamp}: [${processName.toUpperCase()}] ${level}: ${emojiStrip(message).trim()}`;
+    if (!message) return;
+    return `${timestamp}: [${processName.toUpperCase()}] ${level}: ${emojiStrip(stripColor(message)).trim()}`;
   });
 
   return winston.createLogger({
     transports: [
       new winston.transports.Console({
         format: consoleFormat,
-        level: 'info',
+        level: silent ? 'error' : 'info',
       }),
       new winston.transports.File({
         filename: path.resolve(__dirname, '../../logs/process.log'),

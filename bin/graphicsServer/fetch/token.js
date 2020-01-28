@@ -3,6 +3,7 @@ const axios = require('axios');
 const os = require('os');
 const path = require('path');
 const { serviceUrl } = require('../constants/locations');
+const catchRetry = require('../utils/catchRetry');
 
 const getCredentials = () => {
   const credFilePath = path.join(os.homedir(), '.servercredentials');
@@ -16,15 +17,13 @@ const getSamlToken = async() => {
   const payload = {
     apiId: username,
     apiKey: password,
-    service: 'https://editdata.thomsonreuters.com/gfx/_vti_bin/spx/esp/graphics.svc/rngs',
+    service: `${serviceUrl}/rngs`,
   };
 
   try {
     const { data } = await axios.post('https://sts.editdata.thomsonreuters.com/svc/api.svc/GetToken', payload);
     return data;
-  } catch (e) {
-    throw new Error(e);
-  }
+  } catch (e) { return catchRetry(e); }
 };
 
 module.exports = async() => {
@@ -35,7 +34,5 @@ module.exports = async() => {
   try {
     const { data } = await axios.post(`${serviceUrl}/_trust`, payload);
     return data;
-  } catch (e) {
-    throw new Error(e);
-  }
+  } catch (e) { return catchRetry(e); }
 };

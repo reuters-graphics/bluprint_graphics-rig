@@ -2,16 +2,17 @@ const getPkgProp = require('../../config/utils/getPackageProp');
 const getLocaleProp = require('../../config/utils/getLocaleProp');
 
 module.exports = (locale) => {
-  const localeMeta = getLocaleProp(locale);
+  // const localeMeta = getLocaleProp(locale);
+  const engMeta = getLocaleProp('en');
 
   return {
     metadata: {
       graphic: {
-        title: localeMeta('seoTitle'),
-        description: localeMeta('seoDescription'),
+        title: engMeta('seoTitle'),
+        description: engMeta('seoDescription'),
         byline: getPkgProp('reuters.authors').map(a => a.name).join(', '),
-        slugline: `${localeMeta('slugs.root')}/${localeMeta('slugs.wild')}`,
-        languageAbbr: { text: locale },
+        slugline: `${engMeta('slugs.root')}/${engMeta('slugs.wild')}`,
+        languageAbbr: { text: 'en' },
         topicCodes: [{ mnemonic: 'MTGFX' }],
         tags: [{ text: 'Interactive' }],
         changed: true,

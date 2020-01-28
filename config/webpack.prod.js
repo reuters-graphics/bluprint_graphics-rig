@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const merge = require('webpack-merge');
+const chalk = require('chalk');
 
 const common = require('./webpack.common.js');
 
@@ -24,23 +25,14 @@ const scssRule = require('./rules/prod/scss/main');
 const scssModuleRule = require('./rules/prod/scss/modules');
 const cssRule = require('./rules/prod/css');
 const getEjsRenderedRule = require('./rules/prod/ejs/rendered');
-const argv = require('yargs').argv;
 
 const packageMetadata = require('../package.json');
-
-// Allow limiting build to just one locale
-let locales = getLocales();
-const { locale } = argv;
-
-if (locale && locale !== true) {
-  locales = locales.indexOf(locale) > -1 ? [locale] : [];
-}
 
 const getLocaleMetadata = (locale) =>
   JSON.parse(fs.readFileSync(path.resolve(__dirname, `../locales/${locale}/metadata.json`)));
 
-module.exports = (env, argv) => locales.map((locale) => {
-  logger.info(`⚙️  Building ${locale.toUpperCase()} locale ${argv.minify ? 'interactive' : 'media'} assets`);
+module.exports = (env, argv) => getLocales().map((locale) => {
+  logger.info(chalk`Building {green.underline ${locale}} ${argv.minify ? 'interactive page' : 'media assets'}...`);
 
   return (merge(common, {
     entry: {
