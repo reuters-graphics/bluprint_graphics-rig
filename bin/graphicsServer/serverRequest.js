@@ -17,6 +17,7 @@ const setPkgProp = require('../../config/utils/setPackageProp');
 const getLocaleProp = require('../../config/utils/getLocaleProp');
 const setLocaleProp = require('../../config/utils/setLocaleProp');
 const Watch = require('./utils/stopwatch');
+const logGraphic = require('./utils/logGraphic');
 const keyBy = require('lodash/keyBy');
 const prompts = require('prompts');
 const chalk = require('chalk');
@@ -145,6 +146,7 @@ class ServerRequest {
     const { workspace, graphicId } = getPkgProp('reuters');
     const pack = await fetchPack(workspace, graphicId, token);
     this.context.metadata.graphic = pack;
+    logGraphic(pack);
     logger.info('got pack');
   }
 

@@ -21,7 +21,7 @@ const putPack = async(workspace, graphicId, metadata, token) => {
   const headers = { Authorization: token };
 
   const { graphic } = metadata;
-  const { title, description, byline, slugline, topicCodes, location, editions } = graphic;
+  const { title, description, archived, byline, slugline, topicCodes, location, editions } = graphic;
 
   const payload = {
     graphic: {
@@ -33,6 +33,7 @@ const putPack = async(workspace, graphicId, metadata, token) => {
       editions,
       topicCodes,
       location,
+      archived,
       changed: true,
     },
   };

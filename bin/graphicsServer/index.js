@@ -15,11 +15,11 @@ const publishGraphic = async() => {
       await request.updateOnly();
     } else if (createOnly) {
       await request.createOnly();
+    } else if (publish) {
+      await request.publish();
     } else {
-      console.log('UPDATE');
       await request.upload();
     }
-    if (publish) await request.publish();
   }
 
   logger.info('✅ Done.\n');
