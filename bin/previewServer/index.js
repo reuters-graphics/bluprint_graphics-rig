@@ -3,7 +3,8 @@ const portfinder = require('portfinder');
 const path = require('path');
 const open = require('open');
 const ngrok = require('ngrok');
-const logger = require('../../config/utils/logger')('Build packages');
+const chalk = require('chalk');
+const logger = require('../../config/utils/logger')('Preview server');
 
 const argv = require('yargs').argv;
 
@@ -18,7 +19,7 @@ portfinder.getPortPromise()
     });
     open(`http://localhost:${port}/en/`);
 
-    logger.info(`⚡ Server started at {yellow ${`http://localhost:${port}`}}`);
+    logger.info(chalk`⚡ Server started at {yellow ${`http://localhost:${port}`}}\n`);
 
     // If passing --ngrok, we'll open up a tunnel
     if (argv.ngrok) {
@@ -26,6 +27,6 @@ portfinder.getPortPromise()
         addr: port,
       });
       open(`${url}/en/`, { background: true });
-      logger.info(`⚡ Ngrok preview at {yellow ${url}}`);
+      logger.info(chalk`⚡ Ngrok preview at {yellow ${url}}`);
     }
   });

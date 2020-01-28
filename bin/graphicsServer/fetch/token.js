@@ -6,7 +6,7 @@ const { serviceUrl } = require('../constants/locations');
 const catchRetry = require('../utils/catchRetry');
 
 const getCredentials = () => {
-  const credFilePath = path.join(os.homedir(), '.servercredentials');
+  const credFilePath = path.join(os.homedir(), '.reuters-graphics/graphics-server.json');
   const credFile = fs.readFileSync(credFilePath);
   return JSON.parse(credFile);
 };

@@ -10,10 +10,28 @@
       "message": "What should we call this project?"
     }]
   }, {
+    "action": "remove",
+    "paths": ["README.md"]
+  }, {
+    "action": "move",
+    "paths": ["PROJECT_README.md", "README.md"]
+  }, {
+    "action": "render",
+    "engine": "mustache",
+    "files": ["README.md"]
+  }, {
+    "action": "regexreplace",
+    "files": ["package.json"],
+    "replace": [
+      ["projectName", "{{#slugify}}{{ projectName }}{{/slugify}}"]
+    ]
+  }, {
     "action": "execute",
     "cmds": [
       ["yarn"],
-      ["git", ["init"]]
+      ["git", ["init"]],
+      ["yarn", ["check:creds"]],
+      ["yarn", ["start"]]
     ]
   }]
 }

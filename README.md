@@ -1,37 +1,22 @@
-![](badge.svg)
+![Reuters](badge.svg)
 
-# project-template-test
+# Reuters graphics rig
 
-Working prototype of a single-page builder for Reuters Graphics.
+## Quickstart
 
-**Requires > Node v. 12.** Use [nvm](https://github.com/nvm-sh/nvm).
+1. If you haven't already, install our template engine, [bluprint](https://github.com/reuters-graphics/bluprint), and add the bluprint for the graphics rig to bluprint's CLI.
 
-### Commands
+  ```
+  $ yarn global add @reuters-graphics/bluprint
+  $ bluprint add reuters-graphics/graphics-rig
+  ```
 
-##### `yarn start`
+2. Make a fresh directory for your new project and use the graphics rig bluprint to scaffold out your project.
 
-Start development servers and opens a browser window. Add `--ngrok` arg to start a sharable tunnel.
+  ```
+  $ mkdir my-new-project
+  $ cd my-new-project
+  $ bluprint new
+  ```
 
-##### `yarn build`
-
-Checks metadata is filled out correctly. Builds production ready packages.
-
-##### `yarn preview`
-
-Runs a preview server inside the built directory. Add `--ngrok` arg to start a sharable tunnel.
-
-##### `yarn get-referrals`
-
-Scrapes metadata for referral links.
-
-##### `yarn make-srcset`
-
-Resizes an image to a specified number of progressive jpg's and outputs a correctly formatted img tag using srcset property.
-
-##### `yarn extract-text`
-
-Extracts text in ejs templates (gettext) and JS files (ttag) into `po` files.
-
-##### `yarn pub`
-
-TK.
+3. [READ THE DOCS.](https://reuters-graphics.github.io/style/graphics-rig/)

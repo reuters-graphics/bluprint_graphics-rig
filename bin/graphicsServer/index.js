@@ -8,6 +8,11 @@ const locales = getLocales();
 const { update: updateOnly, create: createOnly, publish } = argv;
 
 const publishGraphic = async() => {
+  // Publishes the entire pack...
+  if (publish) {
+    const request = new ServerRequest('en');
+    return request.publish();
+  }
   for (const i in locales) {
     const locale = locales[i];
     const request = new ServerRequest(locale);
@@ -15,8 +20,6 @@ const publishGraphic = async() => {
       await request.updateOnly();
     } else if (createOnly) {
       await request.createOnly();
-    } else if (publish) {
-      await request.publish();
     } else {
       await request.upload();
     }
