@@ -2,13 +2,13 @@
 <html lang="<%= lang %>" dir="ltr">
   <head>
   </head>
-  <body>
+  <body class='child-frame'>
     <%- include('article.ejs'); %>
 
     <!--  Pym.js script -->
     <script type="text/javascript" src="//graphics.thomsonreuters.com/pym.min.js"></script>
     <script type="application/javascript">
-      window.childFrame = new pym.Child();
+      window.childFrame = new pym.Child({ polling: 500 });
     </script>
     <!--  -->
 
