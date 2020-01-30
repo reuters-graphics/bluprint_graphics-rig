@@ -190,7 +190,7 @@ class ServerRequest {
     if (!publishDate) {
       const { date } = await prompts({
         message: 'When is this piece publishing?',
-        mask: 'YYYY-MM-DD HH:mm:ss',
+        mask: 'YYYY-MM-DD HH:mm',
         type: 'date',
         initial: new Date(),
         format: (value) => value.toISOString(),
@@ -208,7 +208,7 @@ class ServerRequest {
       initial: true,
     }, {
       message: 'When should we say we\'ve updated this piece?',
-      mask: 'YYYY-MM-DD HH:mm:ss',
+      mask: 'YYYY-MM-DD HH:mm',
       type: prev => prev ? 'date' : null,
       initial: new Date(),
       format: (value) => value.toISOString(),
@@ -241,7 +241,6 @@ class ServerRequest {
 
   async update() {
     logger.info(chalk`🌎 UPLOADING PACKAGES for {green.underline ${this.locale}} locale...`);
-
     try {
       const watch = new Watch();
       await this.getToken();
