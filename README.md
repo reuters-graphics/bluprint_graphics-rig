@@ -12,7 +12,7 @@
   $ bluprint add reuters-graphics/graphics-rig
   ```
 
-2. Make a fresh directory and use the bluprint to scaffold out your project.
+3. Make a fresh directory and use the bluprint to scaffold out your project.
 
   ```
   $ mkdir my-new-project
@@ -20,4 +20,4 @@
   $ bluprint start
   ```
 
-3. [READ THE DOCS.](https://reuters-graphics.github.io/style/graphics-rig/)
+4. [READ THE DOCS.](https://reuters-graphics.github.io/style/graphics-rig/)
