@@ -2,7 +2,7 @@
 
 # Reuters graphics rig
 
-## Quickstart
+### Quickstart
 
 1. If you haven't already, install our scaffolding engine, [bluprint](https://github.com/reuters-graphics/bluprint), and add the graphics rig bluprint to the CLI.
 

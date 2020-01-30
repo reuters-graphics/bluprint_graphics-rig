@@ -2,7 +2,7 @@
 
 # {{ projectName }}
 
-## Quickstart
+### Quickstart
 
 - Develop.
 
