@@ -47,5 +47,5 @@ locales.forEach((locale) => {
   writeGettextPo(locale);
   writeTtagPo(locale);
 });
-
+console.log('\n');
 logger.info('✅ Done.\n');

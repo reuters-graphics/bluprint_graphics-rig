@@ -1,4 +1,5 @@
 const ServerRequest = require('./serverRequest');
+const logLocaleUrls = require('./utils/logLocaleUrls');
 const getLocales = require('../../config/utils/getLocales');
 const logger = require('../../config/utils/logger')('Graphics Server');
 const argv = require('yargs').argv;
@@ -11,7 +12,9 @@ const publishGraphic = async() => {
   // Publishes the entire pack...
   if (publish) {
     const request = new ServerRequest('en');
-    return request.publish();
+    await request.publish();
+    locales.forEach(locale => logLocaleUrls(locale));
+    return;
   }
   for (const i in locales) {
     const locale = locales[i];

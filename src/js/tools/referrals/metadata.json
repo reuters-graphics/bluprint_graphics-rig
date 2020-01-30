@@ -6,6 +6,12 @@
     "image": "https://graphics.reuters.com/CLIMATE-CHANGE-ICE-SHIPLOGS/0100B4QE2FC/images/share-card.png"
   },
   {
+    "url": "https://graphics.reuters.com/CHINA-HEALTH-MAP/0100B59S39E/index.html",
+    "title": "Tracking the novel coronavirus",
+    "description": "Reuters maps all places where 2019-nCoV cases have been confirmed.",
+    "image": "https://graphics.reuters.com/CHINA-HEALTH-MAP/0100B59S39E/images/share-card.png"
+  },
+  {
     "url": "https://graphics.reuters.com/AUSTRALIA-BUSHFIRES-WILDLIFE/0100B5672VM/index.html",
     "title": "Assessing Australia’s “ecological disaster” ",
     "description": "A Reuters analysis of over 1,400 species highlights those affected most by bushfires",
@@ -16,11 +22,5 @@
     "title": "The 5 percent at Davos",
     "description": "The outsiders inside the bubble of the World Economic Forum",
     "image": "https://graphics.reuters.com/DAVOS-MEETING-AGE/0100B5622V9/images/share-card.png"
-  },
-  {
-    "url": "https://graphics.reuters.com/AUSTRALIA-BUSHFIRES-SMOK/0100B4W52R7/index.html",
-    "title": "Swirling smoke",
-    "description": "Animated maps and satellite data show how Australia's bushfire smoke has spread.",
-    "image": "https://graphics.reuters.com/AUSTRALIA-BUSHFIRES-SMOK/0100B4W52R7/images/share-card.png"
   }
 ]

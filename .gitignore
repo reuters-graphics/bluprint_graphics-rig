@@ -140,5 +140,6 @@ public/
 
 # End of https://www.gitignore.io/api/macos,node,linux
 
+# Built packages
 dist/
 packages/

@@ -31,7 +31,7 @@ const addLocale = async() => {
   const EN_DIR = path.resolve(__dirname, '../../locales/en/');
   const LOCALE_DIR = path.resolve(__dirname, `../../locales/${locale}/`);
 
-  const files = glob.sync('**/*', { cwd: EN_DIR });
+  const files = glob.sync('**/*', { cwd: EN_DIR, nodir: true });
 
   files.forEach((file) => {
     const COPY_FILE = path.join(EN_DIR, file);

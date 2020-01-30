@@ -4,7 +4,7 @@ const merge = require('webpack-merge');
 const ngrok = require('ngrok');
 const open = require('open');
 
-const common = require('./webpack.common.js');
+const commonConfig = require('./webpack.common.js');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MetataggerPlugin = require('metatagger-webpack-plugin');
@@ -21,7 +21,7 @@ const getEjsRenderedRule = require('./rules/dev/ejs/rendered');
 
 portfinder.basePort = 3000;
 
-const config = (env, argv, port) => (merge(common, {
+const config = (env, argv, port) => (merge(commonConfig, {
   entry: {
     app: [
       '@babel/polyfill',

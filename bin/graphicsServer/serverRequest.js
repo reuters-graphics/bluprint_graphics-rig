@@ -11,6 +11,7 @@ const postDummyPublicPackage = require('./create/dummyPublicPackage');
 const updatePack = require('./update/pack');
 const updateMediaPackage = require('./update/mediaPackage');
 const updatePublicPackage = require('./update/publicPackage');
+const publishPack = require('./publish/pack');
 const getDefaultContext = require('./getDefaultContext');
 const getPkgProp = require('../../config/utils/getPackageProp');
 const setPkgProp = require('../../config/utils/setPackageProp');
@@ -138,7 +139,7 @@ class ServerRequest {
     this.setLocaleProp('editions.media.interactive.repositoryId', mediaRepositoryId);
     const { repositoryId: publicRepositoryId } = editionsObj.public__interactive.repositories[0];
     this.setLocaleProp('editions.public.interactive.repositoryId', publicRepositoryId);
-    logger.info('updated graphic packs');
+    logger.info('updated graphic pack');
   }
 
   async getPack() {
@@ -148,6 +149,14 @@ class ServerRequest {
     this.context.metadata.graphic = pack;
     logGraphic(pack);
     logger.info('got pack');
+  }
+
+  async putPack() {
+    const { token } = this;
+    const { workspace, graphicId } = getPkgProp('reuters');
+    const pack = await publishPack(workspace, graphicId, token);
+    logGraphic(pack);
+    logger.info('Published pack!');
   }
 
   async getMediaUrl() {
@@ -233,6 +242,7 @@ class ServerRequest {
 
   async update() {
     logger.info(chalk`🌎 UPLOADING PACKAGES for {green.underline ${this.locale}} locale...`);
+
     try {
       const watch = new Watch();
       await this.getToken();
@@ -276,6 +286,7 @@ class ServerRequest {
   async publish() {
     try {
       await this.getToken();
+      await this.putPack();
     } catch (e) {
       logger.error(e.message);
       process.exit(1);

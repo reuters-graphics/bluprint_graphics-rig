@@ -8,18 +8,20 @@
     "check:creds": "npx ./bin/checkCreds/index.js",
     "check:meta": "npx ./bin/checkMeta/index.js",
     "check:share-img": "npx ./bin/measureImg/index.js",
+    "confirm:meta": "npx ./bin/confirmMeta/index.js",
     "build:referrals": "npx ./bin/getReferrals/index.js",
     "build:clean": "npx ./bin/cleanBuild/index.js",
     "build:source": "webpack --mode=production --config config/webpack.prod.js",
     "build:dist": "webpack --mode=production --minify --config config/webpack.prod.js",
+    "build:dist:preview": "webpack --mode=production --minify --config config/webpack.preview.js",
     "build:prettify": "prettier --write \"packages/**/source/**/*.{html,css}\" --loglevel warn",
     "build:packages": "npx ./bin/buildPackages/index.js",
     "build": "npm-run-all build:referrals \"check:meta --silent --locale {1}\" \"build:clean --locale {1}\" \"build:source --locale {1}\" \"build:dist --locale {1}\" build:prettify \"build:packages --locale {1}\" --",
     "server:create": "npx ./bin/graphicsServer/index.js --create",
     "server:update": "npx ./bin/graphicsServer/index.js --update",
-    "upload": "rm config/logs/process.log && npm-run-all \"check:meta --locale {1}\" \"check:share-img --locale {1}\" \"server:create --locale {1}\" \"build {1}\" \"server:update --locale {1}\" --",
+    "upload": "rm config/logs/process.log && npm-run-all \"extract-text --silent\" \"check:meta --locale {1}\" \"confirm:meta --locale {1}\" \"check:share-img --locale {1}\" \"server:create --locale {1}\" \"build {1}\" \"server:update --locale {1}\" --",
     "publish:live": "npx ./bin/graphicsServer/index.js --publish",
-    "preview": "npm run build:dist && npx ./bin/previewServer/index.js",
+    "preview": "npm-run-all \"extract-text --silent\" \"check:meta --locale {1}\" build:dist:preview && npx ./bin/previewServer/index.js",
     "extract-text": "npx ./bin/extractText/index.js",
     "make-srcset": "npx ./bin/makeSrcset/index.js",
     "add-locale": "npx ./bin/addLocale/index.js"
@@ -123,19 +125,5 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
-  "reuters": {
-    "authors": [
-      {
-        "name": "Jon McClure",
-        "link": "https://twitter.com/JonRMcClure"
-      }
-    ],
-    "referrals": [
-      "http://graphics.reuters.com/CLIMATE-CHANGE-ICE-SHIPLOGS/0100B4QE2FC/index.html"
-    ],
-    "desk": "london",
-    "publishDate": "2020-01-28T18:07:03.079Z",
-    "workspace": "10",
-    "graphicId": "f4b72572-5bf5-4dfe-b39b-7b206d3b057e"
-  }
+  "reuters": {}
 }

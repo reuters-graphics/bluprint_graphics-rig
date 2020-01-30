@@ -8,6 +8,12 @@ import throttle from 'lodash/throttle';
 import handleTweet from './utils/twitter';
 import handlePost from './utils/facebook';
 
+const getMetaContent = (property) => {
+  const el = document.querySelector(`meta[property="${property}"]`);
+  if (el) return el.getAttribute('content');
+  return '';
+};
+
 const handleShare = async function() {
   if (showSecondaryDialogue) {
     showSecondaryDialogue = false;
@@ -17,14 +23,14 @@ const handleShare = async function() {
   if (navigator && navigator.share) {
     try {
       await navigator.share({
-        title: 'A page',
-        text: 'Get your description here',
+        title: getMetaContent('og:title'),
+        text: getMetaContent('og:description'),
         url: window.location.href,
       });
-      // Otherwise copy URL to a clipboard
     } catch (err) {
       console.log('Share error', err);
     }
+  // Otherwise copy URL to a clipboard
   } else {
     showSecondaryDialogue = true;
   }

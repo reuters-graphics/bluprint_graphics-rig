@@ -38,9 +38,13 @@ module.exports = {
           format: 'date-time',
           prompt: {
             message: 'When is this piece publishing?',
-            mask: 'YYYY-MM-DD HH:mm:ss',
+            mask: 'YYYY-MM-DD HH:mm',
             type: 'date',
-            initial: new Date(),
+            initial: () => {
+              const date = new Date();
+              date.setMinutes(0);
+              return date;
+            },
             format: (value) => value.toISOString(),
           },
         },
@@ -59,6 +63,7 @@ module.exports = {
                   message: (variablePath) =>
                     `What's the project author's name ${chalk.grey(`(${variablePath})`)}?\n`,
                 },
+                minLength: 2,
               },
               link: {
                 type: 'string',

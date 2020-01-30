@@ -26,4 +26,11 @@ if (locale && locale !== true) {
   ]);
 }
 
+logger.info('Resetting log files...');
+logger.info('📁 config/logs/');
+
+del.sync([
+  'config/logs/*.log',
+]);
+
 logger.info('✅ Done.\n');
