@@ -229,7 +229,6 @@ class ServerRequest {
       await this.createGraphicPack();
       await this.createDummyMediaPkg();
       await this.createDummyPublicPkg();
-      watch.log();
       await this.updateGraphicPack();
       await this.getMediaUrl();
       await this.getPublicUrl();
@@ -251,8 +250,9 @@ class ServerRequest {
       await this.getEvent();
       await this.getTopics();
       await this.updateGraphicPack();
-      watch.log();
       await this.updateGraphicPackages();
+      await this.getMediaUrl();
+      await this.getPublicUrl();
       watch.stop();
     } catch (e) {
       logger.error(e.message);
@@ -287,6 +287,8 @@ class ServerRequest {
     try {
       await this.getToken();
       await this.putPack();
+      await this.getMediaUrl();
+      await this.getPublicUrl();
     } catch (e) {
       logger.error(e.message);
       process.exit(1);
