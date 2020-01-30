@@ -1,9 +1,14 @@
 <div class="dateline-container">
   <% if (metadata.publishDate) { %>
-  <div class="published">
-    Published <time class='time' datetime="<%- new Date(metadata.publishDate).toISOString()%>">
-    <%= journalize.apdate(new Date(metadata.publishDate)); %></time>
-  </div>
+    <div class="published">
+      Published <time class='time' datetime="<%- new Date(metadata.publishDate).toISOString()%>">
+      <%= journalize.apdate(new Date(metadata.publishDate)); %></time>
+    </div>
+  <% } else { %>
+    <div class="published">
+      Published <time class='time' datetime="<%- new Date().toISOString()%>">
+      <%= journalize.apdate(new Date()); %></time>
+    </div>
   <% } %>
   <% if (
     metadata.updateDate &&
