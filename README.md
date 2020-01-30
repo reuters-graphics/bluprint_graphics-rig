@@ -16,7 +16,7 @@
   ```
   $ mkdir my-new-project
   $ cd my-new-project
-  $ bluprint new
+  $ bluprint start
   ```
 
 3. [READ THE DOCS.](https://reuters-graphics.github.io/style/graphics-rig/)
