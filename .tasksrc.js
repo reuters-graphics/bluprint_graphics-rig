@@ -1,35 +1,24 @@
 module.exports = {
   scripts: {
-    'check:creds': 'npx ./bin/checkCreds/index.js',
-    'check:meta': 'npx ./bin/checkMeta/index.js',
-    'check:share-img': 'npx ./bin/measureImg/index.js',
-    'confirm:meta': 'npx ./bin/confirmMeta/index.js',
-    'build:referrals': 'npx ./bin/getReferrals/index.js',
-    'build:clean': 'npx ./bin/cleanBuild/index.js',
-    'build:packages': 'npx ./bin/buildPackages/index.js',
-    'extract-text': 'npx ./bin/extractText/index.js',
-    'make-srcset': 'npx ./bin/makeSrcset/index.js',
-    'add-locale': 'npx ./bin/addLocale/index.js',
+    // Shortcut for ['npx', ['<cmd>']] ...
+    'webpack': 'webpack',
+    'prettier': 'prettier',
   },
   tasks: {
-    start: 'yarn start',
-    test: {
-      run: 'yarn $1',
-    },
     build: {
       run: [
-        ['check:meta', { silent: true, locale: '$1' }],
         'build:referrals',
+        ['check:meta', { silent: true, locale: '$1' }],
         ['build:clean', { locale: '$1' }],
         ['webpack', {
           mode: 'production',
           config: 'config/webpack.prod.js',
           locale: '$1',
         }],
-        ['build:webpack', {
+        ['webpack', {
           mode: 'production',
-          minify: true,
           config: 'config/webpack.prod.js',
+          minify: true,
           locale: '$1',
         }],
         ['prettier', {
@@ -37,11 +26,38 @@ module.exports = {
           loglevel: 'warn',
         }],
         ['build:packages', { locale: '$1' }],
-        'echo $NODE_ENV',
       ],
       env: {
         NODE_ENV: 'production',
       },
     },
+    upload: {
+      run: [
+        ['extract-text', { silent: true }],
+        ['check:meta', { locale: '$1' }],
+        ['confirm:meta', { locale: '$1' }],
+        ['check:share-img', { locale: '$1' }],
+        ['graphics-server', { create: true }],
+        ['build', ['$1']],
+        ['graphics-server', { update: true }],
+      ]
+    },
+    publish: {
+      run: [
+        ['graphics-server', { publish: true }],
+      ]
+    },
+    preview: {
+      run: [
+        ['extract-text', { silent: true }],
+        ['check:meta', { locale: '$1' }],
+        ['webpack', {
+          mode: 'production',
+          config: 'config/webpack.preview.js',
+          minify: true,
+        }],
+        'preview-server:local',
+      ]
+    }
   },
 };

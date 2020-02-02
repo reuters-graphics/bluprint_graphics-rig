@@ -32,8 +32,8 @@
       ["git", ["init"]],
       ["git", ["add", "."]],
       ["git", ["commit", "-m", "initial"]],
-      ["yarn", ["check:creds"]],
-      ["yarn", ["start"]]
+      ["runner", ["check:creds"]],
+      ["runner", ["start"]]
     ]
   }]
 }

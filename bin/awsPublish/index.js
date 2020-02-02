@@ -20,7 +20,7 @@ const getHash = () => {
   if (awsPreviewHash) return awsPreviewHash;
 
   const hash = cryptoRandomString({ length: 12, type: 'url-safe' });
-  setPackageProp('reuters.awsPreviewHash', hash);
+  setPackageProp('reuters.rigId', hash);
   return hash;
 };
 

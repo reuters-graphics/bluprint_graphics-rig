@@ -7,19 +7,19 @@
 - Develop.
 
   ```
-  $ yarn start
+  $ runner start
   ```
 - Preview
 
   ```
-  $ yarn preview
+  $ runner preview
   ```
 
 - Publish
 
   ```
-  $ yarn upload
-  $ yarn publish:live
+  $ runner upload
+  $ runner publish
   ```
 
 [READ THE DOCS!](https://reuters-graphics.github.io/style/graphics-rig/)
