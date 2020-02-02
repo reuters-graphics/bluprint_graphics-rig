@@ -55,6 +55,7 @@ const fetchEventsData = async(slug, locale, token) => {
 
 module.exports = async(slug, locale, token) => {
   const data = await fetchEventsData(slug, locale, token);
+  if (data.Events.length === 0) return null;
   // best matched event is the first one
   const bestMatchedEvent = data.Events.filter(e => slug.indexOf(e.Slugline) === 0)[0];
   return bestMatchedEvent;

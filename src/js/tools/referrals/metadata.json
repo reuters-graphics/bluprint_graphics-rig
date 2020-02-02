@@ -1,26 +1,26 @@
 [
   {
-    "url": "http://graphics.reuters.com/CLIMATE-CHANGE-ICE-SHIPLOGS/0100B4QE2FC/index.html",
-    "title": "Weather Time Machine",
-    "description": "Old ships' logs are giving scientists new insights into the past and future of the earth's changing climate",
-    "image": "https://graphics.reuters.com/CLIMATE-CHANGE-ICE-SHIPLOGS/0100B4QE2FC/images/share-card.png"
+    "url": "https://graphics.reuters.com/CHINA-HEALTH-VIRUS-SCIENCE/0100B59Z39Q/index.html",
+    "title": "Wuhan outbreak: Genetics of the new virus",
+    "description": "Illustrations and charts showing the genetics, spread and family tree of the 2019 Wuhan coronavirus",
+    "image": "https://graphics.reuters.com/CHINA-HEALTH-VIRUS-SCIENCE/0100B59Z39Q/images/share-card.png"
+  },
+  {
+    "url": "https://graphics.reuters.com/CHINA-HEALTH-HUBEI/0100B5BJ3BS/index.html",
+    "title": "Wuhan coronavirus: An expanding epicentre",
+    "description": "A jump in infections in two Chinese cities flanking Wuhan is fuelling fear that new hot spots are emerging in the outbreak.",
+    "image": "https://graphics.reuters.com/CHINA-HEALTH-HUBEI/0100B5BJ3BS/images/share-card.png"
+  },
+  {
+    "url": "https://graphics.reuters.com/CHINA-HEALTH-WUHAN-SATELLITE/0100B5B93B4/index.html",
+    "title": "Satellite images show Wuhan's empty streets",
+    "description": "Satellite images show Wuhan's empty streets",
+    "image": "https://graphics.reuters.com/CHINA-HEALTH-WUHAN-SATELLITE/0100B5B93B4/images/share-card.png"
   },
   {
     "url": "https://graphics.reuters.com/CHINA-HEALTH-MAP/0100B59S39E/index.html",
     "title": "Tracking the novel coronavirus",
     "description": "Reuters maps all places where 2019-nCoV cases have been confirmed.",
     "image": "https://graphics.reuters.com/CHINA-HEALTH-MAP/0100B59S39E/images/share-card.png"
-  },
-  {
-    "url": "https://graphics.reuters.com/AUSTRALIA-BUSHFIRES-WILDLIFE/0100B5672VM/index.html",
-    "title": "Assessing Australia’s “ecological disaster” ",
-    "description": "A Reuters analysis of over 1,400 species highlights those affected most by bushfires",
-    "image": "https://graphics.reuters.com/AUSTRALIA-BUSHFIRES-WILDLIFE/0100B5672VM/images/share-card.png"
-  },
-  {
-    "url": "https://graphics.reuters.com/DAVOS-MEETING-AGE/0100B5622V9/index.html",
-    "title": "The 5 percent at Davos",
-    "description": "The outsiders inside the bubble of the World Economic Forum",
-    "image": "https://graphics.reuters.com/DAVOS-MEETING-AGE/0100B5622V9/images/share-card.png"
   }
 ]

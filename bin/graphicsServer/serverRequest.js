@@ -56,10 +56,16 @@ class ServerRequest {
 
   async getEvent() {
     const { slugline } = this.context.metadata.graphic;
+    const rootSlug = slugline.split('/')[0];
     const { token } = this;
     // Temporary as long as some languages not returned by server
     const locale = this.languages[this.locale].isoCode;
-    const event = await fetchEvent(slugline, locale, token);
+    const event = await fetchEvent(rootSlug, locale, token);
+    if (!event) {
+      this.context.metadata.eventId = null;
+      logger.warn('No events found. Please add manually on the server later.');
+      return;
+    }
     this.context.metadata.eventId = event.Id;
     logger.info('got event');
   }
@@ -67,6 +73,10 @@ class ServerRequest {
   async getTopics() {
     const { token } = this;
     const { eventId } = this.context.metadata;
+    if (!eventId) {
+      logger.warn('Unable to attach topics without an event. Please add manually on the server later.');
+      return;
+    }
     const topics = await fetchTopics(eventId, token);
     this.context.metadata.graphic.topicCodes = topics;
     logger.info('got topics');

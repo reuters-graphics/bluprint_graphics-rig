@@ -1,4 +1,4 @@
-const TOML = require('@iarna/toml');
+const INI = require('ini');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
@@ -15,13 +15,13 @@ const checkAWS = async() => {
 
   if (!fs.existsSync(filePath)) fs.writeFileSync(filePath, '');
 
-  const metadata = TOML.parse(fs.readFileSync(filePath));
+  const metadata = INI.parse(fs.readFileSync(filePath, 'utf-8'));
 
   logger.info('AWS');
 
-  const data = await askJSON(JSONschema, metadata);
+  const data = await askJSON(JSONschema, metadata === '' ? {} : metadata);
 
-  fs.writeFileSync(filePath, TOML.stringify(data));
+  fs.writeFileSync(filePath, INI.stringify(data));
 };
 
 module.exports = checkAWS;

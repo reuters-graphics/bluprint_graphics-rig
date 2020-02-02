@@ -7,6 +7,9 @@ import { faFacebookF } from '@fortawesome/free-brands-svg-icons/faFacebookF';
 import throttle from 'lodash/throttle';
 import handleTweet from './utils/twitter';
 import handlePost from './utils/facebook';
+import UAParser from 'ua-parser-js';
+
+const uaParser = new UAParser();
 
 const getMetaContent = (property) => {
   const el = document.querySelector(`meta[property="${property}"]`);
@@ -20,7 +23,11 @@ const handleShare = async function() {
     return;
   }
 
-  if (navigator && navigator.share) {
+  if (
+    navigator &&
+    navigator.share &&
+    uaParser.getBrowser().name !== 'Safari'
+  ) {
     try {
       await navigator.share({
         title: getMetaContent('og:title'),

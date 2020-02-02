@@ -1,4 +1,7 @@
 const chalk = require('chalk');
+const profileProp = require('../../../config/utils/getProfileProp');
+
+const desks = ['bangalore', 'london', 'new york', 'singapore'];
 
 module.exports = {
   type: 'object',
@@ -8,21 +11,24 @@ module.exports = {
       properties: {
         desk: {
           type: 'string',
-          enum: ['new york', 'london', 'singapore'],
+          enum: desks,
           prompt: {
             message: 'What desk is this project publishing from?',
             type: 'select',
             choices: [{
-              title: 'New York',
-              value: 'new york',
+              title: 'Bangalore',
+              value: 'bangalore',
             }, {
               title: 'London',
               value: 'london',
             }, {
+              title: 'New York',
+              value: 'new york',
+            }, {
               title: 'Singapore',
               value: 'singapore',
             }],
-            initial: 0,
+            initial: desks.indexOf(profileProp('desk')),
           },
         },
         workspace: {
@@ -62,6 +68,7 @@ module.exports = {
                 prompt: {
                   message: (variablePath) =>
                     `What's the project author's name ${chalk.grey(`(${variablePath})`)}?\n`,
+                  initial: profileProp('name'),
                 },
                 minLength: 2,
               },
@@ -71,6 +78,7 @@ module.exports = {
                 prompt: {
                   message: (variablePath) =>
                     `What's a link for the project's author ${chalk.grey(`(${variablePath})`)}?\n`,
+                  initial: profileProp('url'),
                 },
               },
             },

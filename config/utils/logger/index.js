@@ -4,8 +4,12 @@ const path = require('path');
 const emojiStrip = require('emoji-strip');
 const stripColor = require('strip-color');
 const argv = require('yargs').argv;
+const fs = require('fs');
 
 const { silent } = argv;
+
+const logDir = path.resolve(__dirname, '../../../config/logs/');
+if (!fs.existsSync(logDir)) fs.mkdirSync(logDir);
 
 module.exports = (processName = 'Graphics Rig') => {
   const label = chalk`{green ${processName}:}`;

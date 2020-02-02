@@ -21,14 +21,18 @@ module.exports = {
       prompt: {
         message: 'What URL would you like associated with your byline, e.g., Twitter profile?',
       },
+      initial: 'https://graphics.reuters.com',
     },
     desk: {
       type: 'string',
-      enum: ['new york', 'london', 'singapore'],
+      enum: ['bangalore', 'london', 'new york', 'singapore'],
       prompt: {
         message: 'Which graphics desk do you work from?',
         type: 'select',
         choices: [{
+          title: 'Bangalore',
+          value: 'bangalore',
+        }, {
           title: 'London',
           value: 'london',
         }, {
