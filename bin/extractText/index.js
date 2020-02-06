@@ -33,7 +33,7 @@ const writeGettextPo = (locale) => {
 
 const writeTtagPo = (locale) => {
   const output = path.resolve(LOCALES_DIR, `${locale}/messages.ttag.po`);
-  const scriptFiles = glob.sync('src/js/**/*.js');
+  const scriptFiles = glob.sync('src/js/**/*.{js,ejs}');
   // Make po file if it doesn't exist or user passes --reset
   if (!existsSync(output) || argv.reset) initPo(locale, output);
 
