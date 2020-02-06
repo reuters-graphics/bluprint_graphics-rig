@@ -32,9 +32,10 @@ const makeArchive = (outputStream) => {
       '.git/**',
       'dist/**', // All built files
       'packages/**',
-      '*', // All root level files
+      'yarn.lock',
+      'yarn-error.log',
     ],
-  }).concat(['package.json']);
+  });
 
   appFiles.forEach(f => archive.file(f, { name: f }));
   archive.finalize();
