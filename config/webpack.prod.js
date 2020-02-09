@@ -25,6 +25,7 @@ const scssRule = require('./rules/prod/scss/main');
 const scssModuleRule = require('./rules/prod/scss/modules');
 const cssRule = require('./rules/prod/css');
 const getEjsRenderedRule = require('./rules/prod/ejs/rendered');
+const SSR = require('./staticRenderedApps/wrapper');
 
 const packageMetadata = require('../package.json');
 
@@ -34,7 +35,7 @@ const getLocaleMetadata = (locale) =>
 module.exports = (env, argv) => getLocales().map((locale) => {
   logger.info(chalk`Building {green.underline ${locale}} ${argv.minify ? 'interactive page' : 'media assets'}...`);
 
-  return (merge(common, {
+  return SSR(merge(common, {
     entry: {
       app: [
         '@babel/polyfill',
