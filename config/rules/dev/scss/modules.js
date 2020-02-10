@@ -12,6 +12,14 @@ module.exports = {
       sourceMap: true,
     },
   }, {
+    loader: 'postcss-loader',
+    options: {
+      sourceMap: true,
+      plugins: [
+        require('autoprefixer'),
+      ],
+    },
+  }, {
     loader: 'resolve-url-loader',
     options: {},
   }, {

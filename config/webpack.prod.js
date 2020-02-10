@@ -5,7 +5,6 @@ const chalk = require('chalk');
 
 const common = require('./webpack.common.js');
 
-const AutoprefixerPlugin = require('autoprefixer');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MetataggerPlugin = require('metatagger-webpack-plugin');
@@ -89,7 +88,6 @@ module.exports = (env, argv) => getLocales().map((locale) => {
       ],
     },
     plugins: [
-      AutoprefixerPlugin,
       new HtmlWebpackPlugin({
         filename: 'embed.html',
         template: path.resolve(__dirname, '../src/html/embed.ejs'),
