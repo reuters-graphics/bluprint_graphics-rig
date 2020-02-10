@@ -1,7 +1,7 @@
-const registeredApps = require('../staticApps');
+const registeredApps = require('../prerenderApps');
 const schema = require('./schema');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackSsrPlugin = require('html-webpack-ssr-plugin');
+const HtmlWebpackPrerenderPlugin = require('html-webpack-prerender-plugin');
 const findIndex = require('lodash/findIndex');
 const Ajv = require('ajv');
 const path = require('path');
@@ -12,19 +12,22 @@ const findPluginIndex = (config, filename) =>
       plugin.options.filename === filename
   ));
 
+// This is a wrapper to inject configuration needed for prerendering
+// JS apps with html-webpack-prerender-plugin.
 module.exports = (config) => {
   // Validate registry
   const ajv = new Ajv();
   const valid = ajv.validate(schema, registeredApps);
-  if (!valid) throw new Error('Invalid static apps config.');
+  if (!valid) throw new Error('Invalid prerender apps config.');
 
   const isDev = config.mode === 'development';
 
   registeredApps.forEach((app, i) => {
-    const chunkName = `ssr-app-${i}`;
+    const chunkName = `prerendered-app-${i}`;
     const entryPath = path.join(__dirname, '../../src/js/', app.script);
     // Add chunk to the entry array
     config.entry[chunkName] = [
+      'regenerator-runtime/runtime',
       '@babel/polyfill',
       entryPath,
     ];
@@ -55,7 +58,7 @@ module.exports = (config) => {
     };
 
     config.plugins.push(
-      new HtmlWebpackSsrPlugin({
+      new HtmlWebpackPrerenderPlugin({
         'index.html': pluginConfig,
         'embed.html': pluginConfig,
       })

@@ -1,5 +1,5 @@
 module.exports = [
-  // Configure your static apps here, like this...
+  // Configure your prerendered apps here, like this...
   //
   // {
   //   script: 'myApp.js',
