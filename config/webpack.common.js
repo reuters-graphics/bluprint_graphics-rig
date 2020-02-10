@@ -1,6 +1,7 @@
 const path = require('path');
 
-const ejsTemplatedRule = require('./rules/prod/ejs/templated');
+const ejsTemplatedRule = require('./rules/common/ejs');
+const csvRule = require('./rules/common/csv');
 
 module.exports = {
   resolve: {
@@ -15,6 +16,7 @@ module.exports = {
   module: {
     rules: [
       ejsTemplatedRule,
+      csvRule,
     ],
   },
 };

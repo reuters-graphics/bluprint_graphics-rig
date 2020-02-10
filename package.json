@@ -47,6 +47,7 @@
     "cross-spawn-with-kill": "^1.0.0",
     "crypto-random-string": "^3.1.0",
     "css-loader": "^3.3.0",
+    "csv-loader": "^3.0.2",
     "csv-parse": "^4.8.3",
     "del": "^5.1.0",
     "ejs": "^3.0.1",

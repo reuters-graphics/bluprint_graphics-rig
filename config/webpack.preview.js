@@ -23,7 +23,7 @@ const svelteRule = require('./rules/prod/js/svelte');
 const scssRule = require('./rules/prod/scss/main');
 const scssModuleRule = require('./rules/prod/scss/modules');
 const cssRule = require('./rules/prod/css');
-const getEjsRenderedRule = require('./rules/prod/ejs/rendered');
+const getEjsRenderedRule = require('./rules/prod/ejs');
 const Prerender = require('./prerenderWrapper');
 
 const getLocaleMetadata = (locale) =>

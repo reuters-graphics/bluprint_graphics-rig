@@ -17,7 +17,7 @@ const svelteRule = require('./rules/dev/js/svelte');
 const scssRule = require('./rules/dev/scss/main');
 const scssModuleRule = require('./rules/dev/scss/modules');
 const cssRule = require('./rules/dev/css');
-const getEjsRenderedRule = require('./rules/dev/ejs/rendered');
+const getEjsRenderedRule = require('./rules/dev/ejs');
 const Prerender = require('./prerenderWrapper');
 
 portfinder.basePort = 3000;

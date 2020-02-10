@@ -25,12 +25,17 @@ module.exports = (config) => {
   registeredApps.forEach((app, i) => {
     const chunkName = `prerendered-app-${i}`;
     const entryPath = path.join(__dirname, '../../src/js/', app.script);
-    // Add chunk to the entry array
-    config.entry[chunkName] = [
-      'regenerator-runtime/runtime',
-      '@babel/polyfill',
-      entryPath,
-    ];
+    // Add chunk to the entry array, as leading property
+    config.entry = {
+      ...{
+        [chunkName]: [
+          'regenerator-runtime/runtime',
+          '@babel/polyfill',
+          entryPath,
+        ],
+      },
+      ...config.entry,
+    };
 
     const indexPlugin = findPluginIndex(config, 'index.html');
     const embedPlugin = findPluginIndex(config, 'embed.html');
