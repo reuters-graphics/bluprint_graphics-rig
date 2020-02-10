@@ -24,7 +24,7 @@ const scssRule = require('./rules/prod/scss/main');
 const scssModuleRule = require('./rules/prod/scss/modules');
 const cssRule = require('./rules/prod/css');
 const getEjsRenderedRule = require('./rules/prod/ejs/rendered');
-const Prerender = require('./prerenderApps');
+const Prerender = require('./prerenderWrapper');
 
 const packageMetadata = require('../package.json');
 

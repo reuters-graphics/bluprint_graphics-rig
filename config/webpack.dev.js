@@ -18,7 +18,7 @@ const scssRule = require('./rules/dev/scss/main');
 const scssModuleRule = require('./rules/dev/scss/modules');
 const cssRule = require('./rules/dev/css');
 const getEjsRenderedRule = require('./rules/dev/ejs/rendered');
-const Prerender = require('./prerenderApps');
+const Prerender = require('./prerenderWrapper');
 
 portfinder.basePort = 3000;
 
