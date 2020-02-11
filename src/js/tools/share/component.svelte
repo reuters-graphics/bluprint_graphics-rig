@@ -102,7 +102,7 @@ window.addEventListener('scroll', throttle(handleScroll, 250));
 }
 
 .sharetool button {
-  background: #343a40;
+  background: #333;
   color: white;
   border: 1px solid white;
   border-radius: 50%;
