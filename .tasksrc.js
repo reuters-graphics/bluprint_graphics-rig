@@ -40,12 +40,12 @@ module.exports = {
         ['graphics-server', { create: true }],
         ['build', ['$1']],
         ['graphics-server', { update: true }],
-      ]
+      ],
     },
     publish: {
       run: [
         ['graphics-server', { publish: true }],
-      ]
+      ],
     },
     preview: {
       run: [
@@ -57,7 +57,19 @@ module.exports = {
           minify: true,
         }],
         'preview-server:local',
-      ]
-    }
+      ],
+    },
+    'preview:aws': {
+      run: [
+        ['extract-text', { silent: true }],
+        ['check:meta', { locale: '$1' }],
+        ['webpack', {
+          mode: 'production',
+          config: 'config/webpack.preview.js',
+          minify: true,
+        }],
+        'publish:aws',
+      ],
+    },
   },
 };
