@@ -13,7 +13,8 @@ const REPO = 'reuters-graphics/ai2html';
 
 const gitInfo = hostedGitInfo.fromUrl(REPO);
 
-const downloadRepo = async() => {
+const fetchRepo = async() => {
+  logger.info('Fetching ai2html repo...');
   const response = await axios.get(gitInfo.tarball(), {
     responseType: 'stream',
   });
@@ -21,13 +22,6 @@ const downloadRepo = async() => {
   return new Promise((resolve, reject) => {
     response.data.pipe(getParser(resolve, reject, memfs));
   });
-};
-
-const getFiles = async() => {
-  logger.info('Fetching ai2html repo...');
-  await downloadRepo();
-  const TEMPLATE = memfs.readFileSync(paths.github.TEMPLATE);
-  fs.writeFileSync(paths.system.TEMPLATE, TEMPLATE);
 };
 
 const writeFiles = () => {
@@ -47,7 +41,7 @@ const writeFiles = () => {
 };
 
 const getAIScripts = async() => {
-  await getFiles();
+  await fetchRepo();
   writeFiles();
   logger.info('✅ Done.\n');
 };
