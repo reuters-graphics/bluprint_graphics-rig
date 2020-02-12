@@ -28,6 +28,7 @@
   }, {
     "action": "execute",
     "cmds": [
+      ["runner", ["check:ai2html"]],
       ["yarn"],
       ["git", ["init"]],
       ["git", ["add", "."]],
