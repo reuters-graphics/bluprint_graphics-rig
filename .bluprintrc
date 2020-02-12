@@ -28,8 +28,8 @@
   }, {
     "action": "execute",
     "cmds": [
-      ["runner", ["check:ai2html"]],
       ["yarn"],
+      ["runner", ["check:ai2html"]],
       ["git", ["init"]],
       ["git", ["add", "."]],
       ["git", ["commit", "-m", "initial"]],
