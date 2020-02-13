@@ -134,5 +134,7 @@
     "ua-parser-js": "^0.7.21",
     "waypoints": "^4.0.1"
   },
-  "reuters": {}
+  "reuters": {
+    "awsPreviewURI": "2020/bRueGVRu5c4"
+  }
 }
