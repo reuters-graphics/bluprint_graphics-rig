@@ -43,6 +43,7 @@ module.exports = (env, argv) => getLocales().map((locale) => {
         path.join(__dirname, '../src/js/tools/google/publisherTags.js'),
         path.join(__dirname, '../src/js/tools/google/analytics.js'),
         path.join(__dirname, '../src/js/tools/share/index.js'),
+        path.join(__dirname, '../src/js/tools/referrals/index.js'),
       ],
     },
     stats: 'errors-only',
