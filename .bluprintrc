@@ -1,5 +1,5 @@
 {
-  "bluprint": "^0.0.19",
+  "bluprint": "^0.3.1",
   "name": "graphics rig",
   "category": "",
   "actions": [{
@@ -7,24 +7,29 @@
     "questions": [{
       "type": "text",
       "name": "projectName",
-      "message": "What should we call this project?"
+      "message": "What should we call this project?",
+      "condition": ["bluprintPart", null]
     }]
   }, {
     "action": "remove",
-    "paths": ["README.md"]
+    "paths": ["README.md"],
+    "condition": ["bluprintPart", null]
   }, {
     "action": "move",
-    "paths": ["PROJECT_README.md", "README.md"]
+    "paths": ["PROJECT_README.md", "README.md"],
+    "condition": ["bluprintPart", null]
   }, {
     "action": "render",
     "engine": "mustache",
-    "files": ["README.md"]
+    "files": ["README.md"],
+    "condition": ["bluprintPart", null]
   }, {
     "action": "regexreplace",
     "files": ["package.json"],
     "replace": [
       ["projectName", "{{#slugify}}{{ projectName }}{{/slugify}}"]
-    ]
+    ],
+    "condition": ["bluprintPart", null]
   }, {
     "action": "execute",
     "cmds": [
@@ -35,6 +40,14 @@
       ["git", ["commit", "-m", "initial"]],
       ["runner", ["check:creds"]],
       ["runner", ["start"]]
+    ],
+    "condition": ["bluprintPart", null]
+  }],
+  "parts": {
+    "bin, config & tasks": [
+      "bin/*",
+      "config/*",
+      ".tasksrc.js"
     ]
-  }]
+  }
 }
