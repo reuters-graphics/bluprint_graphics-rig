@@ -7,9 +7,9 @@
     "questions": [{
       "type": "text",
       "name": "projectName",
-      "message": "What should we call this project?",
-      "condition": ["bluprintPart", null]
-    }]
+      "message": "What should we call this project?"
+    }],
+    "condition": ["bluprintPart", null]
   }, {
     "action": "remove",
     "paths": ["README.md"],
