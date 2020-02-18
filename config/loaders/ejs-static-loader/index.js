@@ -130,7 +130,7 @@ function getLocaleDataDependencies(source) {
 
 function getEjsDependencies(source, sourcePath) {
   const dependecies = [];
-  const dependencyPattern = /<%[_\W]?\s*include((\(['"`](.*)['"`])|(\s+([^\s-]+)\s*[\W_]?%>))/g;
+  const dependencyPattern = /<%[_\W]?\s*include((\(['"`](.*?)['"`])|(\s+([^\s-]+)\s*[\W_]?%>))/g;
 
   let matches = dependencyPattern.exec(source);
   while (matches) {
