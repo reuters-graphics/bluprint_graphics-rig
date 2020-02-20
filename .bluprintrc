@@ -45,8 +45,8 @@
   }],
   "parts": {
     "bin, config & tasks": [
-      "bin/*",
-      "config/*",
+      "bin/**/*",
+      "config/**/*",
       ".tasksrc.js"
     ]
   }
