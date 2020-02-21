@@ -1,4 +1,4 @@
-const path = require('path');
+const urljoin = require('url-join');
 
 module.exports = ({ locale, project }) => ({
   meta: [
@@ -13,7 +13,7 @@ module.exports = ({ locale, project }) => ({
     { property: 'og:description', content: locale.shareDescription },
     {
       property: 'og:image',
-      content: path.join(
+      content: urljoin(
         locale.editions.public.interactive.url,
         locale.image.path
       ),
@@ -28,7 +28,7 @@ module.exports = ({ locale, project }) => ({
     { name: 'twitter:description', content: locale.shareDescription },
     {
       name: 'twitter:image:src',
-      content: path.join(
+      content: urljoin(
         locale.editions.public.interactive.url,
         locale.image.path
       ),
@@ -38,7 +38,7 @@ module.exports = ({ locale, project }) => ({
     { rel: 'canonical', href: locale.editions.public.interactive.url },
     {
       rel: 'shortcut icon',
-      href: path.join(
+      href: urljoin(
         locale.editions.public.interactive.url,
         'favicon.ico'
       ),

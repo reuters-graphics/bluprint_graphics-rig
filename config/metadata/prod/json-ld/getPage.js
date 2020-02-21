@@ -1,4 +1,4 @@
-const path = require('path');
+const urljoin = require('url-join');
 
 /**
  * Creates JSON+ld object for page
@@ -15,14 +15,14 @@ module.exports = ({ locale, project }) => ({
     '@type': 'WebPage',
     '@id': locale.editions.public.interactive.url,
   },
-  thumbnailUrl: path.join(
+  thumbnailUrl: urljoin(
     locale.editions.public.interactive.url,
     locale.image.path
   ),
   image: [{
     '@context': 'http://schema.org',
     '@type': 'ImageObject',
-    url: path.join(
+    url: urljoin(
       locale.editions.public.interactive.url,
       locale.image.path
     ),
