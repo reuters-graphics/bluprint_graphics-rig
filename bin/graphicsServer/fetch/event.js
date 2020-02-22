@@ -9,7 +9,10 @@ const logger = require('../../../config/utils/logger')('Graphics Server');
 let retry = 0;
 
 const fetchEventsData = async(slug, locale, token) => {
-  if (retry > maxRetry) throw new Error('Max retries exceeded fetching event');
+  if (retry > maxRetry) {
+    logger.error('Max retries exceeded fetching event.');
+    return null;
+  }
 
   const retryPost = async() => {
     logger.warn('Retrying fetching event');
@@ -55,7 +58,7 @@ const fetchEventsData = async(slug, locale, token) => {
 
 module.exports = async(slug, locale, token) => {
   const data = await fetchEventsData(slug, locale, token);
-  if (data.Events.length === 0) return null;
+  if (!data || data.Events.length === 0) return null;
   // best matched event is the first one
   const bestMatchedEvent = data.Events.filter(e => slug.indexOf(e.Slugline) === 0)[0];
   return bestMatchedEvent;
