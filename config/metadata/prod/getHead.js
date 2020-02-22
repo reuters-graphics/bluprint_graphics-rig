@@ -9,6 +9,7 @@ module.exports = ({ locale, project }) => ({
     { property: 'fb:admins', content: '625796953' },
     { property: 'fb:admins', content: '571759798' },
     { property: 'og:url', content: locale.editions.public.interactive.url },
+    { property: 'og:type', content: 'article' },
     { property: 'og:title', content: locale.shareTitle },
     { property: 'og:description', content: locale.shareDescription },
     {
