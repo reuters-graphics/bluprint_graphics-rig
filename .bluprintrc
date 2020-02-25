@@ -46,7 +46,12 @@
   "parts": {
     "bin, config & tasks": [
       "bin/**/*",
-      "config/**/*",
+      "config/loaders/**/*",
+      "config/metadata/**/*",
+      "config/prerenderWrapper/**/*",
+      "config/rules/**/*",
+      "config/utils/**/*",
+      "config/webpack.*.js",
       ".tasksrc.js"
     ]
   }

@@ -1,7 +1,5 @@
 const path = require('path');
-const fs = require('fs');
 const glob = require('glob');
-const strip = require('strip-comments');
 const archiver = require('archiver');
 const logger = require('../../config/utils/logger')('Build packages');
 
@@ -12,17 +10,6 @@ const makeArchive = (outputStream) => {
   const archive = archiver('zip', { zlib: { level: 9 } });
 
   archive.pipe(outputStream);
-
-  const srcFiles = glob.sync('src/**', {
-    cwd: ROOT,
-    nodir: true,
-    ignore: 'src/static/**',
-  });
-
-  srcFiles.forEach((src) => {
-    const file = fs.readFileSync(path.resolve(ROOT, src), 'utf8');
-    archive.append(strip(file, { keepProtected: true }), { name: src });
-  });
 
   const appFiles = glob.sync('**/*', {
     cwd: ROOT,
