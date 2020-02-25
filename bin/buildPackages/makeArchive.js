@@ -17,6 +17,7 @@ const makeArchive = (outputStream) => {
     ignore: [
       'node_modules/**',
       '.git/**',
+      'project-files/**', // All raw project files
       'dist/**', // All built files
       'packages/**',
       'yarn.lock',
