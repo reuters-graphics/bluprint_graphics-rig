@@ -41,11 +41,15 @@ module.exports = (env, argv) => getLocales().map((locale) => {
         'whatwg-fetch',
         path.join(__dirname, '../src/js/app.js'),
       ],
-      tools: [
+      pageTools: [
         path.join(__dirname, '../src/js/tools/google/publisherTags.js'),
         path.join(__dirname, '../src/js/tools/google/analytics.js'),
         path.join(__dirname, '../src/js/tools/share/index.js'),
         path.join(__dirname, '../src/js/tools/referrals/index.js'),
+      ],
+      embedTools: [
+        path.join(__dirname, '../src/js/tools/google/publisherTags.js'),
+        path.join(__dirname, '../src/js/tools/google/analytics.js'),
       ],
     },
     stats: 'errors-only',
@@ -92,11 +96,12 @@ module.exports = (env, argv) => getLocales().map((locale) => {
       new HtmlWebpackPlugin({
         filename: 'embed.html',
         template: path.resolve(__dirname, '../src/html/embed.ejs'),
-        excludeChunks: ['tools'],
+        excludeChunks: ['pageTools'],
       }),
       new HtmlWebpackPlugin({
         filename: 'index.html',
         template: path.resolve(__dirname, '../src/html/index.ejs'),
+        excludeChunks: ['embedTools'],
       }),
       new MiniCssExtractPlugin({
         filename: '[name].[contenthash].css',
