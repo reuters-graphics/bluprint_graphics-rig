@@ -135,7 +135,7 @@ class ServerRequest {
         edition.allowCatalog = true;
         edition.repositories = edition.repositories.map((repo) => {
           repo.changed = true;
-          repo.publish = repo.repositoryType === 'Media';
+          repo.publish = repo.repositoryType === 'Public';
           return repo;
         });
         return edition;
