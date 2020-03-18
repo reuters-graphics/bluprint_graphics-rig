@@ -121,22 +121,25 @@ class ServerRequest {
   }
 
   async updateGraphicPack() {
-    const { context, token } = this;
+    const { context, token, locale } = this;
     const { metadata } = context;
     const { workspace, graphicId } = getPkgProp('reuters');
 
-    metadata.graphic.editions = metadata.graphic.editions.map((edition) => {
-      const isMedia = edition.editionName === 'media-interactive';
-      edition.changed = true;
-      edition.allowCatalog = true;
-      edition.repositories = edition.repositories.map((repo) => {
-        repo.changed = true;
-        repo.publish = !isMedia;
-        repo.repositoryType = isMedia ? 'Media' : 'Public';
-        return repo;
+    metadata.graphic.editions = metadata.graphic.editions
+      .filter(({ editionNamespace }) => (
+        editionNamespace === `media-${locale}.zip` ||
+        editionNamespace === `public-${locale}.zip`
+      ))
+      .map((edition) => {
+        edition.changed = true;
+        edition.allowCatalog = true;
+        edition.repositories = edition.repositories.map((repo) => {
+          repo.changed = true;
+          repo.publish = repo.repositoryType === 'Media';
+          return repo;
+        });
+        return edition;
       });
-      return edition;
-    });
 
     const graphic = await updatePack(workspace, graphicId, metadata, token);
 
