@@ -10,14 +10,15 @@ module.exports = ({ locale, project }) => ({
     { property: 'fb:admins', content: '571759798' },
     { property: 'og:url', content: locale.editions.public.interactive.url },
     { property: 'og:type', content: 'article' },
-    { property: 'og:title', content: locale.shareTitle },
-    { property: 'og:description', content: locale.shareDescription },
+    { property: 'og:title', content: locale.shareTitle, itemprop: 'name' },
+    { property: 'og:description', content: locale.shareDescription, itemprop: 'description' },
     {
       property: 'og:image',
       content: urljoin(
         locale.editions.public.interactive.url,
         locale.image.path
       ),
+      itemprop: 'image',
     },
     { property: 'og:site_name', content: 'Reuters' },
     // Twitter
