@@ -135,7 +135,9 @@ class ServerRequest {
         edition.allowCatalog = true;
         edition.repositories = edition.repositories.map((repo) => {
           repo.changed = true;
-          repo.publish = repo.repositoryType === 'Public';
+          repo.publish = true;
+          repo.destinations = repo.repositoryType === 'Public' ?
+            [] : ['FINGX'];
           return repo;
         });
         return edition;
