@@ -2,10 +2,11 @@ const path = require('path');
 
 const ejsTemplatedRule = require('./rules/common/ejs');
 const csvRule = require('./rules/common/csv');
+const mjsRule = require('./rules/common/mjs');
 
 module.exports = {
   resolve: {
-    extensions: ['.js', '.jsx', '.svelte'],
+    extensions: ['.mjs', '.js', '.jsx', '.svelte'],
     alias: {
       SCSS: path.resolve(__dirname, '../src/scss'),
       Locales: path.resolve(__dirname, '../locales'),
@@ -14,9 +15,6 @@ module.exports = {
     mainFields: ['svelte', 'browser', 'module', 'main'],
   },
   module: {
-    rules: [
-      ejsTemplatedRule,
-      csvRule,
-    ],
+    rules: [ejsTemplatedRule, csvRule, mjsRule],
   },
 };
