@@ -18,7 +18,8 @@
     "add-locale": "npx ./bin/addLocale/index.js",
     "graphics-server": "npx ./bin/graphicsServer/index.js",
     "preview-server:local": "npx ./bin/previewServer/index.js",
-    "publish:aws": "npx ./bin/awsPublish/index.js"
+    "publish:aws": "npx ./bin/awsPublish/index.js",
+    "format": "prettier-eslint  $PWD/\"src/js/*.{js,svelte}\" --bracket-spacing true --single-quote true --trailing-comma \"es5\" --write"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
@@ -84,7 +85,9 @@
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "portfinder": "^1.0.25",
     "postcss-loader": "^3.0.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.2",
+    "prettier-eslint-cli": "^5.0.0",
+    "prettier-plugin-svelte": "^0.7.0",
     "prettier-webpack-plugin": "^1.2.0",
     "querystring": "^0.2.0",
     "react-svg-loader": "^3.0.3",
