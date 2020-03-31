@@ -11,7 +11,8 @@ module.exports = (locale) => {
   // Embed code
   const { url } = getLocaleMetadata(locale);
   const template = fs.readFileSync(path.resolve(__dirname, 'docs/EMBED.html'), 'utf-8');
-  const filepath = path.resolve(ROOT, `packages/${locale}/media-${locale}/media-interactive/EMBED.html`);
+  const filepath = path.resolve(ROOT, `packages/${locale}/media-${locale}/media-interactive/embed-code/EMBED.html`);
+  fs.mkdirSync(path.dirname(filepath), { recursive: true });
   fs.writeFileSync(filepath, ejs.render(template, { url }));
   // README
   fs.copyFileSync(

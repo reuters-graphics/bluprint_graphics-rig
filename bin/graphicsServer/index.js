@@ -20,11 +20,12 @@ const publishGraphic = async() => {
     const locale = locales[i];
     const request = new ServerRequest(locale);
     if (updateOnly) {
-      await request.updateOnly();
+      await request.update();
     } else if (createOnly) {
-      await request.createOnly();
+      await request.create();
     } else {
-      await request.upload();
+      await request.create();
+      await request.update();
     }
   }
 

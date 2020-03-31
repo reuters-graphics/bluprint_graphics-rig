@@ -69,16 +69,12 @@ module.exports = {
                   type: 'string',
                   pattern: '[a-zA-Z0-9/-]+',
                 },
-                repositoryId: {
-                  type: 'string',
-                  pattern: '[a-zA-Z0-9/-]+',
-                },
                 url: {
                   type: 'string',
                   format: 'uri',
                 },
               },
-              required: ['id', 'repositoryId', 'url'],
+              required: ['id', 'url'],
             },
             'media-interactive': {
               type: 'object',
@@ -103,16 +99,12 @@ module.exports = {
                   type: 'string',
                   pattern: '[a-zA-Z0-9/-]+',
                 },
-                repositoryId: {
-                  type: 'string',
-                  pattern: '[a-zA-Z0-9/-]+',
-                },
                 url: {
                   type: 'string',
                   format: 'uri',
                 },
               },
-              required: ['id', 'repositoryId', 'url'],
+              required: ['id', 'url'],
             },
           },
           required: ['interactive'],

@@ -31,10 +31,6 @@ module.exports = {
             initial: desks.indexOf(profileProp('desk')),
           },
         },
-        workspace: {
-          type: 'string',
-          pattern: '[a-zA-Z0-9-]+',
-        },
         graphicId: {
           type: 'string',
           pattern: '[a-zA-Z0-9-]+',
