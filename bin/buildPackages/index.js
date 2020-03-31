@@ -20,8 +20,6 @@ const locales = getLocales();
 outputStream.on('finish', async() => {
   await Promise.all(locales.map((locale) => copyLocaleFiles(locale)));
 
-  fs.unlinkSync('packages/app.zip');
-
   logger.info('Redirecting embeds.');
   await Promise.all(locales.map((locale) => redirectEmbeds(locale)));
 
