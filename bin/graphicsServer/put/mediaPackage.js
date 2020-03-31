@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const axios = require('../utils/axios');
 const zipDir = require('../utils/zipDir');
 const getFileUploadStatus = require('../get/fileUploadStatus');
@@ -11,6 +12,11 @@ const putFile = async(uri, locale, token) => {
   };
 
   const localePkgPath = path.join(__dirname, `../../../packages/${locale}/media-${locale}/`);
+
+  // Temporarily removing ZIP files until config is changed in graphics server
+  const appZip = path.join(localePkgPath, 'media-interactive/app.zip');
+  if (fs.existsSync(appZip)) fs.unlinkSync(appZip);
+  // end temp
 
   const zip = await zipDir(localePkgPath, `media-${locale}`);
 
