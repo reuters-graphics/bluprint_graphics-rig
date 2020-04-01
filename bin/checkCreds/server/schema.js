@@ -4,7 +4,7 @@ module.exports = {
     username: {
       type: 'string',
       minLength: 10,
-      pattern: '^api-[a-z0-9]+',
+      pattern: '^[0-9]{7}',
       prompt: {
         message: 'What\'s your username for publishing to the graphics server?',
       },
