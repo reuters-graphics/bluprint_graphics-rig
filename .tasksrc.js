@@ -50,7 +50,7 @@ module.exports = {
     preview: {
       run: [
         ['extract-text', { silent: true }],
-        ['check:meta', { locale: '$1' }],
+        // ['check:meta', { locale: '$1' }],
         ['webpack', {
           mode: 'production',
           config: 'config/webpack.preview.js',
@@ -62,7 +62,7 @@ module.exports = {
     'preview:aws': {
       run: [
         ['extract-text', { silent: true }],
-        ['check:meta', { locale: '$1' }],
+        // ['check:meta', { locale: '$1' }],
         ['webpack', {
           mode: 'production',
           config: 'config/webpack.preview.js',
