@@ -33,7 +33,11 @@
   }, {
     "action": "execute",
     "cmds": [
-      ["yarn"],
+      ["yarn"]
+    ]
+  }, {
+    "action": "execute",
+    "cmds": [
       ["runner", ["check:ai2html"]],
       ["git", ["init"]],
       ["git", ["add", "."]],
