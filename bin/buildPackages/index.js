@@ -20,7 +20,7 @@ const locales = getLocales();
 outputStream.on('finish', async() => {
   await Promise.all(locales.map((locale) => copyLocaleFiles(locale)));
 
-  if (fs.existsSync(archivePath)) fs.unlinkSync(archivePath);
+  // if (fs.existsSync(archivePath)) fs.unlinkSync(archivePath);
 
   logger.info('Redirecting embeds.');
   await Promise.all(locales.map((locale) => redirectEmbeds(locale)));
