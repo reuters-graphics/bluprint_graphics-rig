@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.dev.js",
     "check:creds": "npx ./bin/checkCreds/index.js",
+    "reset:server-creds": "npx ./bin/resetServerCreds/index.js",
     "check:meta": "npx ./bin/checkMeta/index.js",
     "check:share-img": "npx ./bin/measureImg/index.js",
     "check:ai2html": "npx ./bin/checkAi2html/index.js",
