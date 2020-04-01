@@ -36,6 +36,7 @@
     "autoprefixer": "^9.7.3",
     "aws-sdk": "^2.610.0",
     "axios": "^0.19.2",
+    "axios-retry": "^3.1.2",
     "babel-extract-comments": "^1.0.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-module-resolver": "^4.0.0",
