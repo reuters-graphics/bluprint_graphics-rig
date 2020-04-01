@@ -11,16 +11,16 @@ const ROOT = path.resolve(__dirname, '../../');
 
 logger.info('Building client packages...');
 
-const outputStream = fs.createWriteStream(path.resolve(
-  ROOT, 'packages/app.zip'
-));
+const archivePath = path.resolve(ROOT, 'packages/app.zip');
+
+const outputStream = fs.createWriteStream(archivePath);
 
 const locales = getLocales();
 
 outputStream.on('finish', async() => {
   await Promise.all(locales.map((locale) => copyLocaleFiles(locale)));
 
-  fs.unlinkSync('packages/app.zip');
+  if (fs.existsSync(archivePath)) fs.unlinkSync(archivePath);
 
   logger.info('Redirecting embeds.');
   await Promise.all(locales.map((locale) => redirectEmbeds(locale)));
