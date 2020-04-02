@@ -15,7 +15,11 @@ const putFile = async(uri, locale, token) => {
   const zip = await zipDir(localePkgPath, `public-${locale}`);
 
   try {
-    const response = await axios.put(uri, zip, { headers });
+    const response = await axios.put(uri, zip, {
+      headers,
+      maxBodyLength: zip.byteLength * 2,
+      maxContentLength: zip.byteLength,
+    });
     return response;
   } catch (e) {
     e.response.data.errors.forEach((error) => {
