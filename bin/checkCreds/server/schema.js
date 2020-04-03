@@ -3,7 +3,6 @@ module.exports = {
   properties: {
     username: {
       type: 'string',
-      minLength: 10,
       pattern: '^[0-9]{7}',
       prompt: {
         message: 'What\'s your username for publishing to the graphics server?',
@@ -11,7 +10,7 @@ module.exports = {
     },
     password: {
       type: 'string',
-      minLength: 10,
+      minLength: 8,
       prompt: {
         message: 'What\'s your password for publishing to the graphics server?',
       },
