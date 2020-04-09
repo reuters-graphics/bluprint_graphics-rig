@@ -16,6 +16,7 @@ module.exports = function(source, map, meta) {
     filename: this.resourcePath,
     doctype: 'html',
     compileDebug: this.debug || false,
+    escape: html => html,
   }, getOptions(this));
 
   const compileEjs = (source, cb) => {
