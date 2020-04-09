@@ -55,7 +55,7 @@
     "csv-loader": "^3.0.2",
     "csv-parse": "^4.8.3",
     "del": "^5.1.0",
-    "ejs": "^3.0.1",
+    "ejs": "3.0.1",
     "ejs-plain-loader": "^1.4.1",
     "emoji-strip": "^1.0.1",
     "eslint": "^6.8.0",
