@@ -39,6 +39,13 @@ const addLocale = async() => {
     fs.mkdirSync(path.dirname(NEW_FILE), { recursive: true });
     fs.copyFileSync(COPY_FILE, NEW_FILE);
   });
+
+  // We don't want to copy the editions metadata because need to get
+  // that from the graphics server for these pages.
+  const METADATA_FILE = path.join(LOCALE_DIR, 'metadata.json');
+  const metadata = JSON.parse(fs.readFileSync(METADATA_FILE), 'utf8');
+  delete metadata.editions;
+  fs.writeFileSync(METADATA_FILE, JSON.stringify(metadata, null, 2));
 };
 
 addLocale();

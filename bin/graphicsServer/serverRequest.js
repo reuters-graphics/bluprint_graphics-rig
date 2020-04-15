@@ -138,14 +138,19 @@ class ServerRequest {
 
    create = async() => {
      // If a graphicId exists, we assume the graphic was already
-     // created and skip this whole section.
+     // created and skip this section.
      const { graphicId } = getPkgProp('reuters');
-     if (graphicId) return;
      await this.createToken();
-     await this.fetchTopicCodeIds();
-     await this.fetchTopicCodes();
-     await this.fetchLocation();
-     await this.createGraphicPack();
+     if (!graphicId) {
+       await this.fetchTopicCodeIds();
+       await this.fetchTopicCodes();
+       await this.fetchLocation();
+       await this.createGraphicPack();
+     }
+
+     const publicEditionID = this.getLocaleProp('editions.public.interactive.id');
+     if (publicEditionID) return;
+     await this.fetchGraphic();
      await this.createMediaEdition();
      await this.createPublicEdition();
      await this.fetchGraphic();
@@ -165,10 +170,12 @@ class ServerRequest {
      await this.fetchLocation();
      await this.fetchGraphic();
 
-     // Update graphic metadata and re-put
-     this.graphic = Object.assign(this.graphic, this.getGraphicMeta());
-     const { graphicId } = getPkgProp('reuters');
-     await putGraphic(graphicId, this.graphic, this.token);
+     // Update graphic metadata and re-put if en locale
+     if (this.locale === 'en') {
+       this.graphic = Object.assign(this.graphic, this.getGraphicMeta());
+       const { graphicId } = getPkgProp('reuters');
+       await putGraphic(graphicId, this.graphic, this.token);
+     }
 
      await this.updateMediaEdition();
      await this.updatePublicEdition();

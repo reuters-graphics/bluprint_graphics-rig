@@ -8,18 +8,19 @@
   </aside>
 
   <section class='body-text'>
-    <%- localeMarkdown('article/intro.md') %>
+    <%- localeMarkdown('article/text.md').intro %>
 
+
+    <!-- An example of requiring and using local data -->
     <% const data = require('./templates/listdata.json'); %>
     <%- include('templates/list.html', { data }); %>
-
   </section>
 
 
   <%- include('templates/chart.ejs'); %>
 
   <section class='body-text'>
-    <%- localeMarkdown('article/middle.md') %>
+    <%- localeMarkdown('article/text.md').middle %>
   </section>
 
   <%- include('templates/photo.ejs'); %>
@@ -29,15 +30,15 @@
   </section>
 
   <section class='body-text'>
-    <%- localeMarkdown('article/end.md') %>
+    <%- localeMarkdown('article/text.md').end %>
   </section>
 
   <section class='clarifications'>
-    <%- localeMarkdown('aside/corrections.md') %>
+    <%- localeMarkdown('article/text.md').corrections %>
   </section>
 
   <section class='end-notes'>
-    <%- localeMarkdown('aside/notes.md') %>
+    <%- localeMarkdown('article/text.md').notes %>
   </section>
 
 </article>

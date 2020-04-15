@@ -43,6 +43,7 @@
       ["git", ["add", "."]],
       ["git", ["commit", "-m", "initial"]],
       ["runner", ["check:creds"]],
+      ["runner", ["repo:create"]],
       ["runner", ["start"]]
     ],
     "condition": ["bluprintPart", null]
