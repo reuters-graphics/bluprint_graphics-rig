@@ -44,7 +44,7 @@
       ["git", ["commit", "-m", "initial"]],
       ["runner", ["check:creds"]],
       ["runner", ["repo:create"]],
-      ["runner", ["trello:update"]],
+      ["runner", ["trello:create"]],
       ["runner", ["start"]]
     ],
     "condition": ["bluprintPart", null]
