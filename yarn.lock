@@ -4486,6 +4486,11 @@ es6-map@^0.1.1:
     es6-symbol "~3.1.1"
     event-emitter "~0.3.5"
 
+es6-promise@~3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-3.0.2.tgz#010d5858423a5f118979665f46486a95c6ee2bb6"
+  integrity sha1-AQ1YWEI6XxGJeWZfRkhqlcbuK7Y=
+
 es6-set@~0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/es6-set/-/es6-set-0.1.5.tgz#d2b3ec5d4d800ced818db538d28974db0a73ccb1"
@@ -6267,6 +6272,11 @@ hunspell-spellchecker@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/hunspell-spellchecker/-/hunspell-spellchecker-1.0.2.tgz#a10b0bd2fa00a65ab62a4c6b734ce496d318910e"
   integrity sha1-oQsL0voAplq2Kkxrc0zkltMYkQ4=
+
+iconv-lite@0.2.11:
+  version "0.2.11"
+  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.2.11.tgz#1ce60a3a57864a292d1321ff4609ca4bb965adc8"
+  integrity sha1-HOYKOleGSiktEyH/RgnKS7llrcg=
 
 iconv-lite@0.4, iconv-lite@0.4.24, iconv-lite@^0.4.17, iconv-lite@^0.4.24, iconv-lite@~0.4.13:
   version "0.4.24"
@@ -8613,7 +8623,7 @@ oauth-sign@~0.9.0:
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
   integrity sha512-fexhUFFPTGV8ybAtSIGbV6gOkSv8UtRbDBnAyLQw4QPKkgNlsH2ByPGtMUqdWkos6YCRmAqViwgZrJc/mRDzZQ==
 
-object-assign@^4, object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1, object-assign@latest:
+object-assign@^4, object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1, object-assign@latest, object-assign@~4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
   integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
@@ -9974,6 +9984,11 @@ q@^1.1.2:
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
+qs@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-1.2.0.tgz#ed079be28682147e6fd9a34cc2b0c1e0ec6453ee"
+  integrity sha1-7Qeb4oaCFH5v2aNMwrDB4OxkU+4=
+
 qs@6.7.0:
   version "6.7.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
@@ -10597,6 +10612,16 @@ responselike@^1.0.2:
   dependencies:
     lowercase-keys "^1.0.0"
 
+restler@~3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/restler/-/restler-3.3.0.tgz#f93a59b5e1bc2c5ad0c2b973f78129b2181b6076"
+  integrity sha1-+TpZteG8LFrQwrlz94EpshgbYHY=
+  dependencies:
+    iconv-lite "0.2.11"
+    qs "1.2.0"
+    xml2js "0.4.0"
+    yaml "0.2.3"
+
 restore-cursor@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/restore-cursor/-/restore-cursor-2.0.0.tgz#9f7ee287f82fd326d4fd162923d62129eee0dfaf"
@@ -10779,6 +10804,11 @@ sass-loader@^8.0.0:
     neo-async "^2.6.1"
     schema-utils "^2.6.1"
     semver "^6.3.0"
+
+sax@0.5.x:
+  version "0.5.8"
+  resolved "https://registry.yarnpkg.com/sax/-/sax-0.5.8.tgz#d472db228eb331c2506b0e8c15524adb939d12c1"
+  integrity sha1-1HLbIo6zMcJQaw6MFVJK25OdEsE=
 
 sax@1.2.1:
   version "1.2.1"
@@ -12065,6 +12095,15 @@ tr46@^2.0.0:
   resolved "https://registry.yarnpkg.com/traverse/-/traverse-0.3.9.tgz#717b8f220cc0bb7b44e40514c22b2e8bbc70d8b9"
   integrity sha1-cXuPIgzAu3tE5AUUwisui7xw2Lk=
 
+trello@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/trello/-/trello-0.10.0.tgz#01b5168575344b5d14f8fa881b25f48528694828"
+  integrity sha512-l2uDieuUkFU+qlZG1dtu11Uzg5yKZLl+NjVCAQWumaHnclH46cTuBEyHjnz7kPqZDNoGf7qzcsln0BOVjrFajw==
+  dependencies:
+    es6-promise "~3.0.2"
+    object-assign "~4.1.0"
+    restler "~3.3.0"
+
 trim-newlines@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/trim-newlines/-/trim-newlines-1.0.0.tgz#5887966bb582a4503a41eb524f7d35011815a613"
@@ -13070,6 +13109,14 @@ xml-name-validator@^3.0.0:
   resolved "https://registry.yarnpkg.com/xml-name-validator/-/xml-name-validator-3.0.0.tgz#6ae73e06de4d8c6e47f9fb181f78d648ad457c6a"
   integrity sha512-A5CUptxDsvxKJEU3yO6DuWBSJz/qizqzJKOMIfUJHETbBw/sFaDxgd6fxm1ewUaM0jZ444Fc5vC5ROYurg/4Pw==
 
+xml2js@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.4.0.tgz#124fc4114b4129c810800ecb2ac86cf25462cb9a"
+  integrity sha1-Ek/EEUtBKcgQgA7LKshs8lRiy5o=
+  dependencies:
+    sax "0.5.x"
+    xmlbuilder ">=0.4.2"
+
 xml2js@0.4.19:
   version "0.4.19"
   resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.4.19.tgz#686c20f213209e94abf0d1bcf1efaa291c7827a7"
@@ -13077,6 +13124,11 @@ xml2js@0.4.19:
   dependencies:
     sax ">=0.6.0"
     xmlbuilder "~9.0.1"
+
+xmlbuilder@>=0.4.2:
+  version "15.1.1"
+  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-15.1.1.tgz#9dcdce49eea66d8d10b42cae94a79c3c8d0c2ec5"
+  integrity sha512-yMqGBqtXyeN1e3TGYvgNgDVZ3j84W4cwkOXQswghol6APgZWaff9lnbvN7MHYJOiXsvGPXtjTYJEiC9J2wv9Eg==
 
 xmlbuilder@~9.0.1:
   version "9.0.7"
@@ -13117,6 +13169,11 @@ yallist@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
+
+yaml@0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-0.2.3.tgz#b5450e92e76ef36b5dd24e3660091ebaeef3e5c7"
+  integrity sha1-tUUOkudu82td0k42YAkeuu7z5cc=
 
 yaml@^1.7.2:
   version "1.7.2"

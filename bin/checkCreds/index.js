@@ -1,6 +1,7 @@
 const checkAWS = require('./aws');
 const checkProfile = require('./profile');
 const checkServer = require('./server');
+const checkSecrets = require('./secrets');
 const logger = require('../../config/utils/logger')('Check credentials');
 
 const checkCreds = async() => {
@@ -8,6 +9,7 @@ const checkCreds = async() => {
   await checkAWS();
   await checkProfile();
   await checkServer();
+  await checkSecrets();
   logger.info('✅ Done.\n');
 };
 

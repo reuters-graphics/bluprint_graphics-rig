@@ -58,6 +58,7 @@ module.exports = {
       run: [
         'check:env',
         ['graphics-server', { publish: true }],
+        'trello:update'
       ],
     },
     'preview:build': {
