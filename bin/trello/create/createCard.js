@@ -2,6 +2,7 @@ const authenticateTrello = require('../common/authenticate');
 const prompts = require('prompts');
 const deskBoards = require('../common/deskBoards');
 const setPkgProp = require('../../../config/utils/setPackageProp');
+const attachRepo = require('./attachRepo');
 
 module.exports = async() => {
   const { boardId } = await prompts({
@@ -37,4 +38,6 @@ module.exports = async() => {
 
   setPkgProp('reuters.trello.card', card.id);
   setPkgProp('reuters.trello.board', boardId);
+
+  await attachRepo(card.id);
 };
