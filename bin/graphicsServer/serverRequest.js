@@ -20,6 +20,7 @@ const getLocaleProp = require('../../config/utils/getLocaleProp');
 const setLocaleProp = require('../../config/utils/setLocaleProp');
 const writeMediaIds = require('./utils/write/mediaIds');
 const writePublicId = require('./utils/write/publicId');
+const addTrelloAttachment = require('./utils/trello/addAttachment');
 const prompts = require('prompts');
 const logger = require('../../config/utils/logger')('Graphics Server');
 
@@ -60,20 +61,18 @@ class ServerRequest {
     const { graphicId } = getPkgProp('reuters');
     const editionId = this.getLocaleProp('editions.media.interactive.id');
     const { publishedURI } = await getPublicUrl(graphicId, editionId, this.token);
-    this.setLocaleProp(
-      'editions.media.interactive.url',
-      publishedURI.replace('index.html', '')
-    );
+    const restfulURI = publishedURI.replace('index.html', '');
+    this.setLocaleProp('editions.media.interactive.url', restfulURI);
+    addTrelloAttachment(`${this.locale.toUpperCase()} embed`, restfulURI);
   }
 
   fetchInteractiveUrl = async() => {
     const { graphicId } = getPkgProp('reuters');
     const editionId = this.getLocaleProp('editions.public.interactive.id');
     const { publishedURI } = await getPublicUrl(graphicId, editionId, this.token);
-    this.setLocaleProp(
-      'editions.public.interactive.url',
-      publishedURI.replace('index.html', '')
-    );
+    const restfulURI = publishedURI.replace('index.html', '');
+    this.setLocaleProp('editions.public.interactive.url', restfulURI);
+    addTrelloAttachment(`${this.locale.toUpperCase()} page`, restfulURI);
   }
 
   createGraphicPack = async() => {
