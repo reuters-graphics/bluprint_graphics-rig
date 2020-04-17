@@ -4,6 +4,7 @@ const ejsTemplatedRule = require('./rules/common/ejs');
 const csvRule = require('./rules/common/csv');
 const mjsRule = require('./rules/common/mjs');
 const mdRule = require('./rules/common/md');
+const fontsRule = require('./rules/common/fonts');
 
 module.exports = {
   resolve: {
@@ -16,6 +17,12 @@ module.exports = {
     mainFields: ['svelte', 'browser', 'module', 'main'],
   },
   module: {
-    rules: [ejsTemplatedRule, csvRule, mjsRule, mdRule],
+    rules: [
+      ejsTemplatedRule,
+      csvRule,
+      mjsRule,
+      mdRule,
+      fontsRule,
+    ],
   },
 };
