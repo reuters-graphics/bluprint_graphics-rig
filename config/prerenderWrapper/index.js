@@ -1,10 +1,10 @@
-const registeredApps = require('../prerenderApps');
 const schema = require('./schema');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPrerenderPlugin = require('html-webpack-prerender-plugin');
 const findIndex = require('lodash/findIndex');
 const Ajv = require('ajv');
 const path = require('path');
+const fs = require('fs');
 
 const findPluginIndex = (config, filename) =>
   findIndex(config.plugins, plugin => (
@@ -12,9 +12,15 @@ const findPluginIndex = (config, filename) =>
       plugin.options.filename === filename
   ));
 
+const ROOT = path.resolve(__dirname, '../../');
+
 // This is a wrapper to inject configuration needed for prerendering
 // JS apps with html-webpack-prerender-plugin.
 module.exports = (config) => {
+  if (!fs.existsSync(path.join(ROOT, 'src/js/prerenderedApps.js'))) return config;
+
+  const registeredApps = require('../../src/js/prerenderedApps');
+
   // Validate registry
   const ajv = new Ajv();
   const valid = ajv.validate(schema, registeredApps);

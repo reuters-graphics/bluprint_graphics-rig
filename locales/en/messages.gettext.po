@@ -11,14 +11,6 @@ msgstr ""
 msgid "Source"
 msgstr ""
 
-#: src/html/templates/photo.ejs:2
-msgid "Icy waters"
-msgstr ""
-
-#: src/html/templates/photo.ejs:3
-msgid "Photo by Nick Dale"
-msgstr ""
-
 #: src/html/templates/heroTitle.ejs:7
 msgid "Reuters Internet Fashion"
 msgstr ""
@@ -29,4 +21,12 @@ msgstr ""
 
 #: src/html/templates/heroTitle.ejs:13
 msgid "Cold simple theme for features and graphics."
+msgstr ""
+
+#: src/html/templates/photo.ejs:2
+msgid "Icy waters"
+msgstr ""
+
+#: src/html/templates/photo.ejs:3
+msgid "Photo by Nick Dale"
 msgstr ""
