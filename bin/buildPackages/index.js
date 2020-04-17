@@ -19,8 +19,10 @@ const run = async() => {
   await git.add('.');
   await git.commit('Pre-build');
 
+  logger.info('Creating archive.');
   spawnSync('git', ['archive', '-o', 'packages/app.zip', 'HEAD'], { cwd: ROOT });
 
+  logger.info('Copying locales.');
   await Promise.all(locales.map((locale) => copyLocaleFiles(locale)));
 
   logger.info('Redirecting embeds.');
