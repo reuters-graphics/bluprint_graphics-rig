@@ -1,11 +1,11 @@
 const path = require('path');
+const { spawnSync } = require('child_process');
+const simpleGit = require('simple-git/promise');
 const getLocales = require('../../config/utils/getLocales');
 const copyLocaleFiles = require('./copyLocale');
 const redirectEmbeds = require('./redirectEmbeds');
 const makeGfxShare = require('./makeGfxShare');
 const logger = require('../../config/utils/logger')('Build packages');
-const { spawnSync } = require('child_process');
-const simpleGit = require('simple-git/promise');
 
 const ROOT = path.resolve(__dirname, '../../');
 
