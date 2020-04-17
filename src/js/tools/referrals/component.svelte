@@ -1,4 +1,4 @@
-<script>
+<script><script>
 import metadata from './metadata.json';
 import Link from './Link.svelte';
 import Badge from './Badge.svelte';

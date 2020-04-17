@@ -1,7 +1,8 @@
-const contacts = require('../constants/contacts');
+const getContacts = require('../get/contacts');
 
 module.exports = {
-  getGraphicMeta() {
+  async getGraphicMeta(token) {
+    const contacts = await getContacts(token);
     return {
       group: 'rngs',
       language: 'en',

@@ -77,7 +77,7 @@ class ServerRequest {
   }
 
   createGraphicPack = async() => {
-    const graphic = this.getGraphicMeta();
+    const graphic = await this.getGraphicMeta(this.token);
     this.graphic = await postGraphicPack(graphic, this.token);
     setPkgProp('reuters.graphicId', this.graphic.id);
   }
@@ -172,7 +172,8 @@ class ServerRequest {
 
      // Update graphic metadata and re-put if en locale
      if (this.locale === 'en') {
-       this.graphic = Object.assign(this.graphic, this.getGraphicMeta());
+       const graphicMeta = await this.getGraphicMeta(this.token);
+       this.graphic = Object.assign(this.graphic, graphicMeta);
        const { graphicId } = getPkgProp('reuters');
        await putGraphic(graphicId, this.graphic, this.token);
      }

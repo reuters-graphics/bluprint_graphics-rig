@@ -4,6 +4,7 @@ module.exports = {
     'webpack': 'webpack',
     'webpack-dev-server': 'webpack-dev-server',
     'prettier': 'prettier',
+    'eslint': 'eslint',
   },
   tasks: {
     start: {
@@ -12,6 +13,11 @@ module.exports = {
         ['webpack-dev-server', {
           config: 'config/webpack.dev.js',
         }]
+      ]
+    },
+    lint: {
+      run: [
+        ['eslint', ['src/js/**/*.js'], { fix: true }],
       ]
     },
     build: {

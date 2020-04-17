@@ -1,4 +1,4 @@
-import Logo from 'react-svg-loader!./Logo.svg';
+import Logo from 'react-svg-loader!./Logo.svg'; // eslint-disable-line
 import React from 'react';
 import Resizer from './Resizer';
 import classnames from 'classnames';
@@ -14,7 +14,7 @@ class Frame extends React.Component {
   }
 
   componentDidMount() {
-    new pym.Parent('frame-parent', window.location.href.replace('framer.html', 'embed.html'));
+    new pym.Parent('frame-parent', window.location.href.replace('framer.html', 'embed.html')); // eslint-disable-line
   }
 
   resize = (width) => {
