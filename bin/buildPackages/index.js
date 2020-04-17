@@ -7,9 +7,9 @@ const logger = require('../../config/utils/logger')('Build packages');
 const { spawnSync } = require('child_process');
 const simpleGit = require('simple-git/promise');
 
-const git = simpleGit();
-
 const ROOT = path.resolve(__dirname, '../../');
+
+const git = simpleGit(ROOT);
 
 const run = async() => {
   logger.info('Building client packages...');
@@ -17,7 +17,7 @@ const run = async() => {
   const locales = getLocales();
 
   await git.add('.');
-  await git.commit('Pre-build');
+  await git.commit('Pre-archive');
 
   logger.info('Creating archive.');
   spawnSync('git', ['archive', '-o', 'packages/app.zip', 'HEAD'], { cwd: ROOT });
