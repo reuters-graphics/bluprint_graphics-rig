@@ -1,0 +1,1 @@
+If you have very large files that you shouldn't push up to GitHub, keep them in this folder, which will exclude them from git history.
