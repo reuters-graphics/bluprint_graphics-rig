@@ -7,8 +7,8 @@ const handlePost = () => {
   const winHeight = screen.height;
   const winWidth = screen.width;
 
-  const left = Math.round((winWidth / 2) - (width / 2));
-  const top = winHeight > height ? Math.round((winHeight / 2) - (height / 2)) : 0;
+  const left = Math.round(winWidth / 2 - width / 2);
+  const top = winHeight > height ? Math.round(winHeight / 2 - height / 2) : 0;
 
   const target = `https://www.facebook.com/sharer/sharer.php?u=${getHref()}`;
 

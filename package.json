@@ -22,7 +22,8 @@
     "graphics-server": "npx ./bin/graphicsServer/index.js",
     "preview-server:local": "npx ./bin/previewServer/index.js",
     "publish:aws": "npx ./bin/awsPublish/index.js",
-    "format": "prettier-eslint  $PWD/\"src/js/**/*.{js,svelte}\" --bracket-spacing true --single-quote true --trailing-comma \"es5\" --write"
+    "lint:js": "prettier --write 'src/js/**/*.js'",
+    "lint:scss": "prettier --write 'src/scss/**/*.scss'"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",

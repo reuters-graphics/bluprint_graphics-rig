@@ -1,4 +1,4 @@
-@import "~@reuters-graphics/style-color/scss/gray";
+@import '~@reuters-graphics/style-color/scss/gray';
 
 section.graphic {
   @extend .well;
@@ -10,7 +10,6 @@ section.graphic {
   &:not(.borderless) {
     @extend .separated;
   }
-
 
   p {
     @extend .font-sans;

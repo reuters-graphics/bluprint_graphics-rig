@@ -1,4 +1,4 @@
-@import "~@reuters-graphics/style-color/scss/brand";
+@import '~@reuters-graphics/style-color/scss/brand';
 
 $white-background: $brand-background !default;
 $black-background: $brand-inverted-background !default;
@@ -19,7 +19,6 @@ $black-background: $brand-inverted-background !default;
     background-color: $black-background !important;
   }
 }
-
 
 .background-alpha,
 .background-alpha-light {

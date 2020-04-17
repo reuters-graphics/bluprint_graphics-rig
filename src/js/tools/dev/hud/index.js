@@ -15,7 +15,9 @@ class DevPanel extends React.Component {
     super(props);
     const stateFromLocalStorage = localStorage.getItem('showHud');
     this.state = {
-      visible: stateFromLocalStorage ? Boolean(parseInt(stateFromLocalStorage)) : true,
+      visible: stateFromLocalStorage
+        ? Boolean(parseInt(stateFromLocalStorage))
+        : true,
     };
   }
 
@@ -33,18 +35,18 @@ class DevPanel extends React.Component {
     return (
       <div className={component}>
         <div className={classnames('fixed-tray', { visible })}>
-          <div className='inline nav'>
+          <div className="inline nav">
             <a
-              href='/'
+              href="/"
               className={classnames({ active: !isFramer() })}
-              title='Interactive page'
+              title="Interactive page"
             >
               <FontAwesomeIcon fixedWidth icon={faDesktop} />
             </a>
             <a
-              href='/framer.html'
+              href="/framer.html"
               className={classnames({ active: isFramer() })}
-              title='Embedded page'
+              title="Embedded page"
             >
               <FontAwesomeIcon fixedWidth icon={faWindowRestore} />
             </a>

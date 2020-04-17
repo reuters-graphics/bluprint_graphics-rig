@@ -14,13 +14,16 @@ class Frame extends React.Component {
   }
 
   componentDidMount() {
-    new pym.Parent('frame-parent', window.location.href.replace('framer.html', 'embed.html')); // eslint-disable-line
+    new pym.Parent(
+      'frame-parent',
+      window.location.href.replace('framer.html', 'embed.html')
+    ); // eslint-disable-line
   }
 
   resize = (width) => {
     localStorage.setItem('previewWidth', width);
     this.setState({ width });
-  }
+  };
 
   render() {
     const { width } = this.state;
@@ -29,7 +32,7 @@ class Frame extends React.Component {
         <header>
           <Logo width={150} />
         </header>
-        <div id='frame-parent' style={{ width: this.state.width }} />
+        <div id="frame-parent" style={{ width: this.state.width }} />
         <Resizer width={width} resize={this.resize} />
       </div>
     );
