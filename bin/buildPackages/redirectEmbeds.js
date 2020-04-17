@@ -14,11 +14,6 @@ module.exports = (locale) => {
     path.join(MEDIA_ROOT, 'media-interactive/public/embed.html'),
     path.join(MEDIA_ROOT, 'media-interactive/public/index.html')
   );
-  fs.renameSync(
-    path.join(MEDIA_ROOT, 'media-interactive/source/embed.html'),
-    path.join(MEDIA_ROOT, 'media-interactive/source/index.html')
-  );
-
   fs.unlinkSync(
     path.join(PUBLIC_ROOT, 'interactive/embed.html')
   );
