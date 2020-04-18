@@ -5,5 +5,10 @@ module.exports = {
   include: [
     path.resolve(__dirname, '../../../../node_modules'),
   ],
-  use: ['file-loader'],
+  use: [{
+    loader: 'file-loader',
+    options: {
+      name: 'fonts/[name].[ext]',
+    },
+  }],
 };
