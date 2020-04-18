@@ -10,9 +10,10 @@ module.exports = async(cardId) => {
   const credFile = fs.readFileSync(credFilePath);
   const { trelloApiKey: key, trelloApiToken: token } = JSON.parse(credFile);
 
-  const gitOrigin = await gitRemoteOriginUrl();
-
-  if (!gitOrigin) {
+  let gitOrigin;
+  try {
+    gitOrigin = await gitRemoteOriginUrl();
+  } catch (e) {
     logger.info('Unable to attach GitHub repo link to Trello card');
     return;
   }
