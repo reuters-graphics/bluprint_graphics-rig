@@ -15,6 +15,19 @@ module.exports = {
         message: 'What\'s your work email?',
       },
     },
+    github: {
+      type: 'object',
+      properties: {
+        email: {
+          type: 'string',
+          format: 'email',
+          prompt: {
+            message: 'What\'s your public email on GitHub?',
+          },
+        },
+      },
+      required: ['email'],
+    },
     url: {
       type: 'string',
       format: 'uri',
@@ -46,5 +59,5 @@ module.exports = {
       },
     },
   },
-  required: ['name', 'email', 'url', 'desk'],
+  required: ['name', 'email', 'github', 'url', 'desk'],
 };

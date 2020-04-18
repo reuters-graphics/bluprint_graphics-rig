@@ -14,7 +14,7 @@ const run = async() => {
   logger.info('Creating a repository for this project in GitHub...');
 
   const org = 'tr';
-  const username = await githubUsername(getProfileProp('email'));
+  const username = await githubUsername(getProfileProp('github.email'));
   const token = await getToken(username);
 
   const octokit = new Octokit({ auth: token });
