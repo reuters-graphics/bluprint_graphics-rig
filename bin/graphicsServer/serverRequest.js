@@ -136,8 +136,7 @@ class ServerRequest {
   }
 
    create = async() => {
-     // If a graphicId exists, we assume the graphic was already
-     // created and skip this section.
+     // If a graphicId exists, skip greating the pack
      const { graphicId } = getPkgProp('reuters');
      await this.createToken();
      if (!graphicId) {
@@ -146,7 +145,7 @@ class ServerRequest {
        await this.fetchLocation();
        await this.createGraphicPack();
      }
-
+     // If editionId exists, skip making dummy package
      const publicEditionID = this.getLocaleProp('editions.public.interactive.id');
      if (publicEditionID) return;
      await this.fetchGraphic();

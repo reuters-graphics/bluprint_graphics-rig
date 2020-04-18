@@ -29,12 +29,14 @@ const defaultEditors = [{
 const getEditor = (editors) => {
   const userEmail = getEmail();
   const userEditors = editors.filter(editor => editor.email.toLowerCase() === userEmail.toLowerCase());
-  if (userEditors.length === 0) return defaultEditors;
+  const packEditors = defaultEditors.slice();
+  if (userEditors.length === 0) return packEditors;
   const { id, firstName, lastName } = userEditors[0];
-  return [{
+  packEditors.push({
     id,
     name: `${firstName} ${lastName}`,
-  }];
+  });
+  return packEditors;
 };
 
 const getContacts = async(token) => {
