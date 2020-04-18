@@ -144,11 +144,12 @@ class ServerRequest {
        await this.fetchTopicCodes();
        await this.fetchLocation();
        await this.createGraphicPack();
+     } else {
+       await this.fetchGraphic();
      }
      // If editionId exists, skip making dummy package
      const publicEditionID = this.getLocaleProp('editions.public.interactive.id');
      if (publicEditionID) return;
-     await this.fetchGraphic();
      await this.createMediaEdition();
      await this.createPublicEdition();
      await this.fetchGraphic();

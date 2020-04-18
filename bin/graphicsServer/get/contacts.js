@@ -20,7 +20,7 @@ const defaultEditors = [{
   name: 'Simon Scarr',
 }, {
   id: '865386f4-acd1-49ce-b478-025bd564752b',
-  name: 'Jon McClure',
+  name: 'Jonathan McClure',
 }, {
   id: '671b077f-8be3-df11-a5dd-18a9055605fe',
   name: 'Christine Chan',
@@ -29,22 +29,20 @@ const defaultEditors = [{
 const getEditor = (editors) => {
   const userEmail = getEmail();
   const userEditors = editors.filter(editor => editor.email.toLowerCase() === userEmail.toLowerCase());
-  const packEditors = defaultEditors.slice();
-  if (userEditors.length === 0) return packEditors;
+  if (userEditors.length === 0) return defaultEditors;
   const { id, firstName, lastName } = userEditors[0];
-  packEditors.push({
+  return [{
     id,
     name: `${firstName} ${lastName}`,
-  });
-  return packEditors;
+  }];
 };
 
 const getContacts = async(token) => {
   logger.info('Getting contacts');
   const headers = { Authorization: `Bearer ${token}` };
   const params = { skip: 0, take: 200 };
-  const { items } = await axios.get(`${GRAPHICS_API}/groups/rngs/roles/editors`, { headers, params });
-  return getEditor(items);
+  const { data } = await axios.get(`${GRAPHICS_API}/groups/v1/groups/rngs/roles/editors`, { headers, params });
+  return getEditor(data.items);
 };
 
 module.exports = getContacts;
