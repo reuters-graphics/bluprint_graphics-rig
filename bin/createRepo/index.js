@@ -21,11 +21,9 @@ const run = async() => {
 
   const repo = await createRepo(octokit, org);
 
-  console.log('REPO', repo);
-
   if (!repo) return logger.info('Error creating repo for this project. Create it manually.');
 
-  await git.addRemote('origin', repo.url);
+  await git.addRemote('origin', repo.clone_url);
   await updateRepo(octokit, org, repo.name);
 
   logger.info(chalk`Created your repo at {yellow ${repo.url}}`);
