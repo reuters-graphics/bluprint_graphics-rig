@@ -99,6 +99,7 @@ module.exports = {
     'publish': 'Publish your graphics pack',
     '-- HELPER TASKS -- ': '',
     'add-locale': 'Add a new locale directory to your project',
+    'get-google': 'Get data from Google docs or sheets', 
     'make-srcset': 'Create a responsive image set',
     'extract-text': 'Extract po files from ttag and gt.gettext translations',
     'lint:js': 'Clean up your JS code',
