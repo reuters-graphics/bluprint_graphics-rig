@@ -9,6 +9,7 @@ module.exports = {
     loader: 'css-loader',
     options: {
       sourceMap: true,
+      url: false,
     },
   }, {
     loader: 'postcss-loader',
@@ -18,9 +19,6 @@ module.exports = {
         require('autoprefixer'),
       ],
     },
-  }, {
-    loader: 'resolve-url-loader',
-    options: {},
   }, {
     loader: 'sass-loader',
     options: {
