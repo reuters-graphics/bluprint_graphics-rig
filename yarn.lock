@@ -269,6 +269,11 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
+"@babel/parser@7.7.5":
+  version "7.7.5"
+  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.7.5.tgz#cbf45321619ac12d83363fcf9c94bb67fa646d71"
+  integrity sha512-KNlOe9+/nk4i29g0VXgl8PEXIRms5xKLJeuZ6UptN0fHv+jDiriG+y94X6qAgWTR0h3KaoM1wK5G5h7MHFRSig==
+
 "@babel/parser@^7.7.0", "@babel/parser@^7.8.6", "@babel/parser@^7.9.0":
   version "7.9.4"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.9.4.tgz#68a35e6b0319bbc014465be43828300113f2f2e8"
@@ -1156,6 +1161,14 @@
   dependencies:
     hex-rgb "^4.1.0"
 
+"@reuters-graphics/style-main@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@reuters-graphics/style-main/-/style-main-0.0.5.tgz#a1a45bbf0c1daf8dda5fa3ce29ebae94942e844b"
+  integrity sha512-MhgcIu7FLibddYDzYtkPDBGT8zSyXaHJgVXXVglqfifvjiaggM7YkutmkIGd1fSbNCwTdS8SOEdK44cp3laWRQ==
+  dependencies:
+    "@reuters-graphics/style-color" "^0.0.4"
+    bootstrap "^4.4.1"
+
 "@reuters-graphics/style-main@latest":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@reuters-graphics/style-main/-/style-main-0.0.4.tgz#c5da0787ca7bd3af0464f7caf91a17561ffcbc1b"
@@ -1163,6 +1176,14 @@
   dependencies:
     "@reuters-graphics/style-color" "^0.0.4"
     bootstrap "^4.4.1"
+
+"@reuters-graphics/style-theme-eisbaer@latest":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@reuters-graphics/style-theme-eisbaer/-/style-theme-eisbaer-0.0.8.tgz#08cb398258b418c1e0cac704b1b02969ac59236d"
+  integrity sha512-JwicVGEL25695HkMXJMQYrmw9XUJOV5ZByHbxEh/e/eACtoRbYjudX8fHAspjivAus55+OKjRGjPYh9NI5n/jg==
+  dependencies:
+    "@reuters-graphics/style-color" "^0.0.4"
+    "@reuters-graphics/style-main" "^0.0.5"
 
 "@reuters-graphics/stylelint-config@latest":
   version "0.0.2"
@@ -4760,7 +4781,7 @@ eslint-plugin-es@^3.0.0:
     eslint-utils "^2.0.0"
     regexpp "^3.0.0"
 
-eslint-plugin-import@*:
+eslint-plugin-import@*, eslint-plugin-import@^2.20.2:
   version "2.20.2"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.20.2.tgz#91fc3807ce08be4837141272c8b99073906e588d"
   integrity sha512-FObidqpXrR8OnCh4iNsxy+WACztJLXAHBO5hK79T1Hc77PgQZkyDGA5Ag9xAvRpglvLNxhH/zSmZ70/pZ31dHg==

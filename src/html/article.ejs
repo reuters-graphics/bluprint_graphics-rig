@@ -2,22 +2,16 @@
 
   <%- include('templates/heroTitle'); %>
 
-  <aside class='article-metadata'>
-    <%- include('templates/byline'); %>
-    <%- include('templates/dateline'); %>
-  </aside>
+  <%- include('templates/dateline'); %>
 
   <section class='body-text'>
     <%- localeMarkdown('article/text.md').intro %>
-
-
-    <!-- An example of requiring and using local data -->
-    <% const data = require('./templates/listdata.json'); %>
-    <%- include('templates/list.html', { data }); %>
   </section>
 
-
-  <%- include('templates/chart.ejs'); %>
+  <section class='graphic'>
+    <%- localeMarkdown('article/text.md').graphic %>
+    <%- include('templates/graphic.ejs'); %>
+  </section>
 
   <section class='body-text'>
     <%- localeMarkdown('article/text.md').middle %>

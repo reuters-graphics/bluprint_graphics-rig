@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
+    "@babel/parser": "7.7.5",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.7.6",
@@ -69,6 +70,7 @@
     "ejs-plain-loader": "^1.4.1",
     "emoji-strip": "^1.0.1",
     "eslint": "6.8.0",
+    "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-svelte3": "2.7.3",
     "eval": "^0.1.4",
     "file-loader": "^6.0.0",
@@ -151,6 +153,7 @@
     "@fortawesome/react-fontawesome": "^0.1.8",
     "@reuters-graphics/style-color": "latest",
     "@reuters-graphics/style-main": "latest",
+    "@reuters-graphics/style-theme-eisbaer": "latest",
     "d3": "^5.15.0",
     "journalize": "^2.2.0",
     "jquery": "^3.4.1",

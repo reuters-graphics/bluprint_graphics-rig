@@ -2,7 +2,8 @@
   "root": true,
   "extends": "@reuters-graphics/eslint-config",
   "plugins": [
-    "svelte3"
+    "svelte3",
+    "import"
   ],
   "overrides": [
     {

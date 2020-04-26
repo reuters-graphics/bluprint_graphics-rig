@@ -1,21 +1,28 @@
-<div class="dateline-container">
-  <% if (metadata.publishDate) { %>
-    <div class="published">
-      Published <time class='time' datetime="<%- new Date(metadata.publishDate).toISOString()%>">
-      <%= journalize.apdate(new Date(metadata.publishDate)); %></time>
-    </div>
-  <% } else { %>
-    <div class="published">
-      Published <time class='time' datetime="<%- new Date().toISOString()%>">
-      <%= journalize.apdate(new Date()); %></time>
-    </div>
-  <% } %>
-  <% if (
-    metadata.updateDate &&
-    journalize.apdate(new Date(metadata.publishDate)) !== journalize.apdate(new Date(metadata.updateDate))
-  ) { %>
-  <div class="updated">
-    Last updated <time class='time' datetime="<%- new Date(metadata.updateDate).toISOString()%>"><%- journalize.apdate(new Date(metadata.updateDate))%></time>
+<aside class="article-metadata">
+  <div class='byline-container'>
+    <div class='byline'>Graphics by <strong><a href=".">Mick</a></strong> & <strong><a href=".">Charlie</a></strong></div>
+    <div class='byline'>Photography by <strong><a href=".">Keith</a></strong></div>
   </div>
-  <% } %>
-</div>
+
+  <div class="dateline-container">
+    <% if (metadata.publishDate) { %>
+      <div class="published">
+        Published <time class='time' datetime="<%- new Date(metadata.publishDate).toISOString()%>">
+        <%= journalize.apdate(new Date(metadata.publishDate)); %></time>
+      </div>
+    <% } else { %>
+      <div class="published">
+        Published <time class='time' datetime="<%- new Date().toISOString()%>">
+        <%= journalize.apdate(new Date()); %></time>
+      </div>
+    <% } %>
+    <% if (
+      metadata.updateDate &&
+      journalize.apdate(new Date(metadata.publishDate)) !== journalize.apdate(new Date(metadata.updateDate))
+    ) { %>
+    <div class="updated">
+      Last updated <time class='time' datetime="<%- new Date(metadata.updateDate).toISOString()%>"><%- journalize.apdate(new Date(metadata.updateDate))%></time>
+    </div>
+    <% } %>
+  </div>
+</aside>
