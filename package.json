@@ -151,8 +151,6 @@
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@fortawesome/free-regular-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
-    "@reuters-graphics/style-color": "latest",
-    "@reuters-graphics/style-main": "latest",
     "@reuters-graphics/style-theme-eisbaer": "latest",
     "d3": "^5.15.0",
     "journalize": "^2.2.0",
