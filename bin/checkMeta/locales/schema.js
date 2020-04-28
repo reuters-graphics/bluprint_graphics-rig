@@ -27,15 +27,27 @@ module.exports = {
     seoTitle: {
       type: 'string',
       maxLength: 110, // Per Google News SEO guidelines
+      prompt: {
+        message: 'What\'s the title of this page for search listings (seoTitle)?\n',
+      },
     },
     seoDescription: {
       type: 'string',
+      prompt: {
+        message: 'What\'s the description of this page for search listings (seoDescription)?\n',
+      },
     },
     shareTitle: {
       type: 'string',
+      prompt: {
+        message: 'What\'s the title of this page for share cards (shareTitle)?\n',
+      },
     },
     shareDescription: {
       type: 'string',
+      prompt: {
+        message: 'What\'s the description of this page for share cards (shareDescription)?\n',
+      },
     },
     image: {
       type: 'object',
@@ -68,10 +80,16 @@ module.exports = {
                 id: {
                   type: 'string',
                   pattern: '[a-zA-Z0-9/-]+',
+                  prompt: {
+                    message: 'The media interactive ID should\'ve been filled in automatically from the graphics server, but wasn\'t. Contact a developer.\n',
+                  },
                 },
                 url: {
                   type: 'string',
                   format: 'uri',
+                  prompt: {
+                    message: 'The media interactive URL should\'ve been filled in automatically from the graphics server, but wasn\'t. Contact a developer.\n',
+                  },
                 },
               },
               required: ['id', 'url'],
@@ -82,6 +100,9 @@ module.exports = {
                 id: {
                   type: 'string',
                   pattern: '[a-zA-Z0-9/-]+',
+                  prompt: {
+                    message: 'The media media-interactive ID should\'ve been filled in automatically from the graphics server, but wasn\'t. Contact a developer.\n',
+                  },
                 },
               },
               required: ['id'],
@@ -98,10 +119,16 @@ module.exports = {
                 id: {
                   type: 'string',
                   pattern: '[a-zA-Z0-9/-]+',
+                  prompt: {
+                    message: 'The public interactive ID should\'ve been filled in automatically from the graphics server, but wasn\'t. Contact a developer.\n',
+                  },
                 },
                 url: {
                   type: 'string',
                   format: 'uri',
+                  prompt: {
+                    message: 'The public interactive URL should\'ve been filled in automatically from the graphics server, but wasn\'t. Contact a developer.\n',
+                  },
                 },
               },
               required: ['id', 'url'],
