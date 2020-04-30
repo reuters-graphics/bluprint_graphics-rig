@@ -98,6 +98,7 @@
     "metatagger-webpack-plugin": "^0.1.0",
     "mime-types": "^2.1.26",
     "mini-css-extract-plugin": "^0.8.0",
+    "mustache": "^4.0.1",
     "ngrok": "^3.2.7",
     "node-gettext": "^2.0.0",
     "node-sass": "^4.13.0",
