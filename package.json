@@ -152,7 +152,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@fortawesome/free-regular-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
-    "@reuters-graphics/style-theme-eisbaer": "~0.2.0",
+    "@reuters-graphics/style-theme-eisbaer": "~0.2.1",
     "d3": "^5.15.0",
     "journalize": "^2.2.0",
     "jquery": "^3.4.1",

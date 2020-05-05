@@ -1167,10 +1167,10 @@
     "@reuters-graphics/style-color" "^1.0.0"
     bootstrap "^4.4.1"
 
-"@reuters-graphics/style-theme-eisbaer@~0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@reuters-graphics/style-theme-eisbaer/-/style-theme-eisbaer-0.2.0.tgz#7291459f5c96059caba22287c9e7088151af4555"
-  integrity sha512-31Gr3Tn2ZMeEBPPlFzV2THBSVmNQcrql/GaZlgcbKpkeOeqJiDErLvSal5zV+A9AbH9kj2OfPrXzXV7JfB6CFg==
+"@reuters-graphics/style-theme-eisbaer@~0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@reuters-graphics/style-theme-eisbaer/-/style-theme-eisbaer-0.2.1.tgz#d66b236fb09eb6567dc976bf3de82e319b82cfc8"
+  integrity sha512-6zYlGDkfLfAzzwHCKWbp/5U0WpZrlmMN4tN+eq38C35qGdambSxZGBSV7Jd5fQdgdccklrx+U6F6GzGAYAIN8Q==
   dependencies:
     "@reuters-graphics/style-color" "^1.0.0"
     "@reuters-graphics/style-main" "^0.2.0"
