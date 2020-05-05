@@ -1154,26 +1154,26 @@
     eslint-plugin-react-hooks "*"
     eslint-plugin-standard "*"
 
-"@reuters-graphics/style-color@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@reuters-graphics/style-color/-/style-color-0.0.6.tgz#66c42918b405255ba06fa1a5867a04651635cc87"
-  integrity sha512-f/7eP9YD534uE5mSoSKcNde1hty/3ZTahwS57ZYMxZNu0dHKAlKwq9eNYlZvIKCk6geCqdc68jWPTOkRfoHo/g==
+"@reuters-graphics/style-color@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@reuters-graphics/style-color/-/style-color-1.0.0.tgz#35fcf41d1c888b8353a0cb3f274bcdb10eea7d4b"
+  integrity sha512-F3b5Rzepia+kWmVDjtKXhqGkp+gcKw8bDLJyn55dq95jJV3CEExNQTvN66CI5QTQnoDmzeXSQv+/vODTGatzJQ==
 
-"@reuters-graphics/style-main@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@reuters-graphics/style-main/-/style-main-0.0.7.tgz#a324398d80f86ba9887932064015e91aedd6d965"
-  integrity sha512-VypQOUq27TcvE9eOjmIKvX9CNm1seIqZZEomxZwy1dO5kNPgjSIgm3KCtKPDIlDXCj4M39dl5lJH0llOYMcjAg==
+"@reuters-graphics/style-main@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@reuters-graphics/style-main/-/style-main-0.2.0.tgz#f90e850744a879dc6bdbf3ce37492b5d4951a4b9"
+  integrity sha512-IMQfXRdU3wUzU8dmY/ZfffOv3H4nYOagLbDA2v8NuA+S87Y3Ighh5DHZjaxzxHu9gs0kqXfaWrK1HrwgxddeuA==
   dependencies:
-    "@reuters-graphics/style-color" "^0.0.6"
+    "@reuters-graphics/style-color" "^1.0.0"
     bootstrap "^4.4.1"
 
-"@reuters-graphics/style-theme-eisbaer@^0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@reuters-graphics/style-theme-eisbaer/-/style-theme-eisbaer-0.0.10.tgz#4d5825d11bd42442b863ab4c1f07446b5eb1e7b4"
-  integrity sha512-RRYBfqj2rDcGev4zrWbSYfoxdFvM2y1kWBMsHFeqs/eyFuykqsHBwlLWc+VKPiFHAsDsc/BCldtkhkwwjwbFGw==
+"@reuters-graphics/style-theme-eisbaer@~0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@reuters-graphics/style-theme-eisbaer/-/style-theme-eisbaer-0.2.0.tgz#7291459f5c96059caba22287c9e7088151af4555"
+  integrity sha512-31Gr3Tn2ZMeEBPPlFzV2THBSVmNQcrql/GaZlgcbKpkeOeqJiDErLvSal5zV+A9AbH9kj2OfPrXzXV7JfB6CFg==
   dependencies:
-    "@reuters-graphics/style-color" "^0.0.6"
-    "@reuters-graphics/style-main" "^0.0.7"
+    "@reuters-graphics/style-color" "^1.0.0"
+    "@reuters-graphics/style-main" "^0.2.0"
 
 "@reuters-graphics/stylelint-config@latest":
   version "0.0.2"

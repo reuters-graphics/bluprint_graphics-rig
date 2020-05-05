@@ -1,7 +1,7 @@
 << intro >>
 English Bacon ipsum dolor amet porchetta prosciutto t-bone kielbasa brisket. Capicola jowl jerky, chuck flank ground round shoulder pastrami tail. Burgdoggen ribeye corned beef bacon, chicken meatloaf drumstick. Capicola corned beef cow prosciutto doner buffalo kielbasa beef.
 
-## This that and [the other]{#anID}
+#### This that and [the other]{#anID}
 
 Pig short ribs jerky, [meatloaf turducken](https://www.thespruceeats.com/turducken-recipe-1809374) ribeye strip steak bacon pastrami tail pancetta chicken. Meatloaf ham hock tail picanha, meatball boudin pancetta capicola chislic kielbasa.
 
@@ -14,7 +14,7 @@ Turkey andouille pork, flank bresaola chuck doner brisket jowl alcatra tongue. R
 
 Shoulder ribeye andouille jowl tenderloin. Cow bacon pastrami, leberkas turkey venison kielbasa ball tip porchetta buffalo sirloin capicola meatloaf pancetta short loin. Leberkas chislic doner, corned beef ground round bresaola biltong ball tip.
 
-### Doner tri-tip
+#### Doner tri-tip
 
 Bresaola chislic doner short loin hamburger salami strip steak sausage andouille. Spare ribs prosciutto chicken salami boudin, alcatra meatball jerky. Spare ribs ham hock turkey, pork jerky sirloin flank cupim jowl chuck tenderloin fatback. Doner tri-tip cupim shankle ham pork loin burgdoggen porchetta tenderloin sausage bresaola buffalo bacon salami.
 <<>>
@@ -50,16 +50,14 @@ Beef ribs chicken landjaeger shank.
 <<>>
 
 
-<< corrections >>
-## Corrections
-
-- In a previous version of this article, Short ribs ham hock pork loin sirloin **but** spare ribs chuck pancetta nisi pork belly.
-- I've actually decided to be vegetarian.
-<<>>
-
-
 << notes >>
-**Sources:** NASA, Global Modeling and Assimilation Office (GMAO); Himawari-8 Satellite imagery via National Institute of Information and Communications Technology, Japan; NASA, Fire Information for Resource Management System (FIRMS).
+#### Corrections
+
+In a previous version of this article, Short ribs ham hock pork loin sirloin **but** spare ribs chuck pancetta nisi pork belly.
+
+#### Sources
+
+NASA, Global Modeling and Assimilation Office (GMAO); Himawari-8 Satellite imagery via National Institute of Information and Communications Technology, Japan; NASA, Fire Information for Resource Management System (FIRMS).
 
 Additional contributions from other people.
 <<>>
