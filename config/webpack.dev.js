@@ -43,6 +43,7 @@ const config = (env, argv, port) => Prerender(merge(commonConfig, {
     disableHostCheck: true,
     port: port,
     open: true,
+    hot: true,
     contentBase: [
       path.resolve(__dirname, '../src/static'),
     ],
