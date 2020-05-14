@@ -1,15 +1,14 @@
 const path = require('path');
 const fs = require('fs');
 const ejs = require('ejs');
+const getLocaleProp = require('../../config/utils/getLocaleProp');
 
 const ROOT = path.resolve(__dirname, '../../');
 
-const getLocaleMetadata = (locale) =>
-  JSON.parse(fs.readFileSync(path.resolve(ROOT, `locales/${locale}/metadata.json`)));
-
 module.exports = (locale) => {
+  const localeProp = getLocaleProp(locale);
   // Embed code
-  const { url } = getLocaleMetadata(locale);
+  const url = localeProp('editions.media.interactive.url');
   const template = fs.readFileSync(path.resolve(__dirname, 'docs/EMBED.html'), 'utf-8');
   const filepath = path.resolve(ROOT, `packages/${locale}/media-${locale}/media-interactive/embed-code/EMBED.html`);
   fs.mkdirSync(path.dirname(filepath), { recursive: true });
