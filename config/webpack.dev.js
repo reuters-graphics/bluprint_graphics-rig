@@ -11,6 +11,7 @@ const MetataggerPlugin = require('metatagger-webpack-plugin');
 
 const getLocaleMarkdown = require('./utils/getLocaleMarkdown');
 const getLocaleData = require('./utils/getLocaleData');
+const parseMarkdown = require('./utils/parseMarkdown');
 
 const jsRule = require('./rules/dev/js/react');
 const svelteRule = require('./rules/dev/js/svelte');
@@ -64,6 +65,7 @@ const config = (env, argv, port) => Prerender(merge(commonConfig, {
         ),
         localeMarkdown: getLocaleMarkdown('en'),
         localeData: getLocaleData('en'),
+        parseMarkdown,
       }),
     ],
   },

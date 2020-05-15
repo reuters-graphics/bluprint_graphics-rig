@@ -16,6 +16,7 @@ const configureGettext = require('./utils/configureGettext');
 const getLocales = require('./utils/getLocales');
 const getLocaleMarkdown = require('./utils/getLocaleMarkdown');
 const getLocaleData = require('./utils/getLocaleData');
+const parseMarkdown = require('./utils/parseMarkdown');
 const logger = require('./utils/logger')('Webpack');
 
 const getJsRule = require('./rules/prod/js/react');
@@ -79,6 +80,7 @@ module.exports = (env, argv) => getLocales().map((locale) => {
           ),
           localeMarkdown: getLocaleMarkdown(locale),
           localeData: getLocaleData(locale),
+          parseMarkdown,
         }),
       ],
     },
