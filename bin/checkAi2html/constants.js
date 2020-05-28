@@ -3,7 +3,7 @@ const os = require('os');
 
 module.exports = {
   github: {
-    TEMPLATE: 'Reuters-Template/ai2hmtl-template.ait',
+    TEMPLATE: 'Reuters-Template/ai2html-template.ait',
     // SCRIPT: 'ai2html_newrig.js',
   },
   system: {
