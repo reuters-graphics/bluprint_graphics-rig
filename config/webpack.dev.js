@@ -44,6 +44,22 @@ const config = (env, argv, port) => Prerender(merge(commonConfig, {
     disableHostCheck: true,
     port: port,
     open: true,
+    hot: true,
+    before: function(app, server, compiler) {
+      // stolen from here: https://github.com/webpack/webpack-dev-server/issues/1271#issuecomment-360413209
+      const watchFiles = ['.html', '.ejs'];
+
+      compiler.hooks.done.tap("html-changed-refresh", (args) => {
+        const changedFiles = Object.keys(compiler.watchFileSystem.watcher.mtimes);
+        const detectHtmlOrEjs = changedFiles.some(filePath =>watchFiles.indexOf(path.parse(filePath).ext) >= 0);
+
+        // if there is an ejs file, then hmr probbaly didn't work. so manually fire add a refresh event
+        if(detectHtmlOrEjs) {
+          console.log("\nHTML or EJS CHANGED. Firing refresh event.\n");
+          server.sockWrite(server.sockets, "content-changed");
+        }
+      })
+    },
     contentBase: [
       path.resolve(__dirname, '../src/static'),
     ],
