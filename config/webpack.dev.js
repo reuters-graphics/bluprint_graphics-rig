@@ -49,7 +49,10 @@ const config = (env, argv, port) => Prerender(merge(commonConfig, {
       // stolen from here: https://github.com/webpack/webpack-dev-server/issues/1271#issuecomment-360413209
       const watchFiles = ['.html', '.ejs'];
 
-      compiler.hooks.done.tap("html-changed-refresh", (args) => {
+      compiler.hooks.done.tap("html-changed-refresh", (stats) => {
+        // don't do anything if there were errors during compilation
+        if(stats.hasErrors()) return;
+
         const changedFiles = Object.keys(compiler.watchFileSystem.watcher.mtimes);
         const detectHtmlOrEjs = changedFiles.some(filePath =>watchFiles.indexOf(path.parse(filePath).ext) >= 0);
 
