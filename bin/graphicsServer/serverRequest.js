@@ -209,9 +209,11 @@ class ServerRequest {
        const regex = /(media|public)-[a-z]{2}\.zip/;
        if (!regex.test(fileName)) return;
 
-       const { published } = edition.publishing;
+       const { published, locations } = edition.publishing;
 
-       this.graphic.editions[i].publishing.locations[0].publish = true;
+       const isMedia = locations[0].name === 'media-rngs';
+
+       this.graphic.editions[i].publishing.locations[0].publish = !!isMedia;
        this.graphic.editions[i].publishing.promote = true;
        if (published) {
          this.graphic.editions[i].editStatus = correction ?
