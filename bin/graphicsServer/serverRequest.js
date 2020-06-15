@@ -212,8 +212,9 @@ class ServerRequest {
        const { published, locations } = edition.publishing;
 
        const isMedia = locations[0].name === 'media-rngs';
+       if (isMedia) return;
 
-       this.graphic.editions[i].publishing.locations[0].publish = !!isMedia;
+       this.graphic.editions[i].publishing.locations[0].publish = true;
        this.graphic.editions[i].publishing.promote = true;
        if (published) {
          this.graphic.editions[i].editStatus = correction ?
