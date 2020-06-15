@@ -32,12 +32,12 @@ const writeFiles = () => {
   fs.writeFileSync(paths.system.TEMPLATE, TEMPLATE);
 
   logger.info('Updating ai2html script...');
-  if (fs.existsSync(path.dirname(paths.system.SCRIPT))) {
-    fs.writeFileSync(paths.system.SCRIPT, SCRIPT);
-  } else {
-    logger.warn('Can\'t find Illustrator scripts directory on your system.');
-    logger.warn('You may need to update Illustrator.');
-  }
+  // if (fs.existsSync(path.dirname(paths.system.SCRIPT))) {
+  //   fs.writeFileSync(paths.system.SCRIPT, SCRIPT);
+  // } else {
+  //   logger.warn('Can\'t find Illustrator scripts directory on your system.');
+  //   logger.warn('You may need to update Illustrator.');
+  // }
 };
 
 const getAIScripts = async() => {

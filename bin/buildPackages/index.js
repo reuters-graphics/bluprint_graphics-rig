@@ -20,7 +20,7 @@ const run = async() => {
   await git.commit('Pre-archive');
 
   logger.info('Creating archive.');
-  spawnSync('git', ['archive', '-o', 'packages/app.zip', 'HEAD'], { cwd: ROOT });
+  spawnSync('git', ['archive', '-o', 'packages/app.zip', 'HEAD', '.', ':!project-files'], { cwd: ROOT });
 
   logger.info('Copying locales.');
   await Promise.all(locales.map((locale) => copyLocaleFiles(locale)));
