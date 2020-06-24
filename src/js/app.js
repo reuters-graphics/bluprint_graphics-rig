@@ -225,7 +225,7 @@ function loadTemplates(resultsData) {
 
       let shortTime = trElex.elexUtils.shortTime(d.pollClose);
 
-      if (raceKey === 'P') {
+      if (raceKey === "P") {
         return true;
       }
 

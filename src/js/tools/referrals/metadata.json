@@ -1,11 +1,5 @@
 [
   {
-    "url": "https://graphics.reuters.com/INDIA-CHINA/BATTLE/yxmvjkzxwpr/",
-    "title": "India-China clash",
-    "description": "Satellite images suggest Chinese activity at India's Himalayan border before clash",
-    "image": "https://graphics.reuters.com/INDIA-CHINA/BATTLE/yxmvjkzxwpr/img/share.jpg"
-  },
-  {
     "url": "https://graphics.reuters.com/MINNEAPOLIS-POLICE/WEAPONS/xegvbybazpq/index.html",
     "title": "Weapons of control",
     "description": "What U.S. police are using to corral, subdue and disperse demonstrators",
@@ -22,5 +16,11 @@
     "title": "America’s cautious comeback",
     "description": "Data from millions of smartphones tells us which parts of the country have reopened",
     "image": "https://graphics.reuters.com/HEALTH-CORONAVIRUS/USA-TRENDS/jznpnbdojpl/img/share-card.jpg"
+  },
+  {
+    "url": "https://graphics.reuters.com/ASIA-STORM/INDIA/oakpezdqmvr/index.html",
+    "title": "India and Bangladesh feel the force of Cyclone Amphan",
+    "description": "It is the region’s strongest cyclone in thirty years",
+    "image": "https://graphics.reuters.com/ASIA-STORM/INDIA/oakpezdqmvr/img/share-card.png"
   }
 ]

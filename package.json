@@ -167,16 +167,5 @@
     "ua-parser-js": "^0.7.21",
     "waypoints": "^4.0.1"
   },
-  "reuters": {
-    "desk": "new york",
-    "publishDate": "2020-06-24T13:00:04.707Z",
-    "authors": [
-      {
-        "name": "Chris Canipe",
-        "link": "https://twitter.com/ccanipe"
-      }
-    ],
-    "referrals": [],
-    "graphicId": "d942b569-58cd-487d-9af2-6dc76c5dd612"
-  }
+  "reuters": {}
 }
