@@ -1,0 +1,55 @@
+//define pulse animation
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+//TIMESTAMP AND COUNTER STYLES FOR MOBILE
+// .header {
+//     .pulse-container {
+//         justify-content:center;
+//     }
+//     .timestamp, .counter{
+//         text-align:center;
+//         font-weight:300;
+//     }
+// }
+
+.pulse {
+  font-size: 8px;
+  color: #bf1818;
+  height: 19px;
+  width: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2px;
+  i {
+    animation: pulse 3s infinite;
+  }
+}
+
+.timestamp,
+.pulse {
+  margin-bottom: 0;
+}
+
+.pulse-container {
+  display: flex;
+  align-items: center;
+}
+
+.counter {
+  font-size: 0.8rem;
+  text-align: right;
+  letter-spacing: 0;
+  margin: 0;
+  font-family: $font-family-sans-serif;
+}

@@ -144,7 +144,10 @@
     "xgettext-template": "^3.4.2",
     "yaml": "^1.7.2",
     "yargs": "^15.1.0",
-    "yargs-unparser": "^1.5.0"
+    "yargs-unparser": "^1.5.0",
+    "debounce": "^1.2.0",
+    "topojson-client": "^3.0.0",
+    "choices.js": "^9.0.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",

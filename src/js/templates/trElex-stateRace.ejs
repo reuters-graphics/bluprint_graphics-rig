@@ -1,0 +1,30 @@
+<div class="row <%=config.party%>-row">
+         
+    <!-- Race name and countdown -->
+    <div class="col-sm-12 party-head">
+        <p class="party"><%= config.demDisplay%></p>
+        <p class="party"><span class="del-num"><%= config.demDelegates%> delegates</span></p>
+        <div class='counter-div'></div>
+    </div>
+
+    <!-- Separator line -->
+    <div class="col-12">
+        <div class="vertical-separator hidden-sm-down"></div>
+    </div>
+
+    <!-- Results Table -->
+    <div class="col-md-6 col-sm-6 table-col">
+        <div class="chart-table chart"></div>
+    </div>
+
+    <!-- Map -->
+    <div class="col-md-6 col-sm-6 map-col">
+        <div class="chart-map chart"></div>
+    </div>
+
+    <!-- Note -->
+    <div class="col-md-12 note-block">
+        <p class="graphic-source note">Note: I am a note, and I go here.</p>
+    </div>
+
+</div>

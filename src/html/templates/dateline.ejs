@@ -1,6 +1,6 @@
 <aside class="article-metadata">
   <div class='byline-container'>
-    <div class='byline'>Graphics by <strong><a href=".">Mick</a></strong> and <strong><a href=".">Charlie</a></strong></div>
+    <div class='byline'>Graphics by <strong><a href=".">Mick</a></strong> & <strong><a href=".">Charlie</a></strong></div>
     <div class='byline'>Photography by <strong><a href=".">Keith</a></strong></div>
   </div>
 
@@ -21,7 +21,7 @@
       journalize.apdate(new Date(metadata.publishDate)) !== journalize.apdate(new Date(metadata.updateDate))
     ) { %>
     <div class="updated">
-      Updated <time class='time' datetime="<%- new Date(metadata.updateDate).toISOString()%>"><%- journalize.apdate(new Date(metadata.updateDate))%></time>
+      Last updated <time class='time' datetime="<%- new Date(metadata.updateDate).toISOString()%>"><%- journalize.apdate(new Date(metadata.updateDate))%></time>
     </div>
     <% } %>
   </div>

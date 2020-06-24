@@ -1,0 +1,78 @@
+.header {
+  text-align: center;
+
+  .graphic-title {
+    font-size: 5rem;
+    font-family: $font-family-display;
+    font-weight: 500;
+    line-height: 1;
+    margin-top: 62px;
+    letter-spacing: 0;
+
+    @include media-breakpoint-down(md) {
+      margin-top: 30px;
+      font-size: 3.5rem;
+    }
+
+    @include media-breakpoint-down(sm) {
+      margin-top: 13px;
+      font-size: 2.93rem;
+    }
+  }
+
+  .graphic-subhead {
+    font-size: 1rem;
+    font-family: $font-family-sans-serif;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1.38px;
+    text-align: center;
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 5px;
+    }
+  }
+
+  .timestamp {
+    font-family: $font-family-sans-serif;
+    letter-spacing: 1px !important;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    padding-bottom: 2px;
+
+    span.updated {
+      color: #bf1818;
+    }
+  }
+
+  .timing-mobile {
+    display: none;
+    display: inline-block;
+    text-align: center;
+
+    .pulse-container {
+      background-color: #de1e2c;
+      padding: 0 7px 0 2px;
+      margin-bottom: 3px;
+      border-radius: 3px;
+      color: #fff;
+    }
+
+    .pulse {
+      font-size: 8px;
+      color: #fff;
+      height: 19px;
+      width: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 2px;
+      position: relative;
+      top: 2px;
+
+      i {
+        animation: pulse 3s infinite;
+      }
+    }
+  }
+}

@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html lang="<%= lang %>" dir="ltr">
-  <head></head>
+  <head>
+  	<script src="https://kit.fontawesome.com/4c74dbc1a1.js" crossorigin="anonymous"></script>
+  </head>
   <body>
+
     <%- include('templates/nav'); %>
 
-    <%- include('article.ejs'); %>
+    <div class="container">
+
+		<div class="media-out" id="taskbar-container"></div>
+		<div class="row header"></div>
+		<div class="main state-races"></div>
+
+		<div class="row justify-content-center">            
+	        <div class="col-12 col-md-10 col-lg-7 note-block mt-1">
+                <p class="graphic-source">Source: Edison Research for the National Election Pool</p>
+                <p class="graphic-source">Georgia and West Virgina postponed their presidential primaries due to the coronavirus pandemic. Georgia’s primary was originally scheduled on March 24, and West Virginia was originally scheduled on May 12.</p>
+                <p class='graphic-source byline'>By Chris Canipe, Ally J. Levine and Sam Hart | REUTERS GRAPHICS</p>
+                <span class='embed-byline graphic-source'>REUTERS GRAPHICS</span>
+            </div>
+	    </div>
+
+	</div>
 
     <div id="sharetool-container"></div>
     <div id="related-links-container"></div>
