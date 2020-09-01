@@ -3,7 +3,7 @@ module.exports = {
   properties: {
     username: {
       type: 'string',
-      pattern: '^[0-9]{7}',
+      pattern: '^[0-9C]{7}',
       prompt: {
         message: 'What\'s your username for publishing to the graphics server?',
       },
