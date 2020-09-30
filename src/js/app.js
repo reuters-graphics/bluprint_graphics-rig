@@ -4,7 +4,11 @@ import '../scss/main.scss';
 const isEmbedded = window.location !== window.parent.location;
 // You can write code specific to embeds like this...
 if (isEmbedded) {
-  window.childFrame.sendHeight();
+  try {
+    window.childFrame.sendHeight();
+  } catch (err) {
+    console.log('pym not found.');
+  }
 }
 
 // Get the current locale: en, es, de, etc.
