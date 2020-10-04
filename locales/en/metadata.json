@@ -1,1 +1,20 @@
-{}
+{
+  "slugs": {
+    "root": "ECONOMY-CRISIS",
+    "wild": ""
+  },
+  "seoTitle": "Title",
+  "seoDescription": "Description",
+  "shareTitle": "Title",
+  "shareDescription": "Description",
+  "image": {
+    "path": "img/share.jpg"
+  },
+  "editions": {
+    "public": {
+      "interactive": {
+        "url": "https://www.google.com"
+      }
+    }
+  }
+}

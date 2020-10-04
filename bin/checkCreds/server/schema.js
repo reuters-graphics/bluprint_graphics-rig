@@ -15,6 +15,13 @@ module.exports = {
         message: 'What\'s your password for publishing to the graphics server?',
       },
     },
+    apiKey: {
+      type: 'string',
+      minLength: 10,
+      prompt: {
+        message: 'What\'s the Sphinx API key for publishing to the graphics server?',
+      },
+    },
   },
-  required: ['username', 'password'],
+  required: ['username', 'password', 'apiKey'],
 };

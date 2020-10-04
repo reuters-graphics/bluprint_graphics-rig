@@ -96,8 +96,8 @@ module.exports = (env, argv) => getLocales().map((locale) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        filename: 'embed.html',
-        template: path.resolve(__dirname, '../src/html/embed.ejs'),
+        filename: 'media-embed.html',
+        template: path.resolve(__dirname, '../src/html/media-embed.ejs'),
         excludeChunks: ['pageTools'],
       }),
       new HtmlWebpackPlugin({
@@ -130,7 +130,7 @@ module.exports = (env, argv) => getLocales().map((locale) => {
             }, { // Needed by google analytics script
               type: 'application/javascript',
               html: `
-var PAGE_TO_TRACK = "${getLocaleMetadata(locale).editions.public.interactive.url}";
+var PAGE_TO_TRACK = window.location.href;
 var TITLE_TO_TRACK = "${getLocaleMetadata(locale).seoTitle}";
               `,
             }],

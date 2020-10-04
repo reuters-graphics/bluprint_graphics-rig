@@ -90,8 +90,8 @@ module.exports = (env, argv) => getLocales().map((locale) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        filename: 'embed.html',
-        template: path.resolve(__dirname, '../src/html/embed.ejs'),
+        filename: 'media-embed.html',
+        template: path.resolve(__dirname, '../src/html/media-embed.ejs'),
         excludeChunks: ['tools'],
       }),
       new HtmlWebpackPlugin({

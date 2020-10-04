@@ -18,10 +18,6 @@ const copyLocaleFiles = (locale) => {
   )
     .then(() => copyPromise(
       `dist/${locale}/**/*`,
-      `packages/${locale}/media-${locale}/interactive/`
-    ))
-    .then(() => copyPromise(
-      `dist/${locale}/**/*`,
       `packages/${locale}/public-${locale}/interactive/`
     ))
     .then(() => {

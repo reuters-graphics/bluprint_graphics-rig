@@ -44,7 +44,7 @@ module.exports = {
         type: 'select',
         choices: [{
           title: 'Bangalore',
-          value: 'bangalore',
+          value: 'bengaluru',
         }, {
           title: 'London',
           value: 'london',

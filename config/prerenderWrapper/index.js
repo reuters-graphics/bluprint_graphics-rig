@@ -44,7 +44,7 @@ module.exports = (config) => {
     };
 
     const indexPlugin = findPluginIndex(config, 'index.html');
-    const embedPlugin = findPluginIndex(config, 'embed.html');
+    const embedPlugin = findPluginIndex(config, 'media-embed.html');
 
     if (isDev) {
       config.plugins[indexPlugin].options.chunks.push(chunkName);
@@ -71,7 +71,7 @@ module.exports = (config) => {
     config.plugins.push(
       new HtmlWebpackPrerenderPlugin({
         'index.html': pluginConfig,
-        'embed.html': pluginConfig,
+        'media-embed.html': pluginConfig,
       })
     );
   });
