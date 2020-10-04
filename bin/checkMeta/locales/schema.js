@@ -60,7 +60,7 @@ module.exports = {
               !invalidMessage ?
                 'What\'s the relative path to the share image?\n' :
                 'What\'s the relative path to the share image?\n(Should be img/<...>.jpg or img/<...>.png)\n',
-            initial: 'img/share.jpg',
+            initial: 'img/share.png',
           },
         },
         width: { type: 'integer' },
