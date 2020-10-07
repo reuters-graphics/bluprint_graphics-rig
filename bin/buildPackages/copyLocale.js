@@ -14,7 +14,7 @@ const copyLocaleFiles = (locale) => {
   logger.info(chalk`Creating {green.underline ${locale}} package.`);
   return copyPromise(
       `dist/${locale}/**/*`,
-      `packages/${locale}/media-interactive/public/`
+      `packages/${locale}/media-interactive/host/`
   )
     .then(() => copyPromise(
       `dist/${locale}/**/*`,
