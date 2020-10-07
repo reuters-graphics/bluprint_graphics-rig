@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const { spawnSync } = require('child_process');
 const simpleGit = require('simple-git/promise');
 const getLocales = require('../../config/utils/getLocales');
@@ -26,6 +27,8 @@ const run = async() => {
 
   logger.info('Making preview images.');
   await Promise.all(locales.map((locale) => makeGfxShare(locale)));
+
+  fs.unlinkSync(path.join(ROOT, 'packages/app.zip'));
 
   logger.info('✅ Done.\n');
 };
