@@ -21,6 +21,11 @@ const copyLocaleFiles = (locale) => {
       `packages/${locale}/interactive/`
     ))
     .then(() => {
+      fs.unlinkSync(path.resolve(ROOT, `packages/${locale}/media-interactive/host/index.html`));
+      fs.renameSync(
+        path.resolve(ROOT, `packages/${locale}/media-interactive/host/media-embed.html`),
+        path.resolve(ROOT, `packages/${locale}/media-interactive/host/index.html`)
+      );
       fs.copyFileSync(
         path.resolve(ROOT, 'packages/app.zip'),
         path.resolve(ROOT, `packages/${locale}/media-interactive/app.zip`)
