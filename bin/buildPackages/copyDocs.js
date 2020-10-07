@@ -17,9 +17,9 @@ module.exports = (locale) => {
   const readme = fs.readFileSync(README_TEMPLATE, 'utf-8');
   const notes = fs.readFileSync(MEDIA_NOTES, 'utf-8');
 
-  const embedCode = `Use the following code to embed this project in your CMS:\n\n${ejs.render(embed, { url })}\n\n`;
+  const embedCode = `Use the following code to embed this project in your CMS:\n\n${ejs.render(embed, { url })}`;
 
   const filepath = path.resolve(ROOT, `packages/${locale}/media-interactive/README.txt`);
 
-  fs.writeFileSync(filepath, embedCode + readme + notes);
+  fs.writeFileSync(filepath, `${embedCode}\n\n${readme}\n\n${notes}`);
 };
