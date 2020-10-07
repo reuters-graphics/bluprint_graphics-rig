@@ -27,16 +27,6 @@ module.exports = {
           config: 'config/webpack.prod.js',
           locale: '$1',
         }],
-        ['webpack', {
-          mode: 'production',
-          config: 'config/webpack.prod.js',
-          minify: true,
-          locale: '$1',
-        }],
-        ['prettier', {
-          write: 'packages/**/source/**/*.{html,css}',
-          loglevel: 'warn',
-        }],
         ['build:packages', { locale: '$1' }],
       ],
       env: {
@@ -73,7 +63,6 @@ module.exports = {
         ['webpack', {
           mode: 'production',
           config: 'config/webpack.preview.js',
-          minify: true,
         }],
       ]
     },
@@ -99,7 +88,7 @@ module.exports = {
     'publish': 'Publish your graphics pack',
     '-- HELPER TASKS -- ': '',
     'add-locale': 'Add a new locale directory to your project',
-    'get-google': 'Get data from Google docs or sheets', 
+    'get-google': 'Get data from Google docs or sheets',
     'make-srcset': 'Create a responsive image set',
     'extract-text': 'Extract po files from ttag and gt.gettext translations',
     'lint:js': 'Clean up your JS code',

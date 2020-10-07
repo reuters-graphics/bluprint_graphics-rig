@@ -1,5 +1,17 @@
 [
   {
+    "url": "https://graphics.reuters.com/USA-WILDFIRES/WINE/bdwpkkmxmpm/index.html",
+    "title": "Up in smoke",
+    "description": "California wine country counts the cost of wildfire damage",
+    "image": "https://graphics.reuters.com/USA-WILDFIRES/WINE/bdwpkkmxmpm/img/share-card.jpg"
+  },
+  {
+    "url": "https://graphics.reuters.com/CLIMATE-CHANGE/PERMAFROST/oakveelglvr/index.html",
+    "title": "Thawing permafrost puts climate change in spotlight",
+    "description": "Some fear thawing permafrost is about to release huge amounts of climate-warming emissions",
+    "image": "https://graphics.reuters.com/CLIMATE-CHANGE/PERMAFROST/oakveelglvr/img/share.jpg"
+  },
+  {
     "url": "https://graphics.reuters.com/HEALTH-CORONAVIRUS/VACCINE/yzdpxqxnwvx/index.html",
     "title": "Vaccine bootcamp",
     "description": "The global race to develop a COVID-19 vaccine is on. Here are the different types of vaccines and how your body uses them to develop immunity.",
@@ -10,17 +22,5 @@
     "title": "Battleground polling",
     "description": "Polling in six key states for the 2020 election",
     "image": "https://graphics.reuters.com/USA-ELECTION/BATTLEGROUNDS/nmopawwakpa/img/share-img.jpg"
-  },
-  {
-    "url": "https://graphics.reuters.com/HEALTH-CORONAVIRUS/DEATHS/xlbvgblezpq/index.html",
-    "title": "The scale of coronavirus deaths",
-    "description": "Global deaths from COVID-19 have exceeded one million, according to a Reuters tally, in another grim milestone for the global pandemic.",
-    "image": "https://graphics.reuters.com/HEALTH-CORONAVIRUS/DEATHS/xlbvgblezpq/img/share-card.jpg"
-  },
-  {
-    "url": "https://graphics.reuters.com/USA-WILDFIRE/POLLUTION/xlbpgjgervq/index.html",
-    "title": " Shifting smoke ",
-    "description": "How wildfires ravaging the U.S. west coast are sending smoke between continents and up to record heights in the atmosphere. ",
-    "image": "https://graphics.reuters.com/USA-WILDFIRE/POLLUTION/xlbpgjgervq/img/share-card.png"
   }
 ]
