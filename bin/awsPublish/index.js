@@ -78,10 +78,11 @@ const uploadDist = async() => {
   const uri = getURI();
 
   logger.info('Uploading dist directory to AWS...');
-  for (const i in files) {
-    const file = files[i];
-    await uploadFile(file, uri);
-  }
+  await Promise.all(files.map(file => uploadFile(file, uri)));
+  // for (const i in files) {
+  //   const file = files[i];
+  //   await uploadFile(file, uri);
+  // }
 
   writeLog();
 

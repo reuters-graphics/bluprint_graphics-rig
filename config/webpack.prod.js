@@ -128,7 +128,7 @@ module.exports = (env, argv) => getLocales().map((locale) => {
             }, { // Needed by google analytics script
               type: 'application/javascript',
               html: `
-var PAGE_TO_TRACK = window.location.href;
+var PAGE_TO_TRACK = "${getLocaleMetadata(locale).editions.interactive.page}";
 var TITLE_TO_TRACK = "${getLocaleMetadata(locale).seoTitle}";
               `,
             }],

@@ -71,73 +71,28 @@ module.exports = {
     editions: {
       type: 'object',
       properties: {
-        media: {
+        interactive: {
           type: 'object',
           properties: {
-            interactive: {
-              type: 'object',
-              properties: {
-                id: {
-                  type: 'string',
-                  pattern: '[a-zA-Z0-9/-]+',
-                  prompt: {
-                    message: 'The media interactive ID should\'ve been filled in automatically from the graphics server, but wasn\'t. Contact a developer.\n',
-                  },
-                },
-                url: {
-                  type: 'string',
-                  format: 'uri',
-                  prompt: {
-                    message: 'The media interactive URL should\'ve been filled in automatically from the graphics server, but wasn\'t. Contact a developer.\n',
-                  },
-                },
+            page: {
+              type: 'string',
+              format: 'uri',
+              prompt: {
+                message: 'The interactive page URL should\'ve been filled in automatically from the graphics server, but wasn\'t. Contact a developer.\n',
               },
-              required: ['id', 'url'],
             },
-            'media-interactive': {
-              type: 'object',
-              properties: {
-                id: {
-                  type: 'string',
-                  pattern: '[a-zA-Z0-9/-]+',
-                  prompt: {
-                    message: 'The media media-interactive ID should\'ve been filled in automatically from the graphics server, but wasn\'t. Contact a developer.\n',
-                  },
-                },
+            embed: {
+              type: 'string',
+              format: 'uri',
+              prompt: {
+                message: 'The interactive embed URL should\'ve been filled in automatically from the graphics server, but wasn\'t. Contact a developer.\n',
               },
-              required: ['id'],
             },
           },
-          required: ['interactive', 'media-interactive'],
-        },
-        public: {
-          type: 'object',
-          properties: {
-            interactive: {
-              type: 'object',
-              properties: {
-                id: {
-                  type: 'string',
-                  pattern: '[a-zA-Z0-9/-]+',
-                  prompt: {
-                    message: 'The public interactive ID should\'ve been filled in automatically from the graphics server, but wasn\'t. Contact a developer.\n',
-                  },
-                },
-                url: {
-                  type: 'string',
-                  format: 'uri',
-                  prompt: {
-                    message: 'The public interactive URL should\'ve been filled in automatically from the graphics server, but wasn\'t. Contact a developer.\n',
-                  },
-                },
-              },
-              required: ['id', 'url'],
-            },
-          },
-          required: ['interactive'],
+          required: ['page', 'embed'],
         },
       },
-      required: ['media', 'public'],
+      required: ['interactive'],
     },
   },
   required: [

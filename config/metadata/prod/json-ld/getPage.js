@@ -10,20 +10,20 @@ module.exports = ({ locale, project }) => ({
   '@context': 'http://schema.org',
   '@type': 'NewsArticle',
   headline: locale.seoTitle,
-  url: locale.editions.public.interactive.url,
+  url: locale.editions.interactive.page,
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': locale.editions.public.interactive.url,
+    '@id': locale.editions.interactive.page,
   },
   thumbnailUrl: urljoin(
-    locale.editions.public.interactive.url,
+    locale.editions.interactive.page,
     locale.image.path
   ),
   image: [{
     '@context': 'http://schema.org',
     '@type': 'ImageObject',
     url: urljoin(
-      locale.editions.public.interactive.url,
+      locale.editions.interactive.page,
       locale.image.path
     ),
     width: locale.image.width,

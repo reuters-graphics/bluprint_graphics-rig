@@ -1,32 +1,27 @@
-const ServerRequest = require('./serverRequest');
-const logLocaleUrls = require('./utils/logLocaleUrls');
-const getLocales = require('../../config/utils/getLocales');
 const logger = require('../../config/utils/logger')('Graphics Server');
+const GraphicPack = require('./graphicPack');
 const argv = require('yargs').argv;
-
-const locales = getLocales();
 
 const { update: updateOnly, create: createOnly, publish } = argv;
 
 const publishGraphic = async() => {
+  const graphic = new GraphicPack();
+
   // Publishes the entire pack...
   if (publish) {
-    const request = new ServerRequest('en');
-    await request.publish();
-    locales.forEach(locale => logLocaleUrls(locale));
-    return;
+    await graphic.publishGraphic();
   }
-  for (const i in locales) {
-    const locale = locales[i];
-    const request = new ServerRequest(locale);
-    if (updateOnly) {
-      await request.update();
-    } else if (createOnly) {
-      await request.create();
-    } else {
-      await request.create();
-      await request.update();
-    }
+  if (updateOnly) {
+    await graphic.updatePack();
+    await graphic.updateGraphicEditions();
+  } else if (createOnly) {
+    await graphic.createPack();
+    await graphic.createGraphicEditions();
+  } else {
+    await graphic.createPack();
+    await graphic.createGraphicEditions();
+    await graphic.updatePack();
+    await graphic.updateGraphicEditions();
   }
 
   logger.info('✅ Done.\n');

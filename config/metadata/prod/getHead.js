@@ -8,14 +8,14 @@ module.exports = ({ locale, project }) => ({
     { property: 'fb:admins', content: '616167736' },
     { property: 'fb:admins', content: '625796953' },
     { property: 'fb:admins', content: '571759798' },
-    { property: 'og:url', content: locale.editions.public.interactive.url },
+    { property: 'og:url', content: locale.editions.interactive.page },
     { property: 'og:type', content: 'article' },
     { property: 'og:title', content: locale.shareTitle, itemprop: 'name' },
     { property: 'og:description', content: locale.shareDescription, itemprop: 'description' },
     {
       property: 'og:image',
       content: urljoin(
-        locale.editions.public.interactive.url,
+        locale.editions.interactive.page,
         locale.image.path
       ),
       itemprop: 'image',
@@ -31,17 +31,17 @@ module.exports = ({ locale, project }) => ({
     {
       name: 'twitter:image:src',
       content: urljoin(
-        locale.editions.public.interactive.url,
+        locale.editions.interactive.page,
         locale.image.path
       ),
     },
   ],
   link: [
-    { rel: 'canonical', href: locale.editions.public.interactive.url },
+    { rel: 'canonical', href: locale.editions.interactive.page },
     {
       rel: 'shortcut icon',
       href: urljoin(
-        locale.editions.public.interactive.url,
+        locale.editions.interactive.page,
         'favicon.ico'
       ),
     },
