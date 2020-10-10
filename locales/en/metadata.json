@@ -1,15 +1,21 @@
 {
   "slugs": {
-    "root": "ECONOMY-CRISIS",
+    "root": "HEALTH-CORONAVIRUS",
     "wild": ""
   },
-  "seoTitle": "Title",
-  "seoDescription": "Description",
-  "shareTitle": "Title",
-  "shareDescription": "Description",
+  "seoTitle": "Test",
+  "seoDescription": "Testing",
+  "shareTitle": "Test",
+  "shareDescription": "Testing",
   "image": {
     "path": "img/share.png",
     "width": 714,
     "height": 532
+  },
+  "editions": {
+    "interactive": {
+      "page": "https://graphics.reuters.com/HEALTH-CORONAVIRUS/xklpyqxmbpg/",
+      "embed": "https://graphics.reuters.com/HEALTH-CORONAVIRUS/xklpyqxmbpg/media-embed.html"
+    }
   }
 }

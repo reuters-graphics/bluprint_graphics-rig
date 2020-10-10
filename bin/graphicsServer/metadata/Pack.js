@@ -6,10 +6,10 @@ class PackMetadata {
   constructor(locale = 'en') {
     this.getLocaleProp = localePropGetter(locale);
     const { email } = getProfile();
+    const wildSlug = this.getLocaleProp('slugs.wild');
     this.metadata = {
       language: locale,
       rootSlug: this.getLocaleProp('slugs.root'),
-      wildSlug: this.getLocaleProp('slugs.wild'),
       desk: getPkgProp('reuters.desk'),
       title: this.getLocaleProp('seoTitle'),
       description: this.getLocaleProp('seoDescription'),
@@ -18,6 +18,9 @@ class PackMetadata {
         .join(', '),
       contactEmail: email,
     };
+    if (wildSlug && wildSlug !== '') {
+      this.metadata.wildSlug = wildSlug;
+    }
   }
 };
 

@@ -6,7 +6,7 @@ module.exports = {
       properties: {
         root: {
           type: 'string',
-          pattern: '[A-Z\-]*', // eslint-disable-line no-useless-escape
+          pattern: '^[A-Z][A-Z0-9]*-[A-Z0-9]+$',
           minLength: 3,
           prompt: {
             message: 'What\'s the root slug for this locale, i.e., a generic topic slug?\n',
