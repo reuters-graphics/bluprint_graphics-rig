@@ -165,16 +165,5 @@
     "ua-parser-js": "^0.7.21",
     "waypoints": "^4.0.1"
   },
-  "reuters": {
-    "desk": "bengaluru",
-    "publishDate": "2020-10-04T18:00:40.148Z",
-    "authors": [
-      {
-        "name": "Jon McClure",
-        "link": "https://www.twitter.com/JonRMcClure"
-      }
-    ],
-    "referrals": [],
-    "graphicId": "ccfc9c0b-74d5-4d93-aa6e-3dd9fd047d7b"
-  }
+  "reuters": {}
 }

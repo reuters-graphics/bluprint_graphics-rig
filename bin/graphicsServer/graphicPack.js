@@ -67,7 +67,11 @@ class GraphicPack extends PackMetadata {
 
   async updateEditions(locale) {
     this.setLocale(locale);
-    const url = this.getLocaleProp('editions.interactive.embed');
+    let url = this.getLocaleProp('editions.interactive.embed');
+    if (!url) {
+      await this.createEditions(locale);
+      url = this.getLocaleProp('editions.interactive.embed');
+    }
     this.editions = new EditionMetadata(locale);
     this.editions.setEmbed(url);
     const editionArchive = path.join(process.cwd(), `packages/${locale}`);
