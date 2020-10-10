@@ -7,7 +7,6 @@ const { update: updateOnly, create: createOnly, publish } = argv;
 const publishGraphic = async() => {
   const graphic = new GraphicPack();
 
-  // Publishes the entire pack...
   try {
     if (publish) {
       await graphic.publishGraphic();

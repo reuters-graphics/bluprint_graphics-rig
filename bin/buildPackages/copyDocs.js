@@ -11,7 +11,7 @@ const MEDIA_NOTES = path.join(ROOT, 'MEDIA_NOTES.txt');
 module.exports = (locale) => {
   const localeProp = getLocaleProp(locale);
   // Embed code
-  const url = localeProp('editions.media.interactive.url');
+  const url = localeProp('editions.interactive.embed');
 
   const embed = fs.readFileSync(EMBED_TEMPLATE, 'utf-8');
   const readme = fs.readFileSync(README_TEMPLATE, 'utf-8');
