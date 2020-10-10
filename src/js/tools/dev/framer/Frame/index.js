@@ -16,7 +16,7 @@ class Frame extends React.Component {
   componentDidMount() {
     new pym.Parent(
       'frame-parent',
-      window.location.href.replace('framer.html', 'embed.html')
+      window.location.href.replace('framer.html', 'media-embed.html')
     ); // eslint-disable-line
   }
 

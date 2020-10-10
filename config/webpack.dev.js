@@ -76,8 +76,8 @@ const config = (env, argv, port) => Prerender(merge(commonConfig, {
       chunks: ['app', 'tools', 'devtool_hud'],
     }),
     new HtmlWebpackPlugin({
-      filename: 'embed.html',
-      template: path.resolve(__dirname, '../src/html/embed.ejs'),
+      filename: 'media-embed.html',
+      template: path.resolve(__dirname, '../src/html/media-embed.ejs'),
       chunks: ['app'],
     }),
     new HtmlWebpackPlugin({

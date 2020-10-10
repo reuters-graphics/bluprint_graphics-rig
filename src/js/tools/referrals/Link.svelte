@@ -1,13 +1,21 @@
 <script>
-  export let url;
-  export let image;
-  export let title;
-  export let description;
+import IntersectionObserver from './IntersectionObserver.svelte';
+
+export let url;
+export let image;
+export let title;
+export let description;
 </script>
 
 <div class='referral' title={description}>
   <a href={url}>
-    <div class='image' style={`background-image: url(${image});`}></div>
+    <IntersectionObserver let:intersecting top={600}>
+      {#if intersecting}
+      <div class='image' style={`background-image: url(${image});`}></div>
+      {:else}
+      <div class='image'></div>
+      {/if}
+    </IntersectionObserver>
     <p>{title}</p>
   </a>
 </div>

@@ -11,10 +11,7 @@ module.exports = async(locale) => {
 
   const IMAGE = path.resolve(ROOT, `dist/${locale}`, LOCALE_IMAGE_PATH);
 
-  const MEDIA_PACK = path.resolve(ROOT, `packages/${locale}/media-${locale}/media-interactive/`);
-
-  const INTERACTIVE_PACK = path.resolve(ROOT, `packages/${locale}/media-${locale}/interactive/`);
+  const MEDIA_PACK = path.resolve(ROOT, `packages/${locale}/media-interactive/`);
 
   await sharp(IMAGE).toFormat('png').toFile(path.resolve(MEDIA_PACK, '_gfxpreview.png'));
-  await sharp(IMAGE).toFormat('png').toFile(path.resolve(INTERACTIVE_PACK, '_gfxpreview.png'));
 };

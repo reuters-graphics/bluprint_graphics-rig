@@ -33,7 +33,7 @@ const getLocaleMetadata = (locale) =>
   JSON.parse(fs.readFileSync(path.resolve(__dirname, `../locales/${locale}/metadata.json`)));
 
 module.exports = (env, argv) => getLocales().map((locale) => {
-  logger.info(chalk`Building {green.underline ${locale}} ${argv.minify ? 'interactive page' : 'media assets'}...`);
+  logger.info(chalk`Building {green.underline ${locale}} interactive page...`);
 
   return Prerender(merge(common, {
     entry: {
@@ -55,12 +55,10 @@ module.exports = (env, argv) => getLocales().map((locale) => {
     },
     stats: 'errors-only',
     mode: 'production',
-    devtool: argv.minify ? 'source-map' : false,
+    devtool: 'source-map',
     output: {
       filename: '[name].[contenthash].js',
-      path: argv.minify ?
-        path.join(__dirname, '../dist', locale) :
-        path.join(__dirname, '../packages', locale, `media-${locale}`, 'media-interactive/source'),
+      path: path.join(__dirname, '../dist', locale),
       publicPath: './',
     },
     module: {
@@ -85,7 +83,7 @@ module.exports = (env, argv) => getLocales().map((locale) => {
       ],
     },
     optimization: {
-      minimize: !!argv.minify,
+      minimize: true,
       minimizer: [
         new TerserPlugin({
           sourceMap: true,
@@ -96,8 +94,8 @@ module.exports = (env, argv) => getLocales().map((locale) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        filename: 'embed.html',
-        template: path.resolve(__dirname, '../src/html/embed.ejs'),
+        filename: 'media-embed.html',
+        template: path.resolve(__dirname, '../src/html/media-embed.ejs'),
         excludeChunks: ['pageTools'],
       }),
       new HtmlWebpackPlugin({
@@ -130,7 +128,7 @@ module.exports = (env, argv) => getLocales().map((locale) => {
             }, { // Needed by google analytics script
               type: 'application/javascript',
               html: `
-var PAGE_TO_TRACK = "${getLocaleMetadata(locale).editions.public.interactive.url}";
+var PAGE_TO_TRACK = "${getLocaleMetadata(locale).editions.interactive.page}";
 var TITLE_TO_TRACK = "${getLocaleMetadata(locale).seoTitle}";
               `,
             }],

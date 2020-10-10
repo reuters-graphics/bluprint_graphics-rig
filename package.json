@@ -40,6 +40,7 @@
     "@newswire/sheet-to-data": "^1.0.0",
     "@octokit/rest": "^17.2.1",
     "@reuters-graphics/eslint-config": "latest",
+    "@reuters-graphics/server-client": "^1.2.0",
     "@reuters-graphics/stylelint-config": "latest",
     "@sindresorhus/slugify": "^0.11.0",
     "ajv": "^6.11.0",
@@ -153,6 +154,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
     "@reuters-graphics/style-theme-eisbaer": "~0.2.1",
+    "ReutersCharter": "https://github.com/reuters-graphics/ReutersCharter.git",
     "d3": "^5.15.0",
     "journalize": "^2.2.0",
     "jquery": "^3.4.1",
@@ -160,7 +162,6 @@
     "pym.js": "^1.3.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "ReutersCharter": "https://github.com/reuters-graphics/ReutersCharter.git",
     "ua-parser-js": "^0.7.21",
     "waypoints": "^4.0.1"
   },
