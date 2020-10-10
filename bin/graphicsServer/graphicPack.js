@@ -31,7 +31,7 @@ class GraphicPack extends PackMetadata {
 
   async createPack() {
     if (this.graphicId) return;
-    this.client = ServerClient(this.credentials);
+    this.client = new ServerClient(this.credentials);
     await this.client.createGraphic(this.metadata);
     this.graphicId = this.client.graphic.id;
     setPkgProp('reuters.graphicId', this.graphicId);
@@ -40,7 +40,7 @@ class GraphicPack extends PackMetadata {
   async updatePack() {
     if (!this.graphicId) return;
     const { username, password, apiKey } = this.credentials;
-    this.client = ServerClient({
+    this.client = new ServerClient({
       username,
       password,
       apiKey,
@@ -99,7 +99,7 @@ class GraphicPack extends PackMetadata {
   async publishGraphic() {
     if (!this.graphicId) return;
     const { username, password, apiKey } = this.credentials;
-    this.client = ServerClient({
+    this.client = new ServerClient({
       username,
       password,
       apiKey,

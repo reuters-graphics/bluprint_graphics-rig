@@ -8,13 +8,8 @@
   "shareTitle": "Title",
   "shareDescription": "Description",
   "image": {
-    "path": "img/share.png"
-  },
-  "editions": {
-    "public": {
-      "interactive": {
-        "url": "https://www.google.com"
-      }
-    }
+    "path": "img/share.png",
+    "width": 714,
+    "height": 532
   }
 }

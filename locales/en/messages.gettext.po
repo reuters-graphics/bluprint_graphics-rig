@@ -1,6 +1,16 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
+#: src/html/templates/graphic.ejs:14
+msgid ""
+"Note: Consuming raw or undercooked meats, poultry or eggs may increase your "
+"risk of foodborne illness."
+msgstr ""
+
+#: src/html/templates/graphic.ejs:15
+msgid "Source"
+msgstr ""
+
 #: src/html/templates/heroTitle.ejs:7
 msgid "Reuters Internet Fashion"
 msgstr ""
@@ -19,14 +29,4 @@ msgstr ""
 
 #: src/html/templates/photo.ejs:3
 msgid "Photo by Nick Dale"
-msgstr ""
-
-#: src/html/templates/graphic.ejs:14
-msgid ""
-"Note: Consuming raw or undercooked meats, poultry or eggs may increase your "
-"risk of foodborne illness."
-msgstr ""
-
-#: src/html/templates/graphic.ejs:15
-msgid "Source"
 msgstr ""
