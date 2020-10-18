@@ -1,7 +1,7 @@
 const chalk = require('chalk');
 const profileProp = require('../../../config/utils/getProfileProp');
 
-const desks = ['bengaluru', 'london', 'new-york', 'singapore'];
+const desks = ['bengaluru', 'london', 'new york', 'singapore'];
 
 module.exports = {
   type: 'object',
@@ -23,7 +23,7 @@ module.exports = {
               value: 'london',
             }, {
               title: 'New York',
-              value: 'new-york',
+              value: 'new york',
             }, {
               title: 'Singapore',
               value: 'singapore',

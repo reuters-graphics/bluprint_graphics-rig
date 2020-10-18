@@ -38,7 +38,7 @@ module.exports = {
     },
     desk: {
       type: 'string',
-      enum: ['bengaluru', 'london', 'new-york', 'singapore'],
+      enum: ['bengaluru', 'london', 'new york', 'singapore'],
       prompt: {
         message: 'Which graphics desk do you work from?',
         type: 'select',
@@ -50,7 +50,7 @@ module.exports = {
           value: 'london',
         }, {
           title: 'New York',
-          value: 'new-york',
+          value: 'new york',
         }, {
           title: 'Singapore',
           value: 'singapore',

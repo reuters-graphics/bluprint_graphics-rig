@@ -1154,10 +1154,10 @@
     eslint-plugin-react-hooks "*"
     eslint-plugin-standard "*"
 
-"@reuters-graphics/server-client@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@reuters-graphics/server-client/-/server-client-1.2.0.tgz#592251841f75b864841aee8246897cde5886b76a"
-  integrity sha512-FwmcXxiE/zg5x+XFqmJWeWGwC+RqzUg2UIzV9wfG+x3s4AnvWUsKXph1WfDvongkGTZKz87A53VQzFYLTpsqTA==
+"@reuters-graphics/server-client@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@reuters-graphics/server-client/-/server-client-1.2.1.tgz#a5e13c1cbca3bb6ea81fd71e8e9b8de982861918"
+  integrity sha512-ifUDLKe51nOME9cihz6y7h6zVeLWyzYWbjI2ee7LJRhiRwTiaZo1QuL0U70niZgnL5EHha4qZPqGhZ7lwEuP3Q==
   dependencies:
     "@reuters-graphics/teams-klaxon" "^0.0.3"
     ajv "^6.12.2"
