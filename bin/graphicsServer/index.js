@@ -10,18 +10,19 @@ const publishGraphic = async() => {
   try {
     if (publish) {
       await graphic.publishGraphic();
-    }
-    if (updateOnly) {
-      await graphic.updatePack();
-      await graphic.updateGraphicEditions();
-    } else if (createOnly) {
-      await graphic.createPack();
-      await graphic.createGraphicEditions();
     } else {
-      await graphic.createPack();
-      await graphic.createGraphicEditions();
-      await graphic.updatePack();
-      await graphic.updateGraphicEditions();
+      if (updateOnly) {
+        await graphic.updatePack();
+        await graphic.updateGraphicEditions();
+      } else if (createOnly) {
+        await graphic.createPack();
+        await graphic.createGraphicEditions();
+      } else {
+        await graphic.createPack();
+        await graphic.createGraphicEditions();
+        await graphic.updatePack();
+        await graphic.updateGraphicEditions();
+      }
     }
 
     logger.info('✅ Done.\n');
