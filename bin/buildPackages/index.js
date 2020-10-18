@@ -8,6 +8,8 @@ const makeGfxShare = require('./makeGfxShare');
 const logger = require('../../config/utils/logger')('Build packages');
 
 const ROOT = path.resolve(__dirname, '../../');
+const PACKAGES_DIR = path.join(ROOT, 'packages');
+const DIST_DIR = path.join(ROOT, 'dist');
 
 const git = simpleGit(ROOT);
 
@@ -15,6 +17,9 @@ const run = async() => {
   logger.info('Building client packages...');
 
   const locales = getLocales();
+
+  if (!fs.existsSync(PACKAGES_DIR)) fs.mkdirSync(PACKAGES_DIR);
+  if (!fs.existsSync(DIST_DIR)) fs.mkdirSync(DIST_DIR);
 
   await git.add('.');
   await git.commit('Pre-archive');
