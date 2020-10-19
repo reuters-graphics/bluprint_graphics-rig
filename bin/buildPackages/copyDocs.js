@@ -15,7 +15,7 @@ module.exports = (locale) => {
 
   const embed = fs.readFileSync(EMBED_TEMPLATE, 'utf-8');
   const readme = fs.readFileSync(README_TEMPLATE, 'utf-8');
-  const notes = fs.readFileSync(MEDIA_NOTES, 'utf-8');
+  const notes = fs.existsSync(MEDIA_NOTES) ? fs.readFileSync(MEDIA_NOTES, 'utf-8') : '';
 
   const embedCode = `Use the following code to embed this project in your CMS:\n\n${ejs.render(embed, { url })}`;
 
