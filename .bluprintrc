@@ -54,7 +54,8 @@
       "bin/**/*",
       "config/**/*",
       ".tasksrc.js",
-      "package.json"
+      "package.json",
+      "src/js/tools/dev/**/*"
     ]
   },
   "mergeJson": true
