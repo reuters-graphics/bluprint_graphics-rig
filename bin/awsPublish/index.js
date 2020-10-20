@@ -61,7 +61,6 @@ const uploadFile = async(relativePath, uri) => {
     Key: bucketPath,
     Body: fileContent,
     CacheControl: 'no-cache',
-    ACL: 'public-read',
     ContentType: mime.contentType(path.extname(absolutePath)),
   };
 
