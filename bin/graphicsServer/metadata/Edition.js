@@ -1,11 +1,13 @@
 const localePropGetter = require('../../../config/utils/getLocaleProp');
 const getPkgProp = require('../../../config/utils/getPackageProp');
+const validLocales = require('./validLocales');
 
 class EditionMetadata {
   constructor(locale) {
     const getLocaleProp = localePropGetter(locale);
     this.metadata = {
-      language: locale,
+      // If locale is not on list accepted by Connect, we'll upload as English
+      language: validLocales.includes(locale) ? locale : 'en',
       title: getLocaleProp('seoTitle'),
       description: getLocaleProp('seoDescription'),
     };
