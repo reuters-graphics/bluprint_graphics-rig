@@ -33,11 +33,7 @@
   }, {
     "action": "execute",
     "cmds": [
-      ["yarn"]
-    ]
-  }, {
-    "action": "execute",
-    "cmds": [
+      ["yarn"],
       ["runner", ["check:creds"]]
     ]
   }, {
