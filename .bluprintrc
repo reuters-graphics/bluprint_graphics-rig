@@ -38,11 +38,15 @@
   }, {
     "action": "execute",
     "cmds": [
+      ["runner", ["check:creds"]]
+    ]
+  }, {
+    "action": "execute",
+    "cmds": [
       ["runner", ["check:ai2html"]],
       ["git", ["init"]],
       ["git", ["add", "."]],
       ["git", ["commit", "-m", "initial"]],
-      ["runner", ["check:creds"]],
       ["runner", ["repo:create"]],
       ["runner", ["trello:create"]],
       ["runner", ["start"]]
