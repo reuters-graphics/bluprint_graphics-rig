@@ -108,7 +108,7 @@ module.exports = (env, argv) => getLocales().map((locale) => {
         tags: {
           head__prepend: require('./metadata/common/head__prepend'),
           head: {
-            title: [{ html: 'Preview ONLY!' }],
+            title: [{ html: 'Preview, not for public!' }],
           },
         },
       }),
