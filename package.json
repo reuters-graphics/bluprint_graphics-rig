@@ -10,6 +10,7 @@
     "check:env": "npx ./bin/checkEnv/index.js",
     "check:share-img": "npx ./bin/measureImg/index.js",
     "check:ai2html": "npx ./bin/checkAi2html/index.js",
+    "check:pack": "npx ./bin/checkPack/index.js",
     "trello:create": "npx ./bin/trello/create/index.js",
     "trello:update": "npx ./bin/trello/update/index.js",
     "confirm:meta": "npx ./bin/confirmMeta/index.js",

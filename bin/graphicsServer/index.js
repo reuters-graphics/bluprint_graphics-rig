@@ -12,15 +12,12 @@ const publishGraphic = async() => {
       await graphic.publishGraphic();
     } else {
       if (updateOnly) {
-        await graphic.updatePack();
         await graphic.updateGraphicEditions();
       } else if (createOnly) {
-        await graphic.createPack();
         await graphic.createGraphicEditions();
+      // This else shouldn't ever run b/c we always call w/ args
       } else {
-        await graphic.createPack();
         await graphic.createGraphicEditions();
-        await graphic.updatePack();
         await graphic.updateGraphicEditions();
       }
     }
