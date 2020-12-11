@@ -1,5 +1,10 @@
 const chalk = require('chalk');
 const profileProp = require('../../../config/utils/getProfileProp');
+const fs = require('fs');
+const path = require('path');
+const PACKAGE_DIR = path.resolve(__dirname, '../../../');
+const filePath = path.resolve(PACKAGE_DIR, 'package.json');
+const metadata = JSON.parse(fs.readFileSync(filePath));
 
 const desks = ['bengaluru', 'london', 'new york', 'singapore'];
 
@@ -53,6 +58,17 @@ module.exports = {
         updateDate: {
           type: 'string',
           format: 'date-time',
+          prompt: {
+            message: 'When was this piece updated?',
+            mask: 'YYYY-MM-DD HH:mm',
+            type: 'date',
+            initial: () => {
+              const date = new Date();
+              date.setMinutes(0);              
+              return metadata.reuters.updateDate ? new Date(metadata.reuters.updateDate) : date
+            },
+            format: (value) => value.toISOString(),
+          }
         },
         authors: {
           type: 'array',
