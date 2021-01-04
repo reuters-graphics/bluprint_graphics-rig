@@ -30,7 +30,10 @@ class GraphicPack extends PackMetadata {
   }
 
   async createPack() {
-    if (this.graphicId) return;
+    if (this.graphicId) {
+      await this.updatePack();
+      return;
+    }
     this.client = new ServerClient(this.credentials);
     await this.client.createGraphic(this.metadata);
     this.graphicId = this.client.graphic.id;
