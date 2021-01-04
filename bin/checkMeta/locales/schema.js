@@ -9,7 +9,7 @@ module.exports = {
           pattern: '^[A-Z][A-Z0-9]*-[A-Z0-9]+$',
           minLength: 3,
           prompt: {
-            message: 'What\'s the root slug for this locale, i.e., a generic topic slug?\n',
+            message: 'What\'s the root slug for this locale, i.e., a generic topic slug?',
             format: (text) => text.toUpperCase(),
           },
         },
@@ -17,7 +17,7 @@ module.exports = {
           type: 'string',
           pattern: '[A-Z\-]*', // eslint-disable-line no-useless-escape
           prompt: {
-            message: 'What\'s the wild slug for this locale, i.e., a more specific page slug?\n',
+            message: 'What\'s the wild slug for this locale, i.e., a more specific page slug?',
             format: (text) => text.toUpperCase(),
           },
         },
@@ -28,25 +28,25 @@ module.exports = {
       type: 'string',
       maxLength: 110, // Per Google News SEO guidelines
       prompt: {
-        message: 'What\'s the title of this page for search listings (seoTitle)?\n',
+        message: 'What\'s the title of this page for search listings (seoTitle)?',
       },
     },
     seoDescription: {
       type: 'string',
       prompt: {
-        message: 'What\'s the description of this page for search listings (seoDescription)?\n',
+        message: 'What\'s the description of this page for search listings (seoDescription)?',
       },
     },
     shareTitle: {
       type: 'string',
       prompt: {
-        message: 'What\'s the title of this page for share cards (shareTitle)?\n',
+        message: 'What\'s the title of this page for share cards (shareTitle)?',
       },
     },
     shareDescription: {
       type: 'string',
       prompt: {
-        message: 'What\'s the description of this page for share cards (shareDescription)?\n',
+        message: 'What\'s the description of this page for share cards (shareDescription)?',
       },
     },
     image: {
@@ -56,10 +56,7 @@ module.exports = {
           type: 'string',
           pattern: '^img\/[a-zA-Z0-9/_-]+\.(jpg|png)$', // eslint-disable-line no-useless-escape
           prompt: {
-            message: (variablePath, invalidMessage) =>
-              !invalidMessage ?
-                'What\'s the relative path to the share image?\n' :
-                'What\'s the relative path to the share image?\n(Should be img/<...>.jpg or img/<...>.png)\n',
+            message: 'What\'s the relative path to the share image?',
             initial: 'img/share.png',
           },
         },

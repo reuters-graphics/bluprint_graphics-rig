@@ -1154,10 +1154,10 @@
     eslint-plugin-react-hooks "*"
     eslint-plugin-standard "*"
 
-"@reuters-graphics/server-client@1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@reuters-graphics/server-client/-/server-client-1.2.1.tgz#a5e13c1cbca3bb6ea81fd71e8e9b8de982861918"
-  integrity sha512-ifUDLKe51nOME9cihz6y7h6zVeLWyzYWbjI2ee7LJRhiRwTiaZo1QuL0U70niZgnL5EHha4qZPqGhZ7lwEuP3Q==
+"@reuters-graphics/server-client@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@reuters-graphics/server-client/-/server-client-1.2.2.tgz#c46dd57aaeac0cea097af1d46ca7615ee1833e32"
+  integrity sha512-hu+O1bgGqNmoTQcsIbg/whGcxq3pq0//3kFvTeGsAaTop7sLxCR6/OnPNTqSROp5SnbPxZEoD70T2zE5EievuQ==
   dependencies:
     "@reuters-graphics/teams-klaxon" "^0.0.3"
     ajv "^6.12.2"
@@ -1971,13 +1971,14 @@ asap@^2.0.3:
   resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
   integrity sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
 
-ask-json@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/ask-json/-/ask-json-0.0.5.tgz#9d1fb34262cd753929891744c8a712412468f296"
-  integrity sha512-+ykzMEkQpiJSAaBOwIJmeeWqxXt9kIWO6GpXTIEesNuF+QtEacIh+vpConecttZlMV0+9HNsKlKqpAo5pdQE5Q==
+ask-json@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/ask-json/-/ask-json-0.1.8.tgz#e02a51c0b0cd57b4448a5131ac9291f4259dade5"
+  integrity sha512-aBeGEaCZ/rzGSMh7tipQwZYCX9QNBSg4W2/eKjRpXrVyEpKGgHMJg7TJ6NSIMGBtZhjicwOkLcZnhzvLF/rQFw==
   dependencies:
     ajv "^6.10.2"
     chalk "^3.0.0"
+    json-schema-traverse "^1.0.0"
     lodash "^4.17.15"
     prompts "^2.3.0"
     update-notifier "^4.0.0"
@@ -7696,6 +7697,11 @@ json-schema-traverse@^0.4.1:
   resolved "https://registry.yarnpkg.com/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz#69f6a87d9513ab8bb8fe63bdb0979c448e684660"
   integrity sha512-xbbCH5dCYU5T8LcEhhuh7HJ88HXuW3qsI3Y0zOZFKfZEHcpWiHU/Jxzk629Brsab/mMiHQti9wMP+845RPe3Vg==
 
+json-schema-traverse@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz#ae7bcb3656ab77a73ba5c49bf654f38e6b6860e2"
+  integrity sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==
+
 json-schema@0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/json-schema/-/json-schema-0.2.3.tgz#b480c892e59a2f05954ce727bd3f2a4e882f9e13"
@@ -9465,6 +9471,11 @@ ora@1.3.0:
     cli-cursor "^2.1.0"
     cli-spinners "^1.0.0"
     log-symbols "^1.0.2"
+
+ordinal@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/ordinal/-/ordinal-1.0.3.tgz#1a3c7726a61728112f50944ad7c35c06ae3a0d4d"
+  integrity sha512-cMddMgb2QElm8G7vdaa02jhUNbTSrhsgAGUz1OokD83uJTwSUn+nKoNoKVVaRa08yF6sgfO7Maou1+bgLd9rdQ==
 
 original@^1.0.0:
   version "1.0.2"

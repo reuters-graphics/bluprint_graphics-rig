@@ -7,5 +7,5 @@ const VALID_VERSIONS = '12.0.0 - 13.9.0';
 
 if (!semver.satisfies(currentVersion, VALID_VERSIONS)) {
   logger.error(`You must use a version of Node between ${VALID_VERSIONS}.`);
-  process.exitCode = 1;
+  process.exit(1);
 }
