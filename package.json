@@ -22,6 +22,7 @@
     "get-google": "npx ./bin/googleAPIs/index.js",
     "extract-text": "npx ./bin/extractText/index.js",
     "make-srcset": "npx ./bin/makeSrcset/index.js",
+    "optimize-img": "yarn run make-srcset",
     "add-locale": "npx ./bin/addLocale/index.js",
     "graphics-server": "npx ./bin/graphicsServer/index.js",
     "preview-server:local": "npx ./bin/previewServer/index.js",
