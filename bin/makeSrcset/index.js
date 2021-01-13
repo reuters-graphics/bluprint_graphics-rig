@@ -10,7 +10,9 @@ const argv = require('yargs')
       describe: `Path to .jpg image file inside ${chalk.yellow('src/static/img')}`,
       type: 'string',
       coerce: (imgPath) => {
-        const filePath = path.resolve(process.cwd(), 'src/static/img', imgPath);
+        const filePath = imgPath.includes('src/static/img') ?
+          path.resolve(process.cwd(), imgPath) :
+          path.resolve(process.cwd(), 'src/static/img', imgPath);
         if (!fs.existsSync(filePath)) {
           logger.error(`Can't find img at ${chalk.underline.yellow(imgPath)}.`);
           process.exit(1);
