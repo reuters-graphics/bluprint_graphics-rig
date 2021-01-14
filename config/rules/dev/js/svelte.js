@@ -1,3 +1,5 @@
+const sveltePreprocess = require("svelte-preprocess");
+
 module.exports = {
   test: /\.svelte$/,
   use: [
@@ -6,6 +8,9 @@ module.exports = {
       options: {
         hydratable: true,
         hotReload: true,
+        preprocess: sveltePreprocess({
+          scss: true
+        }),
       },
     },
   ],
