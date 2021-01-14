@@ -132,6 +132,7 @@
     "svelte": "^3.16.7",
     "svelte-fa": "^2.1.0",
     "svelte-loader": "^2.13.6",
+    "svelte-preprocess": "^4.6.1",
     "tar": "^6.0.1",
     "terser-webpack-plugin": "^2.3.1",
     "trello": "^0.10.0",
