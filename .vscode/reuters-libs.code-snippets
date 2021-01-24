@@ -1,0 +1,12 @@
+{
+	"Atlas client": {
+		"scope": "javascript",
+		"prefix": "atlas",
+		"body": [
+			"import AtlasMetadataClient from '@reuters-graphics/graphics-atlas-client';",
+			"",
+			"const atlas = new AtlasMetadataClient();"
+		],
+		"description": "Graphics atlas client"
+	}
+}
