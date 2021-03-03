@@ -107,7 +107,7 @@
       "",
       "    plot",
       "      .appendSelect('g.axis.x')",
-      "      .attr('transform', `translate(0,${height})`)",
+      "      .attr('transform', 'translate(0,' + height + ')')",
       "      .call(axisBottom(xScale));",
       "",
       "    plot",
