@@ -157,7 +157,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@fortawesome/free-regular-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
-    "@reuters-graphics/style-theme-eisbaer": "~0.2.1",
+    "@reuters-graphics/style-theme-eisbaer": "^0.3.0",
     "ReutersCharter": "https://github.com/reuters-graphics/ReutersCharter.git",
     "d3": "^5.15.0",
     "journalize": "^2.2.0",
