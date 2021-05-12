@@ -34,12 +34,12 @@
     "action": "execute",
     "cmds": [
       ["yarn"],
+      ["npx", ["get-ai", "project-files"]],
       ["runner", ["check:creds"]]
     ]
   }, {
     "action": "execute",
     "cmds": [
-      ["runner", ["check:ai2html"]],
       ["git", ["init"]],
       ["git", ["add", "."]],
       ["git", ["commit", "-m", "initial"]],
