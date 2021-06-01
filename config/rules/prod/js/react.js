@@ -10,7 +10,7 @@ module.exports = (locale) => ({
       presets: [
         ['@babel/preset-env', {
           targets: {
-            browsers: 'last 2 versions',
+            browsers: '> 0.5%, not dead, chrome >= 59',
           },
         }],
         '@babel/preset-react',
