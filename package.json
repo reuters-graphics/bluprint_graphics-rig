@@ -28,7 +28,8 @@
     "preview-server:local": "npx ./bin/previewServer/index.js",
     "publish:aws": "npx ./bin/awsPublish/index.js",
     "lint:js": "prettier --write 'src/js/**/*.js'",
-    "lint:scss": "prettier --write 'src/scss/**/*.scss'"
+    "lint:scss": "prettier --write 'src/scss/**/*.scss'",
+    "postinstall": "husky install"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
@@ -88,6 +89,7 @@
     "html-webpack-injector": "^1.1.2",
     "html-webpack-plugin": "^4.5.1",
     "html-webpack-prerender-plugin": "^0.0.2",
+    "husky": ">=6",
     "image-size": "^0.8.3",
     "ini": "^1.3.5",
     "inquirer-fuzzy-path": "^2.2.0",

@@ -34,6 +34,8 @@
     "action": "execute",
     "cmds": [
       ["yarn"],
+      ["chmod", ["ug+x", ".husky/pre-commit"]],
+      ["chmod", ["ug+x", "bin/hooks/*"]],
       ["npx", ["get-ai", "project-files"]],
       ["runner", ["check:creds"]]
     ]
@@ -45,6 +47,7 @@
       ["git", ["commit", "-m", "initial"]],
       ["runner", ["repo:create"]],
       ["runner", ["trello:create"]],
+      ["yarn", ["husky", "install"]],
       ["runner", ["start"]]
     ],
     "condition": ["bluprintPart", null]
