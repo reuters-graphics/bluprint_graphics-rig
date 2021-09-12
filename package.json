@@ -45,7 +45,7 @@
     "@octokit/rest": "^17.2.1",
     "@reuters-graphics/eslint-config": "latest",
     "@reuters-graphics/server-client": "^1.2.2",
-    "@reuters-graphics/style-ai-templates": "^0.0.5",
+    "@reuters-graphics/style-ai-templates": "^0.0.6",
     "@reuters-graphics/stylelint-config": "latest",
     "@sindresorhus/slugify": "^0.11.0",
     "ajv": "^6.11.0",
