@@ -1,34 +1,35 @@
+<% const content = localeData('content.json') %>
 <article class='container-fluid'>
 
-  <%- include('templates/heroTitle'); %>
-
-  <%- include('templates/dateline'); %>
-
-  <section class='body-text'>
-    <%- localeMarkdown('article/text.md').intro %>
+  <section class="headline">
+    <p class="section-title color-red"><%= content.Kicker %></p>
+    <h2 class=""><%= content.Hed %></h2>
+    <p><%= content.Dek %></p>
+    <%- include('templates/dateline'); %>
   </section>
 
-  <section class='graphic'>
-    <%- localeMarkdown('article/text.md').graphic %>
-    <%- include('templates/graphic.ejs'); %>
-  </section>
+  <% for (const block of content.blocks){ %>
 
-  <section class='body-text'>
-    <%- localeMarkdown('article/text.md').middle %>
-  </section>
+    <!-- Text blocks -->
+    <% if (block.Type === 'text'){ %>
+      <section class='body-text'>
+        <%- parseMarkdown(block.Text) %>
+      </section>
+    <% } %>
 
-  <%- include('templates/photo.ejs'); %>
+    <!-- Photo blocks -->
+    <% if (block.Type === 'photo'){ %>
+      <%- include('templates/photo.ejs', { photo: block }); %>
+    <% } %>
 
-  <section class='body-text'>
-    <div id="app"></div>
-  </section>
-
-  <section class='body-text'>
-    <%- localeMarkdown('article/text.md').end %>
-  </section>
+    <!-- Graphic block -->
+    <% if (block.Type === 'graphic' && block.ID === 'chart-1'){ %>
+      <%- include('templates/graphic.ejs', { graphic: block }); %>
+    <% } %>
+  <% } %>
 
   <section class='end-notes'>
-    <%- localeMarkdown('article/text.md').notes %>
+    <%- parseMarkdown(content.EndNotes) %>
   </section>
 
 </article>

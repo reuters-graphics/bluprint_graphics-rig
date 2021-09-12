@@ -1,4 +1,6 @@
-<figure class='photo fluid'>
-  <img srcset="img/arctic/600.jpg 600w, img/arctic/1200.jpg 1200w, img/arctic/2400.jpg 2400w, img/arctic/3000.jpg 3000w" src="img/arctic/3000.jpg" alt="<%= gt.gettext('Icy waters') %>">
-  <figcaption><%= gt.gettext('Photo by Nick Dale') %></figcaption>
+<figure class='photo <%= photo.Class %>'>
+  <img srcset="<%= photo.Srcset %>" src="<%= photo.Src %>" alt="<%= photo.AltText %>">
+  <% if(photo.Caption) { %>
+    <figcaption><%= photo.Caption %></figcaption>
+  <% } %>
 </figure>

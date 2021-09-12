@@ -48,6 +48,7 @@
       ["runner", ["repo:create"]],
       ["runner", ["trello:create"]],
       ["yarn", ["husky", "install"]],
+      ["yarn", ["gdoc:make-archie-doc"]],
       ["runner", ["start"]]
     ],
     "condition": ["bluprintPart", null]
