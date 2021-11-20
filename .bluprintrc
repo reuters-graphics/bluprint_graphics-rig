@@ -52,6 +52,10 @@
       ["runner", ["start"]]
     ],
     "condition": ["bluprintPart", null]
+  }, {
+    "action": "log",
+    "msg": "⚠️ {yellow NOTICE:} This rig will be retired in 2022. Consider using the new {cyan Graphics Kit} if you're starting a new project.",
+    "condition": ["bluprintPart", null]
   }],
   "parts": {
     "Update my rig": [
